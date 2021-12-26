@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ Primer Plus Ch2 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第2章 开始学习C++2.1 进入C++2.1.1 m...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">C++ Primer Plus Ch2</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++ Primer Plus Ch2</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2246</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/ myfirst.cpp--displays a message</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>                           <span class="comment">// a PREPROCESSOR directive</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                                    <span class="comment">// function header</span></span></span><br><span class="line"><span class="function"></span>&#123;                                             <span class="comment">// start of function body</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;                      <span class="comment">// make definitions visible</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Come up and C++ me some time.&quot;</span>;  <span class="comment">// message</span></span><br><span class="line">    cout &lt;&lt; endl;                             <span class="comment">// start a new line</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You won&#x27;t regret it!&quot;</span> &lt;&lt; endl;   <span class="comment">// more output</span></span><br><span class="line"><span class="comment">// If the output window closes before you can read it,</span></span><br><span class="line"><span class="comment">// add the following code:</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;Press any key to continue.&quot; &lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// cin.get();                                                   </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                 <span class="comment">// terminate main()</span></span><br><span class="line">&#125;              </span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里提到了一个细节，就是int main()函数的最后，可以不加return 语句，这时候编译器会默认在最后加上return 0。</p>
+<h3 id="2-1-2-C-注释"><a href="#2-1-2-C-注释" class="headerlink" title="2.1.2 C++注释"></a>2.1.2 C++注释</h3><p>这里没啥好讲的，很基础。但一个好的编程习惯是使用//形式的注释，这种注释不存在/*和*/匹配的问题，所以出错的可能性很小。</p>
+<h3 id="2-1-3-C-预处理器和iostream文件"><a href="#2-1-3-C-预处理器和iostream文件" class="headerlink" title="2.1.3 C++预处理器和iostream文件"></a>2.1.3 C++预处理器和iostream文件</h3><p>C++会使用一个预处理器，处理以#开头的编译指令</p>
+<p>myfirst.cpp中使用了#include编译指令</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>针对这条编译指令，预处理器会将iostream文件的内容添加到程序中，这样源文件就可以使用iostream中定义的内容了。</p>
+<h3 id="2-1-4-头文件名"><a href="#2-1-4-头文件名" class="headerlink" title="2.1.4 头文件名"></a>2.1.4 头文件名</h3><p>像iostream这样的文件被叫做包含文件（include file），也叫做头文件（header file），每个头文件都支持一组特定的工具。C语言的传统是使用扩展名h，但C++的用法变了，不再使用扩展名h，一些C头文件被转换为C++头文件，其文件名去掉扩展名h，并在前面加上前缀c，如math.h变成了cmath。对于纯粹的C++头文件，去掉h的头文件可以包含名称空间。</p>
+<h3 id="2-1-5-名称空间"><a href="#2-1-5-名称空间" class="headerlink" title="2.1.5 名称空间"></a>2.1.5 名称空间</h3><p>虽然已经看了很多c++程序，但本人对名称空间的概念感觉理解的并不是很深入，只是知道其可以防止变量或函数的命名冲突。这在大型项目中尤其重要。至于如何去定义不同的命名空间，现在还不得而知。</p>
+<h3 id="2-1-6-使用cout进行C-输出"><a href="#2-1-6-使用cout进行C-输出" class="headerlink" title="2.1.6 使用cout进行C++输出"></a>2.1.6 使用cout进行C++输出</h3><p>这里提到了\n和endl的区别，endl会立刻刷新输出（立即显示在屏幕上），而\n不能提供这样的保证。</p>
+<h3 id="2-1-7-C-源代码的格式化"><a href="#2-1-7-C-源代码的格式化" class="headerlink" title="2.1.7 C++源代码的格式化"></a>2.1.7 C++源代码的格式化</h3><p>这一部分讲了一些代码编写的格式规范问题，不做过多介绍。</p>
+<h2 id="2-2-C-语句"><a href="#2-2-C-语句" class="headerlink" title="2.2 C++语句"></a>2.2 C++语句</h2><h3 id="2-2-1-声明语句和变量"><a href="#2-2-1-声明语句和变量" class="headerlink" title="2.2.1 声明语句和变量"></a>2.2.1 声明语句和变量</h3><p>没啥好讲的，变量在使用前必须先声明。定义声明和引用声明的区别是，定义声明为变量分配空间。</p>
+<h3 id="2-2-2-赋值语句"><a href="#2-2-2-赋值语句" class="headerlink" title="2.2.2 赋值语句"></a>2.2.2 赋值语句</h3><p>连续赋值语句从右向左执行。</p>
+<h3 id="2-2-3-cout的新花样"><a href="#2-2-3-cout的新花样" class="headerlink" title="2.2.3 cout的新花样"></a>2.2.3 cout的新花样</h3><p>cout能根据&lt;&lt;后跟着的数据类型调整输出行为，本质上是运算符的重载。</p>
+<h2 id="2-3-其他C-语句"><a href="#2-3-其他C-语句" class="headerlink" title="2.3 其他C++语句"></a>2.3 其他C++语句</h2><h3 id="2-3-1-使用cin"><a href="#2-3-1-使用cin" class="headerlink" title="2.3.1 使用cin"></a>2.3.1 使用cin</h3><p>也是很基础的东西，不再赘述</p>
+<h3 id="2-3-2-使用cout进行拼接"><a href="#2-3-2-使用cout进行拼接" class="headerlink" title="2.3.2 使用cout进行拼接"></a>2.3.2 使用cout进行拼接</h3><p>介绍了cout可以使用&lt;&lt;进行拼接的特性，也是基本特性，不再赘述。</p>
+<h3 id="2-3-3-类简介"><a href="#2-3-3-类简介" class="headerlink" title="2.3.3 类简介"></a>2.3.3 类简介</h3><p>讲了面向对象语言中对类的一些基本认识。</p>
+<h2 id="2-4-函数"><a href="#2-4-函数" class="headerlink" title="2.4 函数"></a>2.4 函数</h2><h3 id="2-4-1-使用有返回值的函数"><a href="#2-4-1-使用有返回值的函数" class="headerlink" title="2.4.1 使用有返回值的函数"></a>2.4.1 使用有返回值的函数</h3><h3 id="2-4-2-函数变体"><a href="#2-4-2-函数变体" class="headerlink" title="2.4.2 函数变体"></a>2.4.2 函数变体</h3><p>在有些语言中，有返回值的函数被称为函数，没有返回值的函数被称为过程或子过程。但C++中，这两种变体都被成为函数。</p>
+<h3 id="2-4-3-用户定义的函数"><a href="#2-4-3-用户定义的函数" class="headerlink" title="2.4.3 用户定义的函数"></a>2.4.3 用户定义的函数</h3><p>main函数的返回值返回给了谁？</p>
+<p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
+<h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211226163940797</span></p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>John Doe</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2021/12/25/C++%20Primer%20Plus%20Ch2/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;12&#x2F;25&#x2F;C++%20Primer%20Plus%20Ch2&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;12&#x2F;25&#x2F;C++%20Primer%20Plus%20Ch2&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/12/25/Essay1/"><i class="iconfont iconleft"></i>失眠随笔</a>
+    <a href="/2021/12/20/Lab1%20Booting%20a%20PC/"><i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0C"><span class="toc-text">第2章 开始学习C++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E8%BF%9B%E5%85%A5C"><span class="toc-text">2.1 进入C++</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-main-%E5%87%BD%E6%95%B0"><span class="toc-text">2.1.1 main()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-C-%E6%B3%A8%E9%87%8A"><span class="toc-text">2.1.2 C++注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-C-%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8Ciostream%E6%96%87%E4%BB%B6"><span class="toc-text">2.1.3 C++预处理器和iostream文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-%E5%A4%B4%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text">2.1.4 头文件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-5-%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4"><span class="toc-text">2.1.5 名称空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-6-%E4%BD%BF%E7%94%A8cout%E8%BF%9B%E8%A1%8CC-%E8%BE%93%E5%87%BA"><span class="toc-text">2.1.6 使用cout进行C++输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-7-C-%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">2.1.7 C++源代码的格式化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-C-%E8%AF%AD%E5%8F%A5"><span class="toc-text">2.2 C++语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E5%A3%B0%E6%98%8E%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%8F%98%E9%87%8F"><span class="toc-text">2.2.1 声明语句和变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5"><span class="toc-text">2.2.2 赋值语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-cout%E7%9A%84%E6%96%B0%E8%8A%B1%E6%A0%B7"><span class="toc-text">2.2.3 cout的新花样</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%85%B6%E4%BB%96C-%E8%AF%AD%E5%8F%A5"><span class="toc-text">2.3 其他C++语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E4%BD%BF%E7%94%A8cin"><span class="toc-text">2.3.1 使用cin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E4%BD%BF%E7%94%A8cout%E8%BF%9B%E8%A1%8C%E6%8B%BC%E6%8E%A5"><span class="toc-text">2.3.2 使用cout进行拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E7%B1%BB%E7%AE%80%E4%BB%8B"><span class="toc-text">2.3.3 类简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%87%BD%E6%95%B0"><span class="toc-text">2.4 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E4%BD%BF%E7%94%A8%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">2.4.1 使用有返回值的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E5%87%BD%E6%95%B0%E5%8F%98%E4%BD%93"><span class="toc-text">2.4.2 函数变体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">2.4.3 用户定义的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">2.4.4 用户定义的有返回值的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-%E5%9C%A8%E5%A4%9A%E5%87%BD%E6%95%B0%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BD%BF%E7%94%A8using%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4"><span class="toc-text">2.4.5 在多函数程序中使用using编译指令</span></a></li></ol></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/franklin1226 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1979933731@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
