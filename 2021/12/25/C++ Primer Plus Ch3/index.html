@@ -6,12 +6,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>C++ Primer Plus Ch1 - Hexo</title>
+  <title>C++ Primer Plus Ch3 - Hexo</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="本人从今天起正式为找工作做准备，由于自己想从事后端架构...">
+  <meta name="description" content="第3章 处理数据3.1 简单变量书中说到了一个对变量的...">
   <meta name="author" content="John Doe">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -152,7 +152,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">C++ Primer Plus Ch1</div>
+    <div class="center">C++ Primer Plus Ch3</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -194,22 +194,45 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">C++ Primer Plus Ch1</h1>
+    <h1 class="head-title">C++ Primer Plus Ch3</h1>
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>589</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1494</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         
-        <p>本人从今天起正式为找工作做准备，由于自己想从事后端架构师相关的工作，所以目前打算先将C++作为自己的主修语言。C++ Primer Plus这本书之前也读过，但是由于缺乏笔记记录，导致现在很多知识忘得一干二净。痛定思痛，现决定开一个专栏，记录一下自己的学习过程，同时将其作为笔记以备后用。</p>
-<p>今天先从第一章开始学起，首先介绍了C++和C语言的关系。可以认为C++是在C语言的基础上发展而来的，它在C语言基础上添加了以类为代表的面向对象语言特性，以及C++模板支持的泛型编程。程序是由数据+算法组成的，传统的过程化语言（如C）都是强调的程序的算法方面，首先确定计算机应采取的操作，然后用编程语言去实现它。而OOP强调的是数据，OOP程序首先设计程序运行中需要的各种类，它们准确地表示了程序要处理的东西。有了这些类，我们就可以设计一个使用这些类的对象的程序了。面向对象语言（OOP）不同于过程性编程，他的重点没有放在任务上，而是放在概念的表示上。在引入OOP之后，C++又引入了泛型编程，类比于JAVA中的泛型编程，泛型编程指的是创建独立于类型的代码，可以使程序与不同类型的数据兼容。下面一张图展示了C++和C之间的关系。</p>
-<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211225151312525.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211225151312525</span></p>
-<p>第一章最后介绍了C++程序的常规编译流程，并介绍了市面上比较常见的编译工具和集成开发环境，这里就不再一一赘述。</p>
-
+        <h1 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h1><h2 id="3-1-简单变量"><a href="#3-1-简单变量" class="headerlink" title="3.1 简单变量"></a>3.1 简单变量</h2><p>书中说到了一个对变量的理解，变量在声明时，程序会为其分配指定大小的空间，然后程序员可以使用变量名来找到这块空间。</p>
+<h3 id="3-1-1-变量名"><a href="#3-1-1-变量名" class="headerlink" title="3.1.1 变量名"></a>3.1.1 变量名</h3><p>下面给出C++中变量的命名规则</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226171614191.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211226171614191</span></p>
+<p>其中倒数第二条说的这种情况确实在阅读一些库函数源码的时候遇到过，是留给C++的标准库和编译器的实现者在编写代码时使用的，用来和普通用户代码做区分。</p>
+<h3 id="3-1-2-整型"><a href="#3-1-2-整型" class="headerlink" title="3.1.2 整型"></a>3.1.2 整型</h3><p>一个比较新颖的知识点是1字节并不一定都是8位的，字节的定义是能够表示完整字符集的位数，对于ASCII码来说，8位就足够了；但汉字等其他语言字符可能需要更大空间来表示所有的字符。如Unicode，因此有的实现需要16位甚至32位的字节。</p>
+<p>整数的字长在C++中不同机器上可能不尽相同，C++提供了一种灵活的标准，如下所示</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226192138130.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211226192138130</span></p>
+<p>由于这种灵活的规定，C++在移植到不同的机器上面时容易产生整形字节数不一致的问题。climits头文件中定义了各种限制的符号名称，如INT_MAX为int的最大取值，CHAR_BIT为字节的位数。</p>
+<h3 id="3-1-2-整型short、int、long和long-long"><a href="#3-1-2-整型short、int、long和long-long" class="headerlink" title="3.1.2 整型short、int、long和long long"></a>3.1.2 整型short、int、long和long long</h3><p>C++中独有的初始化方式</p>
+<p>int wrens(432);</p>
+<p>int hamburgers = {24}</p>
+<p>int emus{7}</p>
+<p>int rocs = {};//set rocs to 0</p>
+<p>int psychics{};//set psychics to 0</p>
+<p>这种采用大括号进行初始化的方式可以更好地防范类型的转换错误</p>
+<p>大括号这种初始化方式可以统一任何类型变量的初始化形式</p>
+<h3 id="3-1-4-无符号类型"><a href="#3-1-4-无符号类型" class="headerlink" title="3.1.4 无符号类型"></a>3.1.4 无符号类型</h3><h3 id="3-1-5-选择整型类型"><a href="#3-1-5-选择整型类型" class="headerlink" title="3.1.5 选择整型类型"></a>3.1.5 选择整型类型</h3><p>一个小知识点：int被设置为对目标计算机而言最为“自然”的长度，自然长度指的是计算机处理起来效率最高的长度。</p>
+<p>还有一个经验之谈，当所表示的数据用short(16位)装不下时，应将其扩展为long而不是int，这样当程序运行在一些int位16位的机器上时也不会有问题。</p>
+<h3 id="3-1-6-整型字面值"><a href="#3-1-6-整型字面值" class="headerlink" title="3.1.6 整型字面值"></a>3.1.6 整型字面值</h3><p>可以使用dec,hex,oct来控制cout输出不同进制的整数，分别为十进制，十六进制和八进制。</p>
+<h3 id="3-1-7-C-如何确定常量的类型"><a href="#3-1-7-C-如何确定常量的类型" class="headerlink" title="3.1.7 C++如何确定常量的类型"></a>3.1.7 C++如何确定常量的类型</h3><p>对于十进制常量，用带符号整数int,long和long long对其进行配对；对于十六进制和八进制，用int, unsigned int, long, unsigned long, long long ,unsigned long long对其进行配对，与前者相比，加入了unsigned整数。</p>
+<h3 id="3-1-8-char类型：字符和小整数"><a href="#3-1-8-char类型：字符和小整数" class="headerlink" title="3.1.8 char类型：字符和小整数"></a>3.1.8 char类型：字符和小整数</h3><p>可以使用数字转义序列和字符转义序列，但字符转义序列更具有通用性</p>
+<p>数字转移序列举例：\032 \x1a分别是ASCII码26的八进制和十六进制表示</p>
+<p>通用字符名允许在源代码中添加一些不同国家的字母，\u或\U打头，\u后面是8个十六进制，\U后面则是16个十六进制（感觉这里书上写错了，应该分别是4和8个十六进制位）。下面看个例子：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226212925125.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211226212925125</span></p>
+<p>char在默认情况下既不是有符号也不是没有符号，有C++实现决定。</p>
+<p>宽字符类型wchar_t可以表示扩展字符集，这种类型与底层的一种整数类型长度和符号属性相同，这取决于C++编译器的实现。可以通过加上前缀L来指示宽字符常量和宽字符串。</p>
+<p>char16_t和char32_t是对wchar的改进，指定了特定的长度和符号，分别是16位无符号和32位无符号数，分别用前缀u和U表示。</p>
+<h2 id="3-2-const限定符"><a href="#3-2-const限定符" class="headerlink" title="3.2 const限定符"></a>3.2 const限定符</h2>
       </section>
       <section class="extra">
         
@@ -219,8 +242,8 @@
 
         
   <nav class="nav">
-    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch2/"><i class="iconfont iconleft"></i>C++ Primer Plus Ch2</a>
-    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch3/">C++ Primer Plus Ch3<i class="iconfont iconright"></i></a>
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch1/"><i class="iconfont iconleft"></i>C++ Primer Plus Ch1</a>
+    <a href="/2021/12/25/Essay1/">失眠随笔<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -233,7 +256,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE"><span class="toc-text">第3章 处理数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%AE%80%E5%8D%95%E5%8F%98%E9%87%8F"><span class="toc-text">3.1 简单变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E5%8F%98%E9%87%8F%E5%90%8D"><span class="toc-text">3.1.1 变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E6%95%B4%E5%9E%8B"><span class="toc-text">3.1.2 整型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E6%95%B4%E5%9E%8Bshort%E3%80%81int%E3%80%81long%E5%92%8Clong-long"><span class="toc-text">3.1.2 整型short、int、long和long long</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-4-%E6%97%A0%E7%AC%A6%E5%8F%B7%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.1.4 无符号类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-5-%E9%80%89%E6%8B%A9%E6%95%B4%E5%9E%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.1.5 选择整型类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-6-%E6%95%B4%E5%9E%8B%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="toc-text">3.1.6 整型字面值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-7-C-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%B8%B8%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">3.1.7 C++如何确定常量的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-8-char%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%AD%97%E7%AC%A6%E5%92%8C%E5%B0%8F%E6%95%B4%E6%95%B0"><span class="toc-text">3.1.8 char类型：字符和小整数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-const%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-text">3.2 const限定符</span></a></li></ol></li></ol>
   </aside>
 
         
