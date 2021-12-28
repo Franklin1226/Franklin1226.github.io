@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/12/12/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>项目</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Primer Plus Ch2</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch2/</url>
+    <content><![CDATA[<h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">/ myfirst.cpp--displays a message</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>                           <span class="comment">// a PREPROCESSOR directive</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                                    <span class="comment">// function header</span></span></span><br><span class="line"><span class="function"></span>&#123;                                             <span class="comment">// start of function body</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;                      <span class="comment">// make definitions visible</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Come up and C++ me some time.&quot;</span>;  <span class="comment">// message</span></span><br><span class="line">    cout &lt;&lt; endl;                             <span class="comment">// start a new line</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You won&#x27;t regret it!&quot;</span> &lt;&lt; endl;   <span class="comment">// more output</span></span><br><span class="line"><span class="comment">// If the output window closes before you can read it,</span></span><br><span class="line"><span class="comment">// add the following code:</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;Press any key to continue.&quot; &lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// cin.get();                                                   </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                 <span class="comment">// terminate main()</span></span><br><span class="line">&#125;              </span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里提到了一个细节，就是int main()函数的最后，可以不加return 语句，这时候编译器会默认在最后加上return 0。</p>
+<h3 id="2-1-2-C-注释"><a href="#2-1-2-C-注释" class="headerlink" title="2.1.2 C++注释"></a>2.1.2 C++注释</h3><p>这里没啥好讲的，很基础。但一个好的编程习惯是使用//形式的注释，这种注释不存在/*和*/匹配的问题，所以出错的可能性很小。</p>
+<h3 id="2-1-3-C-预处理器和iostream文件"><a href="#2-1-3-C-预处理器和iostream文件" class="headerlink" title="2.1.3 C++预处理器和iostream文件"></a>2.1.3 C++预处理器和iostream文件</h3><p>C++会使用一个预处理器，处理以#开头的编译指令</p>
+<p>myfirst.cpp中使用了#include编译指令</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>针对这条编译指令，预处理器会将iostream文件的内容添加到程序中，这样源文件就可以使用iostream中定义的内容了。</p>
+<h3 id="2-1-4-头文件名"><a href="#2-1-4-头文件名" class="headerlink" title="2.1.4 头文件名"></a>2.1.4 头文件名</h3><p>像iostream这样的文件被叫做包含文件（include file），也叫做头文件（header file），每个头文件都支持一组特定的工具。C语言的传统是使用扩展名h，但C++的用法变了，不再使用扩展名h，一些C头文件被转换为C++头文件，其文件名去掉扩展名h，并在前面加上前缀c，如math.h变成了cmath。对于纯粹的C++头文件，去掉h的头文件可以包含名称空间。</p>
+<h3 id="2-1-5-名称空间"><a href="#2-1-5-名称空间" class="headerlink" title="2.1.5 名称空间"></a>2.1.5 名称空间</h3><p>虽然已经看了很多c++程序，但本人对名称空间的概念感觉理解的并不是很深入，只是知道其可以防止变量或函数的命名冲突。这在大型项目中尤其重要。至于如何去定义不同的命名空间，现在还不得而知。</p>
+<h3 id="2-1-6-使用cout进行C-输出"><a href="#2-1-6-使用cout进行C-输出" class="headerlink" title="2.1.6 使用cout进行C++输出"></a>2.1.6 使用cout进行C++输出</h3><p>这里提到了\n和endl的区别，endl会立刻刷新输出（立即显示在屏幕上），而\n不能提供这样的保证。</p>
+<h3 id="2-1-7-C-源代码的格式化"><a href="#2-1-7-C-源代码的格式化" class="headerlink" title="2.1.7 C++源代码的格式化"></a>2.1.7 C++源代码的格式化</h3><p>这一部分讲了一些代码编写的格式规范问题，不做过多介绍。</p>
+<h2 id="2-2-C-语句"><a href="#2-2-C-语句" class="headerlink" title="2.2 C++语句"></a>2.2 C++语句</h2><h3 id="2-2-1-声明语句和变量"><a href="#2-2-1-声明语句和变量" class="headerlink" title="2.2.1 声明语句和变量"></a>2.2.1 声明语句和变量</h3><p>没啥好讲的，变量在使用前必须先声明。定义声明和引用声明的区别是，定义声明为变量分配空间。</p>
+<h3 id="2-2-2-赋值语句"><a href="#2-2-2-赋值语句" class="headerlink" title="2.2.2 赋值语句"></a>2.2.2 赋值语句</h3><p>连续赋值语句从右向左执行。</p>
+<h3 id="2-2-3-cout的新花样"><a href="#2-2-3-cout的新花样" class="headerlink" title="2.2.3 cout的新花样"></a>2.2.3 cout的新花样</h3><p>cout能根据&lt;&lt;后跟着的数据类型调整输出行为，本质上是运算符的重载。</p>
+<h2 id="2-3-其他C-语句"><a href="#2-3-其他C-语句" class="headerlink" title="2.3 其他C++语句"></a>2.3 其他C++语句</h2><h3 id="2-3-1-使用cin"><a href="#2-3-1-使用cin" class="headerlink" title="2.3.1 使用cin"></a>2.3.1 使用cin</h3><p>也是很基础的东西，不再赘述</p>
+<h3 id="2-3-2-使用cout进行拼接"><a href="#2-3-2-使用cout进行拼接" class="headerlink" title="2.3.2 使用cout进行拼接"></a>2.3.2 使用cout进行拼接</h3><p>介绍了cout可以使用&lt;&lt;进行拼接的特性，也是基本特性，不再赘述。</p>
+<h3 id="2-3-3-类简介"><a href="#2-3-3-类简介" class="headerlink" title="2.3.3 类简介"></a>2.3.3 类简介</h3><p>讲了面向对象语言中对类的一些基本认识。</p>
+<h2 id="2-4-函数"><a href="#2-4-函数" class="headerlink" title="2.4 函数"></a>2.4 函数</h2><h3 id="2-4-1-使用有返回值的函数"><a href="#2-4-1-使用有返回值的函数" class="headerlink" title="2.4.1 使用有返回值的函数"></a>2.4.1 使用有返回值的函数</h3><h3 id="2-4-2-函数变体"><a href="#2-4-2-函数变体" class="headerlink" title="2.4.2 函数变体"></a>2.4.2 函数变体</h3><p>在有些语言中，有返回值的函数被称为函数，没有返回值的函数被称为过程或子过程。但C++中，这两种变体都被成为函数。</p>
+<h3 id="2-4-3-用户定义的函数"><a href="#2-4-3-用户定义的函数" class="headerlink" title="2.4.3 用户定义的函数"></a>2.4.3 用户定义的函数</h3><p>main函数的返回值返回给了谁？</p>
+<p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
+<h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png"  ><span class="image-caption">image-20211226163940797</span></p>
+]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Primer Plus Ch1</title>
     <url>/2021/12/25/C++%20Primer%20Plus%20Ch1/</url>
     <content><![CDATA[<p>本人从今天起正式为找工作做准备，由于自己想从事后端架构师相关的工作，所以目前打算先将C++作为自己的主修语言。C++ Primer Plus这本书之前也读过，但是由于缺乏笔记记录，导致现在很多知识忘得一干二净。痛定思痛，现决定开一个专栏，记录一下自己的学习过程，同时将其作为笔记以备后用。</p>
@@ -70,44 +134,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++ Primer Plus Ch2</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch2/</url>
-    <content><![CDATA[<h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">/ myfirst.cpp--displays a message</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>                           <span class="comment">// a PREPROCESSOR directive</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                                    <span class="comment">// function header</span></span></span><br><span class="line"><span class="function"></span>&#123;                                             <span class="comment">// start of function body</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;                      <span class="comment">// make definitions visible</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Come up and C++ me some time.&quot;</span>;  <span class="comment">// message</span></span><br><span class="line">    cout &lt;&lt; endl;                             <span class="comment">// start a new line</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You won&#x27;t regret it!&quot;</span> &lt;&lt; endl;   <span class="comment">// more output</span></span><br><span class="line"><span class="comment">// If the output window closes before you can read it,</span></span><br><span class="line"><span class="comment">// add the following code:</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;Press any key to continue.&quot; &lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// cin.get();                                                   </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                 <span class="comment">// terminate main()</span></span><br><span class="line">&#125;              </span><br></pre></td></tr></table></figure>
-
-
-
-<p>这里提到了一个细节，就是int main()函数的最后，可以不加return 语句，这时候编译器会默认在最后加上return 0。</p>
-<h3 id="2-1-2-C-注释"><a href="#2-1-2-C-注释" class="headerlink" title="2.1.2 C++注释"></a>2.1.2 C++注释</h3><p>这里没啥好讲的，很基础。但一个好的编程习惯是使用//形式的注释，这种注释不存在/*和*/匹配的问题，所以出错的可能性很小。</p>
-<h3 id="2-1-3-C-预处理器和iostream文件"><a href="#2-1-3-C-预处理器和iostream文件" class="headerlink" title="2.1.3 C++预处理器和iostream文件"></a>2.1.3 C++预处理器和iostream文件</h3><p>C++会使用一个预处理器，处理以#开头的编译指令</p>
-<p>myfirst.cpp中使用了#include编译指令</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>针对这条编译指令，预处理器会将iostream文件的内容添加到程序中，这样源文件就可以使用iostream中定义的内容了。</p>
-<h3 id="2-1-4-头文件名"><a href="#2-1-4-头文件名" class="headerlink" title="2.1.4 头文件名"></a>2.1.4 头文件名</h3><p>像iostream这样的文件被叫做包含文件（include file），也叫做头文件（header file），每个头文件都支持一组特定的工具。C语言的传统是使用扩展名h，但C++的用法变了，不再使用扩展名h，一些C头文件被转换为C++头文件，其文件名去掉扩展名h，并在前面加上前缀c，如math.h变成了cmath。对于纯粹的C++头文件，去掉h的头文件可以包含名称空间。</p>
-<h3 id="2-1-5-名称空间"><a href="#2-1-5-名称空间" class="headerlink" title="2.1.5 名称空间"></a>2.1.5 名称空间</h3><p>虽然已经看了很多c++程序，但本人对名称空间的概念感觉理解的并不是很深入，只是知道其可以防止变量或函数的命名冲突。这在大型项目中尤其重要。至于如何去定义不同的命名空间，现在还不得而知。</p>
-<h3 id="2-1-6-使用cout进行C-输出"><a href="#2-1-6-使用cout进行C-输出" class="headerlink" title="2.1.6 使用cout进行C++输出"></a>2.1.6 使用cout进行C++输出</h3><p>这里提到了\n和endl的区别，endl会立刻刷新输出（立即显示在屏幕上），而\n不能提供这样的保证。</p>
-<h3 id="2-1-7-C-源代码的格式化"><a href="#2-1-7-C-源代码的格式化" class="headerlink" title="2.1.7 C++源代码的格式化"></a>2.1.7 C++源代码的格式化</h3><p>这一部分讲了一些代码编写的格式规范问题，不做过多介绍。</p>
-<h2 id="2-2-C-语句"><a href="#2-2-C-语句" class="headerlink" title="2.2 C++语句"></a>2.2 C++语句</h2><h3 id="2-2-1-声明语句和变量"><a href="#2-2-1-声明语句和变量" class="headerlink" title="2.2.1 声明语句和变量"></a>2.2.1 声明语句和变量</h3><p>没啥好讲的，变量在使用前必须先声明。定义声明和引用声明的区别是，定义声明为变量分配空间。</p>
-<h3 id="2-2-2-赋值语句"><a href="#2-2-2-赋值语句" class="headerlink" title="2.2.2 赋值语句"></a>2.2.2 赋值语句</h3><p>连续赋值语句从右向左执行。</p>
-<h3 id="2-2-3-cout的新花样"><a href="#2-2-3-cout的新花样" class="headerlink" title="2.2.3 cout的新花样"></a>2.2.3 cout的新花样</h3><p>cout能根据&lt;&lt;后跟着的数据类型调整输出行为，本质上是运算符的重载。</p>
-<h2 id="2-3-其他C-语句"><a href="#2-3-其他C-语句" class="headerlink" title="2.3 其他C++语句"></a>2.3 其他C++语句</h2><h3 id="2-3-1-使用cin"><a href="#2-3-1-使用cin" class="headerlink" title="2.3.1 使用cin"></a>2.3.1 使用cin</h3><p>也是很基础的东西，不再赘述</p>
-<h3 id="2-3-2-使用cout进行拼接"><a href="#2-3-2-使用cout进行拼接" class="headerlink" title="2.3.2 使用cout进行拼接"></a>2.3.2 使用cout进行拼接</h3><p>介绍了cout可以使用&lt;&lt;进行拼接的特性，也是基本特性，不再赘述。</p>
-<h3 id="2-3-3-类简介"><a href="#2-3-3-类简介" class="headerlink" title="2.3.3 类简介"></a>2.3.3 类简介</h3><p>讲了面向对象语言中对类的一些基本认识。</p>
-<h2 id="2-4-函数"><a href="#2-4-函数" class="headerlink" title="2.4 函数"></a>2.4 函数</h2><h3 id="2-4-1-使用有返回值的函数"><a href="#2-4-1-使用有返回值的函数" class="headerlink" title="2.4.1 使用有返回值的函数"></a>2.4.1 使用有返回值的函数</h3><h3 id="2-4-2-函数变体"><a href="#2-4-2-函数变体" class="headerlink" title="2.4.2 函数变体"></a>2.4.2 函数变体</h3><p>在有些语言中，有返回值的函数被称为函数，没有返回值的函数被称为过程或子过程。但C++中，这两种变体都被成为函数。</p>
-<h3 id="2-4-3-用户定义的函数"><a href="#2-4-3-用户定义的函数" class="headerlink" title="2.4.3 用户定义的函数"></a>2.4.3 用户定义的函数</h3><p>main函数的返回值返回给了谁？</p>
-<p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
-<h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png"  ><span class="image-caption">image-20211226163940797</span></p>
-]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>失眠随笔</title>
     <url>/2021/12/25/Essay1/</url>
     <content><![CDATA[<p>现在是12月25号的凌晨3：15，已经连续两天半夜失眠了。反思最近的生活，一直陷在一种浑浑噩噩的状态中，白天效率低下，到了夜里又总会胡思乱想，为自己的不思进取感到焦虑。时长怀念18年的那个大二，那时候的生活总是可控的，我很喜欢那种一切井井有条的感觉。但不知道什么时候开始，生活开始脱轨，对工作和学习也失去了热情，甚至产生了逃避的心理。我不知道这种局面如何破局，只能寄希望于某个奇妙的节点，自己能够重燃对生活的热情吧。</p>
@@ -118,31 +144,6 @@
       <tags>
         <tag>随笔</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2021/12/20/HW%20shell/</url>
-    <content><![CDATA[<h1 id="HW-shell"><a href="#HW-shell" class="headerlink" title="HW: shell"></a>HW: shell</h1><p>这一个作业要求我们写一个简单版的shell程序，可以识别简单的命令行指令。读了xv6相关的源码之后，实现思路豁然开朗。</p>
-<h2 id="实现简单指令"><a href="#实现简单指令" class="headerlink" title="实现简单指令"></a>实现简单指令</h2><p>要求我们自己编写的shell程序能够实现例如ls之类的简单命令。参照xv6中简单指令的实现：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/image-20211220102214118.png"  ><span class="image-caption">image-20211220102214118</span></p>
-<p>可以看到，利用exev函数可以执行指定的可执行文件，而shell命令ls等都有自己对应的可执行文件，这些shell命令的可执行文件位于/bin/和/usr/bin两个文件夹中，所以使命令行直接执行ls命令，需要在程序中补全完整执行路径。</p>
-<p>我自己的实现代码如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">strstr</span>(ecmd-&gt;argv[<span class="number">0</span>], <span class="string">&quot;/bin/&quot;</span>) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">  <span class="keyword">char</span> *result = <span class="built_in">malloc</span>(<span class="number">5</span> + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]) + <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(result, <span class="string">&quot;/bin/&quot;</span>);</span><br><span class="line">  <span class="built_in">strcat</span>(result, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">free</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  ecmd-&gt;argv[<span class="number">0</span>] = result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv) == <span class="number">-1</span>) &#123;</span><br><span class="line">  <span class="keyword">char</span> *result = <span class="built_in">malloc</span>(<span class="number">4</span> + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]) + <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(result, <span class="string">&quot;/usr&quot;</span>);</span><br><span class="line">  <span class="built_in">strcat</span>(result, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">free</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  ecmd-&gt;argv[<span class="number">0</span>] = result;</span><br><span class="line">  <span class="keyword">if</span>(execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv) == <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;exec %s failed\n&quot;</span>, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="I-O重定向"><a href="#I-O重定向" class="headerlink" title="I/O重定向"></a>I/O重定向</h2><p>默认情况下程序从标准输入中读取数据，并将输出写入到标准输出中，但通过重定向命令可以重新定向程序的输入和输出。我们先看一下xv6中重定向命令的实现代码：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/image-20211220103207119.png"  ><span class="image-caption">image-20211220103207119</span></p>
-<p>close(rcmd-&gt;fd)先将fd与标准输入和标准输出解绑，然后将fd与指定文件rcmd-&gt;file重新绑定，以实现重定向目的。我的实现代码如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">close(rcmd-&gt;fd);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(open(rcmd-&gt;file, rcmd-&gt;flags, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;open %s failed\n&quot;</span>, rcmd-&gt;file);</span><br><span class="line">  _exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">runcmd(rcmd-&gt;cmd);</span><br></pre></td></tr></table></figure>
-
-<p>注意，open函数一定要指定mode参数，即open函数的第三个参数，因为创建新文件的时候一定要指定之后用户对该文件的操作权限，如果不指定这个参数，创建了文件之后，下次涉及该文件的操作都没有合法权限。</p>
-<h2 id="管道命令的实现"><a href="#管道命令的实现" class="headerlink" title="管道命令的实现"></a>管道命令的实现</h2><p>通过这个作业，我也是比较透彻的理解了这个强大的功能。我们可以把管道想成是两个程序（进程）之间的单向通道。如命令ls | sort，ls程序将自己的输出通过管道输出到管道写端口中，sort程序从管道另一端的读端口读取数据。我们先看一下xv6中管道命令的实现</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/image-20211220105052699.png"  ><span class="image-caption">image-20211220105052699</span></p>
-<p>注意，这里每个线程执行了close(p[0]])和close(p[1])这是因为管道的读是阻塞的，read操作会一直等待，直到管道有了新数据或者绑定到管道写端口的描述符都已经关闭。如果不执行close(p[0])操作，就会始终有描述符绑定在管道的写端口，导致read永远结束不了。下面是我的实现代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(pipe(p) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;pipe&quot;</span>);</span><br><span class="line">  _exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(fork() == <span class="number">0</span>) &#123;</span><br><span class="line">  close(<span class="number">1</span>);</span><br><span class="line">  dup(p[<span class="number">1</span>]);</span><br><span class="line">  close(p[<span class="number">0</span>]);</span><br><span class="line">  close(p[<span class="number">1</span>]);</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(fork() == <span class="number">0</span>) &#123;</span><br><span class="line">  close(<span class="number">0</span>);</span><br><span class="line">  dup(p[<span class="number">0</span>]);</span><br><span class="line">  close(p[<span class="number">0</span>]);</span><br><span class="line">  close(p[<span class="number">1</span>]);</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> wstatus = <span class="number">0</span>;</span><br><span class="line">close(p[<span class="number">0</span>]);</span><br><span class="line">close(p[<span class="number">1</span>]);</span><br><span class="line">wait(&amp;wstatus);</span><br><span class="line">wait(&amp;wstatus);</span><br></pre></td></tr></table></figure>
-
-]]></content>
   </entry>
   <entry>
     <title></title>
@@ -288,30 +289,29 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/12/12/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title></title>
+    <url>/2021/12/20/HW%20shell/</url>
+    <content><![CDATA[<h1 id="HW-shell"><a href="#HW-shell" class="headerlink" title="HW: shell"></a>HW: shell</h1><p>这一个作业要求我们写一个简单版的shell程序，可以识别简单的命令行指令。读了xv6相关的源码之后，实现思路豁然开朗。</p>
+<h2 id="实现简单指令"><a href="#实现简单指令" class="headerlink" title="实现简单指令"></a>实现简单指令</h2><p>要求我们自己编写的shell程序能够实现例如ls之类的简单命令。参照xv6中简单指令的实现：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/image-20211220102214118.png"  ><span class="image-caption">image-20211220102214118</span></p>
+<p>可以看到，利用exev函数可以执行指定的可执行文件，而shell命令ls等都有自己对应的可执行文件，这些shell命令的可执行文件位于/bin/和/usr/bin两个文件夹中，所以使命令行直接执行ls命令，需要在程序中补全完整执行路径。</p>
+<p>我自己的实现代码如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">strstr</span>(ecmd-&gt;argv[<span class="number">0</span>], <span class="string">&quot;/bin/&quot;</span>) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">  <span class="keyword">char</span> *result = <span class="built_in">malloc</span>(<span class="number">5</span> + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]) + <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(result, <span class="string">&quot;/bin/&quot;</span>);</span><br><span class="line">  <span class="built_in">strcat</span>(result, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">free</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  ecmd-&gt;argv[<span class="number">0</span>] = result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv) == <span class="number">-1</span>) &#123;</span><br><span class="line">  <span class="keyword">char</span> *result = <span class="built_in">malloc</span>(<span class="number">4</span> + <span class="built_in">strlen</span>(ecmd-&gt;argv[<span class="number">0</span>]) + <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(result, <span class="string">&quot;/usr&quot;</span>);</span><br><span class="line">  <span class="built_in">strcat</span>(result, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">free</span>(ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  ecmd-&gt;argv[<span class="number">0</span>] = result;</span><br><span class="line">  <span class="keyword">if</span>(execv(ecmd-&gt;argv[<span class="number">0</span>], ecmd-&gt;argv) == <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;exec %s failed\n&quot;</span>, ecmd-&gt;argv[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="I-O重定向"><a href="#I-O重定向" class="headerlink" title="I/O重定向"></a>I/O重定向</h2><p>默认情况下程序从标准输入中读取数据，并将输出写入到标准输出中，但通过重定向命令可以重新定向程序的输入和输出。我们先看一下xv6中重定向命令的实现代码：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/image-20211220103207119.png"  ><span class="image-caption">image-20211220103207119</span></p>
+<p>close(rcmd-&gt;fd)先将fd与标准输入和标准输出解绑，然后将fd与指定文件rcmd-&gt;file重新绑定，以实现重定向目的。我的实现代码如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">close(rcmd-&gt;fd);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(open(rcmd-&gt;file, rcmd-&gt;flags, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;open %s failed\n&quot;</span>, rcmd-&gt;file);</span><br><span class="line">  _exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">runcmd(rcmd-&gt;cmd);</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>注意，open函数一定要指定mode参数，即open函数的第三个参数，因为创建新文件的时候一定要指定之后用户对该文件的操作权限，如果不指定这个参数，创建了文件之后，下次涉及该文件的操作都没有合法权限。</p>
+<h2 id="管道命令的实现"><a href="#管道命令的实现" class="headerlink" title="管道命令的实现"></a>管道命令的实现</h2><p>通过这个作业，我也是比较透彻的理解了这个强大的功能。我们可以把管道想成是两个程序（进程）之间的单向通道。如命令ls | sort，ls程序将自己的输出通过管道输出到管道写端口中，sort程序从管道另一端的读端口读取数据。我们先看一下xv6中管道命令的实现</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/image-20211220105052699.png"  ><span class="image-caption">image-20211220105052699</span></p>
+<p>注意，这里每个线程执行了close(p[0]])和close(p[1])这是因为管道的读是阻塞的，read操作会一直等待，直到管道有了新数据或者绑定到管道写端口的描述符都已经关闭。如果不执行close(p[0])操作，就会始终有描述符绑定在管道的写端口，导致read永远结束不了。下面是我的实现代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(pipe(p) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;pipe&quot;</span>);</span><br><span class="line">  _exit(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(fork() == <span class="number">0</span>) &#123;</span><br><span class="line">  close(<span class="number">1</span>);</span><br><span class="line">  dup(p[<span class="number">1</span>]);</span><br><span class="line">  close(p[<span class="number">0</span>]);</span><br><span class="line">  close(p[<span class="number">1</span>]);</span><br><span class="line">  runcmd(pcmd-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(fork() == <span class="number">0</span>) &#123;</span><br><span class="line">  close(<span class="number">0</span>);</span><br><span class="line">  dup(p[<span class="number">0</span>]);</span><br><span class="line">  close(p[<span class="number">0</span>]);</span><br><span class="line">  close(p[<span class="number">1</span>]);</span><br><span class="line">  runcmd(pcmd-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> wstatus = <span class="number">0</span>;</span><br><span class="line">close(p[<span class="number">0</span>]);</span><br><span class="line">close(p[<span class="number">1</span>]);</span><br><span class="line">wait(&amp;wstatus);</span><br><span class="line">wait(&amp;wstatus);</span><br></pre></td></tr></table></figure>
+
 ]]></content>
-      <categories>
-        <category>项目</category>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>主题</tag>
-      </tags>
   </entry>
   <entry>
     <title>test_my_site</title>
