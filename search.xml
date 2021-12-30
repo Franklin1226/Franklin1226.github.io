@@ -42,6 +42,44 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ Primer Plus Ch2</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch2/</url>
+    <content><![CDATA[<h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">/ myfirst.cpp--displays a message</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>                           <span class="comment">// a PREPROCESSOR directive</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                                    <span class="comment">// function header</span></span></span><br><span class="line"><span class="function"></span>&#123;                                             <span class="comment">// start of function body</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;                      <span class="comment">// make definitions visible</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Come up and C++ me some time.&quot;</span>;  <span class="comment">// message</span></span><br><span class="line">    cout &lt;&lt; endl;                             <span class="comment">// start a new line</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You won&#x27;t regret it!&quot;</span> &lt;&lt; endl;   <span class="comment">// more output</span></span><br><span class="line"><span class="comment">// If the output window closes before you can read it,</span></span><br><span class="line"><span class="comment">// add the following code:</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;Press any key to continue.&quot; &lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// cin.get();                                                   </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                 <span class="comment">// terminate main()</span></span><br><span class="line">&#125;              </span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里提到了一个细节，就是int main()函数的最后，可以不加return 语句，这时候编译器会默认在最后加上return 0。</p>
+<h3 id="2-1-2-C-注释"><a href="#2-1-2-C-注释" class="headerlink" title="2.1.2 C++注释"></a>2.1.2 C++注释</h3><p>这里没啥好讲的，很基础。但一个好的编程习惯是使用//形式的注释，这种注释不存在/*和*/匹配的问题，所以出错的可能性很小。</p>
+<h3 id="2-1-3-C-预处理器和iostream文件"><a href="#2-1-3-C-预处理器和iostream文件" class="headerlink" title="2.1.3 C++预处理器和iostream文件"></a>2.1.3 C++预处理器和iostream文件</h3><p>C++会使用一个预处理器，处理以#开头的编译指令</p>
+<p>myfirst.cpp中使用了#include编译指令</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>针对这条编译指令，预处理器会将iostream文件的内容添加到程序中，这样源文件就可以使用iostream中定义的内容了。</p>
+<h3 id="2-1-4-头文件名"><a href="#2-1-4-头文件名" class="headerlink" title="2.1.4 头文件名"></a>2.1.4 头文件名</h3><p>像iostream这样的文件被叫做包含文件（include file），也叫做头文件（header file），每个头文件都支持一组特定的工具。C语言的传统是使用扩展名h，但C++的用法变了，不再使用扩展名h，一些C头文件被转换为C++头文件，其文件名去掉扩展名h，并在前面加上前缀c，如math.h变成了cmath。对于纯粹的C++头文件，去掉h的头文件可以包含名称空间。</p>
+<h3 id="2-1-5-名称空间"><a href="#2-1-5-名称空间" class="headerlink" title="2.1.5 名称空间"></a>2.1.5 名称空间</h3><p>虽然已经看了很多c++程序，但本人对名称空间的概念感觉理解的并不是很深入，只是知道其可以防止变量或函数的命名冲突。这在大型项目中尤其重要。至于如何去定义不同的命名空间，现在还不得而知。</p>
+<h3 id="2-1-6-使用cout进行C-输出"><a href="#2-1-6-使用cout进行C-输出" class="headerlink" title="2.1.6 使用cout进行C++输出"></a>2.1.6 使用cout进行C++输出</h3><p>这里提到了\n和endl的区别，endl会立刻刷新输出（立即显示在屏幕上），而\n不能提供这样的保证。</p>
+<h3 id="2-1-7-C-源代码的格式化"><a href="#2-1-7-C-源代码的格式化" class="headerlink" title="2.1.7 C++源代码的格式化"></a>2.1.7 C++源代码的格式化</h3><p>这一部分讲了一些代码编写的格式规范问题，不做过多介绍。</p>
+<h2 id="2-2-C-语句"><a href="#2-2-C-语句" class="headerlink" title="2.2 C++语句"></a>2.2 C++语句</h2><h3 id="2-2-1-声明语句和变量"><a href="#2-2-1-声明语句和变量" class="headerlink" title="2.2.1 声明语句和变量"></a>2.2.1 声明语句和变量</h3><p>没啥好讲的，变量在使用前必须先声明。定义声明和引用声明的区别是，定义声明为变量分配空间。</p>
+<h3 id="2-2-2-赋值语句"><a href="#2-2-2-赋值语句" class="headerlink" title="2.2.2 赋值语句"></a>2.2.2 赋值语句</h3><p>连续赋值语句从右向左执行。</p>
+<h3 id="2-2-3-cout的新花样"><a href="#2-2-3-cout的新花样" class="headerlink" title="2.2.3 cout的新花样"></a>2.2.3 cout的新花样</h3><p>cout能根据&lt;&lt;后跟着的数据类型调整输出行为，本质上是运算符的重载。</p>
+<h2 id="2-3-其他C-语句"><a href="#2-3-其他C-语句" class="headerlink" title="2.3 其他C++语句"></a>2.3 其他C++语句</h2><h3 id="2-3-1-使用cin"><a href="#2-3-1-使用cin" class="headerlink" title="2.3.1 使用cin"></a>2.3.1 使用cin</h3><p>也是很基础的东西，不再赘述</p>
+<h3 id="2-3-2-使用cout进行拼接"><a href="#2-3-2-使用cout进行拼接" class="headerlink" title="2.3.2 使用cout进行拼接"></a>2.3.2 使用cout进行拼接</h3><p>介绍了cout可以使用&lt;&lt;进行拼接的特性，也是基本特性，不再赘述。</p>
+<h3 id="2-3-3-类简介"><a href="#2-3-3-类简介" class="headerlink" title="2.3.3 类简介"></a>2.3.3 类简介</h3><p>讲了面向对象语言中对类的一些基本认识。</p>
+<h2 id="2-4-函数"><a href="#2-4-函数" class="headerlink" title="2.4 函数"></a>2.4 函数</h2><h3 id="2-4-1-使用有返回值的函数"><a href="#2-4-1-使用有返回值的函数" class="headerlink" title="2.4.1 使用有返回值的函数"></a>2.4.1 使用有返回值的函数</h3><h3 id="2-4-2-函数变体"><a href="#2-4-2-函数变体" class="headerlink" title="2.4.2 函数变体"></a>2.4.2 函数变体</h3><p>在有些语言中，有返回值的函数被称为函数，没有返回值的函数被称为过程或子过程。但C++中，这两种变体都被成为函数。</p>
+<h3 id="2-4-3-用户定义的函数"><a href="#2-4-3-用户定义的函数" class="headerlink" title="2.4.3 用户定义的函数"></a>2.4.3 用户定义的函数</h3><p>main函数的返回值返回给了谁？</p>
+<p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
+<h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png"  ><span class="image-caption">image-20211226163940797</span></p>
+]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Primer Plus Ch3</title>
     <url>/2021/12/25/C++%20Primer%20Plus%20Ch3/</url>
     <content><![CDATA[<h1 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h1><h2 id="3-1-简单变量"><a href="#3-1-简单变量" class="headerlink" title="3.1 简单变量"></a>3.1 简单变量</h2><p>书中说到了一个对变量的理解，变量在声明时，程序会为其分配指定大小的空间，然后程序员可以使用变量名来找到这块空间。</p>
@@ -87,77 +125,6 @@
 <h3 id="3-4-5-C-11中的auto声明"><a href="#3-4-5-C-11中的auto声明" class="headerlink" title="3.4.5 C++11中的auto声明"></a>3.4.5 C++11中的auto声明</h3><p>处理复杂类型时，auto可以简化程序，如下：</p>
 <p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228150002410.png"  ><span class="image-caption">image-20211228150002410</span></p>
 <h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>基础知识，不做进一步总结。</p>
-]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch5</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch5/</url>
-    <content><![CDATA[<h1 id="第5章-循环和关系表达式"><a href="#第5章-循环和关系表达式" class="headerlink" title="第5章 循环和关系表达式"></a>第5章 循环和关系表达式</h1><h2 id="5-1-for循环"><a href="#5-1-for循环" class="headerlink" title="5.1 for循环"></a>5.1 for循环</h2><h3 id="5-1-1-for循环的组成部分"><a href="#5-1-1-for循环的组成部分" class="headerlink" title="5.1.1 for循环的组成部分"></a>5.1.1 for循环的组成部分</h3><p>可以使用cout.setf(ios_base::boolalpha)来控制标准输出输出bool值的false和true，而不是1和0.</p>
-<h3 id="5-1-2-回到for循环"><a href="#5-1-2-回到for循环" class="headerlink" title="5.1.2 回到for循环"></a>5.1.2 回到for循环</h3><h3 id="5-1-3-修改步长"><a href="#5-1-3-修改步长" class="headerlink" title="5.1.3 修改步长"></a>5.1.3 修改步长</h3><h3 id="5-1-4-使用for循环访问字符串"><a href="#5-1-4-使用for循环访问字符串" class="headerlink" title="5.1.4 使用for循环访问字符串"></a>5.1.4 使用for循环访问字符串</h3><h3 id="5-1-5-递增运算符（-）和递减运算符（–）"><a href="#5-1-5-递增运算符（-）和递减运算符（–）" class="headerlink" title="5.1.5 递增运算符（++）和递减运算符（–）"></a>5.1.5 递增运算符（++）和递减运算符（–）</h3><p>不要在同一条语句对同一个值递增或递减多次，可能会存在模糊不清，不同系统上的执行结果不同，如下面语句：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230142541658.png"  ><span class="image-caption">image-20211230142541658</span></p>
-<h3 id="5-1-6-副作用和顺序点"><a href="#5-1-6-副作用和顺序点" class="headerlink" title="5.1.6 副作用和顺序点"></a>5.1.6 副作用和顺序点</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230143020910.png"  ><span class="image-caption">image-20211230143020910</span></p>
-<p>这是另一个自增运算符变量更新问题的例子。</p>
-<h3 id="5-1-7-前缀格式和后缀格式"><a href="#5-1-7-前缀格式和后缀格式" class="headerlink" title="5.1.7 前缀格式和后缀格式"></a>5.1.7 前缀格式和后缀格式</h3><p>对于用户定义的类型，后缀版本需要先复制一个副本，然后将复制的副本返回。因此，后缀版本比前缀版本的效率要低。</p>
-<h3 id="5-1-8-递增-递减运算符和指针"><a href="#5-1-8-递增-递减运算符和指针" class="headerlink" title="5.1.8 递增/递减运算符和指针"></a>5.1.8 递增/递减运算符和指针</h3><h3 id="5-1-9-组合赋值运算符"><a href="#5-1-9-组合赋值运算符" class="headerlink" title="5.1.9 组合赋值运算符"></a>5.1.9 组合赋值运算符</h3><h3 id="5-1-10-复合语句（语句块）"><a href="#5-1-10-复合语句（语句块）" class="headerlink" title="5.1.10 复合语句（语句块）"></a>5.1.10 复合语句（语句块）</h3><h3 id="5-1-11-其他语法技巧-逗号运算符"><a href="#5-1-11-其他语法技巧-逗号运算符" class="headerlink" title="5.1.11 其他语法技巧-逗号运算符"></a>5.1.11 其他语法技巧-逗号运算符</h3><p>逗号运算符允许将两个表达式放到C++句法只允许放一个表达式的地方。</p>
-<p>其次逗号运算符还将作为一个顺序点，保证先计算第一个表达式，然后计算第二个表达式。</p>
-<p>C++规定，逗号表达式的值是第二部分的值</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230151519994.png"  ><span class="image-caption">image-20211230151519994</span></p>
-<h3 id="5-1-12-关系表达式"><a href="#5-1-12-关系表达式" class="headerlink" title="5.1.12 关系表达式"></a>5.1.12 关系表达式</h3><h3 id="5-1-13-赋值、比较和可能犯的错误"><a href="#5-1-13-赋值、比较和可能犯的错误" class="headerlink" title="5.1.13 赋值、比较和可能犯的错误"></a>5.1.13 赋值、比较和可能犯的错误</h3><h3 id="5-1-14-C-风格字符串的比较"><a href="#5-1-14-C-风格字符串的比较" class="headerlink" title="5.1.14 C-风格字符串的比较"></a>5.1.14 C-风格字符串的比较</h3><h3 id="5-1-15-比较string类字符串"><a href="#5-1-15-比较string类字符串" class="headerlink" title="5.1.15 比较string类字符串"></a>5.1.15 比较string类字符串</h3><h2 id="5-2-while循环"><a href="#5-2-while循环" class="headerlink" title="5.2 while循环"></a>5.2 while循环</h2><h3 id="5-2-1-for与while"><a href="#5-2-1-for与while" class="headerlink" title="5.2.1 for与while"></a>5.2.1 for与while</h3><h3 id="5-2-2-等待一段时间：编写延时循环"><a href="#5-2-2-等待一段时间：编写延时循环" class="headerlink" title="5.2.2 等待一段时间：编写延时循环"></a>5.2.2 等待一段时间：编写延时循环</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230161833147.png"  ><span class="image-caption">image-20211230161833147</span></p>
-<p>下面程序可以使用while来实现程序延迟</p>
-<h2 id="5-3-do-while循环"><a href="#5-3-do-while循环" class="headerlink" title="5.3 do while循环"></a>5.3 do while循环</h2><h2 id="5-4-基于范围的for循环（C-11）"><a href="#5-4-基于范围的for循环（C-11）" class="headerlink" title="5.4 基于范围的for循环（C++11）"></a>5.4 基于范围的for循环（C++11）</h2><h2 id="5-5-循环和文本输入"><a href="#5-5-循环和文本输入" class="headerlink" title="5.5 循环和文本输入"></a>5.5 循环和文本输入</h2><h3 id="5-5-1-使用原始的cin进行输入"><a href="#5-5-1-使用原始的cin进行输入" class="headerlink" title="5.5.1 使用原始的cin进行输入"></a>5.5.1 使用原始的cin进行输入</h3><p>原始cin会忽略空格和换行符，而且发送给cin的输入被缓冲，只有用户按下回车，缓冲区的内容才会发送给程序。</p>
-<h3 id="5-5-2-使用cin-get-char-进行补救"><a href="#5-5-2-使用cin-get-char-进行补救" class="headerlink" title="5.5.2 使用cin.get(char)进行补救"></a>5.5.2 使用cin.get(char)进行补救</h3><p>使用cin.get(char)函数可以处理空格和换行符以及回车。</p>
-<h3 id="5-5-3-使用哪一个cin-get"><a href="#5-5-3-使用哪一个cin-get" class="headerlink" title="5.5.3 使用哪一个cin.get()"></a>5.5.3 使用哪一个cin.get()</h3><p>初步介绍了函数重载的特性，这是C++的特性</p>
-<h3 id="5-5-4-文件尾条件"><a href="#5-5-4-文件尾条件" class="headerlink" title="5.5.4 文件尾条件"></a>5.5.4 文件尾条件</h3><p>可以使用键盘来模拟文件尾结束符EOF，UNIX下是Ctrl+D，Windows环境下是Ctrl+Z。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230173057873.png"  ><span class="image-caption">image-20211230173057873</span></p>
-<p>cin.clear()可以清楚EOF标记，使输入可以继续进行。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230183700096.png"  ><span class="image-caption">image-20211230183700096</span></p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230185920118.png"  ><span class="image-caption">image-20211230185920118</span></p>
-<p>ifstream类提供了一个可以将istream对象（如cin）转换为bool值的函数；当cin出现在需要bool值的地方（如在while循环的测试条件中）时，该转换函数将被调用。而且这种转换比cin.fail()或cin.eof()更为通用，因为它可以检测到其他失败的原因，如磁盘故障。</p>
-<h3 id="5-5-5-另一个cin-get-版本"><a href="#5-5-5-另一个cin-get-版本" class="headerlink" title="5.5.5 另一个cin.get()版本"></a>5.5.5 另一个cin.get()版本</h3><p>ch = cin.get()和cout.put()</p>
-<h2 id="5-6-嵌套循环和二维数组"><a href="#5-6-嵌套循环和二维数组" class="headerlink" title="5.6 嵌套循环和二维数组"></a>5.6 嵌套循环和二维数组</h2><h3 id="5-6-1-初始化二维数组"><a href="#5-6-1-初始化二维数组" class="headerlink" title="5.6.1 初始化二维数组"></a>5.6.1 初始化二维数组</h3><h3 id="5-6-2-使用二维数组"><a href="#5-6-2-使用二维数组" class="headerlink" title="5.6.2 使用二维数组"></a>5.6.2 使用二维数组</h3><h2 id="5-7-总结"><a href="#5-7-总结" class="headerlink" title="5.7 总结"></a>5.7 总结</h2>]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch2</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch2/</url>
-    <content><![CDATA[<h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">/ myfirst.cpp--displays a message</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>                           <span class="comment">// a PREPROCESSOR directive</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                                    <span class="comment">// function header</span></span></span><br><span class="line"><span class="function"></span>&#123;                                             <span class="comment">// start of function body</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;                      <span class="comment">// make definitions visible</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Come up and C++ me some time.&quot;</span>;  <span class="comment">// message</span></span><br><span class="line">    cout &lt;&lt; endl;                             <span class="comment">// start a new line</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You won&#x27;t regret it!&quot;</span> &lt;&lt; endl;   <span class="comment">// more output</span></span><br><span class="line"><span class="comment">// If the output window closes before you can read it,</span></span><br><span class="line"><span class="comment">// add the following code:</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;Press any key to continue.&quot; &lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// cin.get();                                                   </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;                                 <span class="comment">// terminate main()</span></span><br><span class="line">&#125;              </span><br></pre></td></tr></table></figure>
-
-
-
-<p>这里提到了一个细节，就是int main()函数的最后，可以不加return 语句，这时候编译器会默认在最后加上return 0。</p>
-<h3 id="2-1-2-C-注释"><a href="#2-1-2-C-注释" class="headerlink" title="2.1.2 C++注释"></a>2.1.2 C++注释</h3><p>这里没啥好讲的，很基础。但一个好的编程习惯是使用//形式的注释，这种注释不存在/*和*/匹配的问题，所以出错的可能性很小。</p>
-<h3 id="2-1-3-C-预处理器和iostream文件"><a href="#2-1-3-C-预处理器和iostream文件" class="headerlink" title="2.1.3 C++预处理器和iostream文件"></a>2.1.3 C++预处理器和iostream文件</h3><p>C++会使用一个预处理器，处理以#开头的编译指令</p>
-<p>myfirst.cpp中使用了#include编译指令</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>针对这条编译指令，预处理器会将iostream文件的内容添加到程序中，这样源文件就可以使用iostream中定义的内容了。</p>
-<h3 id="2-1-4-头文件名"><a href="#2-1-4-头文件名" class="headerlink" title="2.1.4 头文件名"></a>2.1.4 头文件名</h3><p>像iostream这样的文件被叫做包含文件（include file），也叫做头文件（header file），每个头文件都支持一组特定的工具。C语言的传统是使用扩展名h，但C++的用法变了，不再使用扩展名h，一些C头文件被转换为C++头文件，其文件名去掉扩展名h，并在前面加上前缀c，如math.h变成了cmath。对于纯粹的C++头文件，去掉h的头文件可以包含名称空间。</p>
-<h3 id="2-1-5-名称空间"><a href="#2-1-5-名称空间" class="headerlink" title="2.1.5 名称空间"></a>2.1.5 名称空间</h3><p>虽然已经看了很多c++程序，但本人对名称空间的概念感觉理解的并不是很深入，只是知道其可以防止变量或函数的命名冲突。这在大型项目中尤其重要。至于如何去定义不同的命名空间，现在还不得而知。</p>
-<h3 id="2-1-6-使用cout进行C-输出"><a href="#2-1-6-使用cout进行C-输出" class="headerlink" title="2.1.6 使用cout进行C++输出"></a>2.1.6 使用cout进行C++输出</h3><p>这里提到了\n和endl的区别，endl会立刻刷新输出（立即显示在屏幕上），而\n不能提供这样的保证。</p>
-<h3 id="2-1-7-C-源代码的格式化"><a href="#2-1-7-C-源代码的格式化" class="headerlink" title="2.1.7 C++源代码的格式化"></a>2.1.7 C++源代码的格式化</h3><p>这一部分讲了一些代码编写的格式规范问题，不做过多介绍。</p>
-<h2 id="2-2-C-语句"><a href="#2-2-C-语句" class="headerlink" title="2.2 C++语句"></a>2.2 C++语句</h2><h3 id="2-2-1-声明语句和变量"><a href="#2-2-1-声明语句和变量" class="headerlink" title="2.2.1 声明语句和变量"></a>2.2.1 声明语句和变量</h3><p>没啥好讲的，变量在使用前必须先声明。定义声明和引用声明的区别是，定义声明为变量分配空间。</p>
-<h3 id="2-2-2-赋值语句"><a href="#2-2-2-赋值语句" class="headerlink" title="2.2.2 赋值语句"></a>2.2.2 赋值语句</h3><p>连续赋值语句从右向左执行。</p>
-<h3 id="2-2-3-cout的新花样"><a href="#2-2-3-cout的新花样" class="headerlink" title="2.2.3 cout的新花样"></a>2.2.3 cout的新花样</h3><p>cout能根据&lt;&lt;后跟着的数据类型调整输出行为，本质上是运算符的重载。</p>
-<h2 id="2-3-其他C-语句"><a href="#2-3-其他C-语句" class="headerlink" title="2.3 其他C++语句"></a>2.3 其他C++语句</h2><h3 id="2-3-1-使用cin"><a href="#2-3-1-使用cin" class="headerlink" title="2.3.1 使用cin"></a>2.3.1 使用cin</h3><p>也是很基础的东西，不再赘述</p>
-<h3 id="2-3-2-使用cout进行拼接"><a href="#2-3-2-使用cout进行拼接" class="headerlink" title="2.3.2 使用cout进行拼接"></a>2.3.2 使用cout进行拼接</h3><p>介绍了cout可以使用&lt;&lt;进行拼接的特性，也是基本特性，不再赘述。</p>
-<h3 id="2-3-3-类简介"><a href="#2-3-3-类简介" class="headerlink" title="2.3.3 类简介"></a>2.3.3 类简介</h3><p>讲了面向对象语言中对类的一些基本认识。</p>
-<h2 id="2-4-函数"><a href="#2-4-函数" class="headerlink" title="2.4 函数"></a>2.4 函数</h2><h3 id="2-4-1-使用有返回值的函数"><a href="#2-4-1-使用有返回值的函数" class="headerlink" title="2.4.1 使用有返回值的函数"></a>2.4.1 使用有返回值的函数</h3><h3 id="2-4-2-函数变体"><a href="#2-4-2-函数变体" class="headerlink" title="2.4.2 函数变体"></a>2.4.2 函数变体</h3><p>在有些语言中，有返回值的函数被称为函数，没有返回值的函数被称为过程或子过程。但C++中，这两种变体都被成为函数。</p>
-<h3 id="2-4-3-用户定义的函数"><a href="#2-4-3-用户定义的函数" class="headerlink" title="2.4.3 用户定义的函数"></a>2.4.3 用户定义的函数</h3><p>main函数的返回值返回给了谁？</p>
-<p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
-<h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png"  ><span class="image-caption">image-20211226163940797</span></p>
 ]]></content>
       <categories>
         <category>C++学习笔记</category>
@@ -232,6 +199,39 @@
 <p>与创建vector对象不同的是，n_elem不能是变量。</p>
 <h3 id="4-10-3-比较数组、vector对象和array对象"><a href="#4-10-3-比较数组、vector对象和array对象" class="headerlink" title="4.10.3 比较数组、vector对象和array对象"></a>4.10.3 比较数组、vector对象和array对象</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229201235113.png"  ><span class="image-caption">image-20211229201235113</span></p>
 <h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2>]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Primer Plus Ch5</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch5/</url>
+    <content><![CDATA[<h1 id="第5章-循环和关系表达式"><a href="#第5章-循环和关系表达式" class="headerlink" title="第5章 循环和关系表达式"></a>第5章 循环和关系表达式</h1><h2 id="5-1-for循环"><a href="#5-1-for循环" class="headerlink" title="5.1 for循环"></a>5.1 for循环</h2><h3 id="5-1-1-for循环的组成部分"><a href="#5-1-1-for循环的组成部分" class="headerlink" title="5.1.1 for循环的组成部分"></a>5.1.1 for循环的组成部分</h3><p>可以使用cout.setf(ios_base::boolalpha)来控制标准输出输出bool值的false和true，而不是1和0.</p>
+<h3 id="5-1-2-回到for循环"><a href="#5-1-2-回到for循环" class="headerlink" title="5.1.2 回到for循环"></a>5.1.2 回到for循环</h3><h3 id="5-1-3-修改步长"><a href="#5-1-3-修改步长" class="headerlink" title="5.1.3 修改步长"></a>5.1.3 修改步长</h3><h3 id="5-1-4-使用for循环访问字符串"><a href="#5-1-4-使用for循环访问字符串" class="headerlink" title="5.1.4 使用for循环访问字符串"></a>5.1.4 使用for循环访问字符串</h3><h3 id="5-1-5-递增运算符（-）和递减运算符（–）"><a href="#5-1-5-递增运算符（-）和递减运算符（–）" class="headerlink" title="5.1.5 递增运算符（++）和递减运算符（–）"></a>5.1.5 递增运算符（++）和递减运算符（–）</h3><p>不要在同一条语句对同一个值递增或递减多次，可能会存在模糊不清，不同系统上的执行结果不同，如下面语句：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230142541658.png"  ><span class="image-caption">image-20211230142541658</span></p>
+<h3 id="5-1-6-副作用和顺序点"><a href="#5-1-6-副作用和顺序点" class="headerlink" title="5.1.6 副作用和顺序点"></a>5.1.6 副作用和顺序点</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230143020910.png"  ><span class="image-caption">image-20211230143020910</span></p>
+<p>这是另一个自增运算符变量更新问题的例子。</p>
+<h3 id="5-1-7-前缀格式和后缀格式"><a href="#5-1-7-前缀格式和后缀格式" class="headerlink" title="5.1.7 前缀格式和后缀格式"></a>5.1.7 前缀格式和后缀格式</h3><p>对于用户定义的类型，后缀版本需要先复制一个副本，然后将复制的副本返回。因此，后缀版本比前缀版本的效率要低。</p>
+<h3 id="5-1-8-递增-递减运算符和指针"><a href="#5-1-8-递增-递减运算符和指针" class="headerlink" title="5.1.8 递增/递减运算符和指针"></a>5.1.8 递增/递减运算符和指针</h3><h3 id="5-1-9-组合赋值运算符"><a href="#5-1-9-组合赋值运算符" class="headerlink" title="5.1.9 组合赋值运算符"></a>5.1.9 组合赋值运算符</h3><h3 id="5-1-10-复合语句（语句块）"><a href="#5-1-10-复合语句（语句块）" class="headerlink" title="5.1.10 复合语句（语句块）"></a>5.1.10 复合语句（语句块）</h3><h3 id="5-1-11-其他语法技巧-逗号运算符"><a href="#5-1-11-其他语法技巧-逗号运算符" class="headerlink" title="5.1.11 其他语法技巧-逗号运算符"></a>5.1.11 其他语法技巧-逗号运算符</h3><p>逗号运算符允许将两个表达式放到C++句法只允许放一个表达式的地方。</p>
+<p>其次逗号运算符还将作为一个顺序点，保证先计算第一个表达式，然后计算第二个表达式。</p>
+<p>C++规定，逗号表达式的值是第二部分的值</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230151519994.png"  ><span class="image-caption">image-20211230151519994</span></p>
+<h3 id="5-1-12-关系表达式"><a href="#5-1-12-关系表达式" class="headerlink" title="5.1.12 关系表达式"></a>5.1.12 关系表达式</h3><h3 id="5-1-13-赋值、比较和可能犯的错误"><a href="#5-1-13-赋值、比较和可能犯的错误" class="headerlink" title="5.1.13 赋值、比较和可能犯的错误"></a>5.1.13 赋值、比较和可能犯的错误</h3><h3 id="5-1-14-C-风格字符串的比较"><a href="#5-1-14-C-风格字符串的比较" class="headerlink" title="5.1.14 C-风格字符串的比较"></a>5.1.14 C-风格字符串的比较</h3><h3 id="5-1-15-比较string类字符串"><a href="#5-1-15-比较string类字符串" class="headerlink" title="5.1.15 比较string类字符串"></a>5.1.15 比较string类字符串</h3><h2 id="5-2-while循环"><a href="#5-2-while循环" class="headerlink" title="5.2 while循环"></a>5.2 while循环</h2><h3 id="5-2-1-for与while"><a href="#5-2-1-for与while" class="headerlink" title="5.2.1 for与while"></a>5.2.1 for与while</h3><h3 id="5-2-2-等待一段时间：编写延时循环"><a href="#5-2-2-等待一段时间：编写延时循环" class="headerlink" title="5.2.2 等待一段时间：编写延时循环"></a>5.2.2 等待一段时间：编写延时循环</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230161833147.png"  ><span class="image-caption">image-20211230161833147</span></p>
+<p>下面程序可以使用while来实现程序延迟</p>
+<h2 id="5-3-do-while循环"><a href="#5-3-do-while循环" class="headerlink" title="5.3 do while循环"></a>5.3 do while循环</h2><h2 id="5-4-基于范围的for循环（C-11）"><a href="#5-4-基于范围的for循环（C-11）" class="headerlink" title="5.4 基于范围的for循环（C++11）"></a>5.4 基于范围的for循环（C++11）</h2><h2 id="5-5-循环和文本输入"><a href="#5-5-循环和文本输入" class="headerlink" title="5.5 循环和文本输入"></a>5.5 循环和文本输入</h2><h3 id="5-5-1-使用原始的cin进行输入"><a href="#5-5-1-使用原始的cin进行输入" class="headerlink" title="5.5.1 使用原始的cin进行输入"></a>5.5.1 使用原始的cin进行输入</h3><p>原始cin会忽略空格和换行符，而且发送给cin的输入被缓冲，只有用户按下回车，缓冲区的内容才会发送给程序。</p>
+<h3 id="5-5-2-使用cin-get-char-进行补救"><a href="#5-5-2-使用cin-get-char-进行补救" class="headerlink" title="5.5.2 使用cin.get(char)进行补救"></a>5.5.2 使用cin.get(char)进行补救</h3><p>使用cin.get(char)函数可以处理空格和换行符以及回车。</p>
+<h3 id="5-5-3-使用哪一个cin-get"><a href="#5-5-3-使用哪一个cin-get" class="headerlink" title="5.5.3 使用哪一个cin.get()"></a>5.5.3 使用哪一个cin.get()</h3><p>初步介绍了函数重载的特性，这是C++的特性</p>
+<h3 id="5-5-4-文件尾条件"><a href="#5-5-4-文件尾条件" class="headerlink" title="5.5.4 文件尾条件"></a>5.5.4 文件尾条件</h3><p>可以使用键盘来模拟文件尾结束符EOF，UNIX下是Ctrl+D，Windows环境下是Ctrl+Z。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230173057873.png"  ><span class="image-caption">image-20211230173057873</span></p>
+<p>cin.clear()可以清楚EOF标记，使输入可以继续进行。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230183700096.png"  ><span class="image-caption">image-20211230183700096</span></p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211230185920118.png"  ><span class="image-caption">image-20211230185920118</span></p>
+<p>ifstream类提供了一个可以将istream对象（如cin）转换为bool值的函数；当cin出现在需要bool值的地方（如在while循环的测试条件中）时，该转换函数将被调用。而且这种转换比cin.fail()或cin.eof()更为通用，因为它可以检测到其他失败的原因，如磁盘故障。</p>
+<h3 id="5-5-5-另一个cin-get-版本"><a href="#5-5-5-另一个cin-get-版本" class="headerlink" title="5.5.5 另一个cin.get()版本"></a>5.5.5 另一个cin.get()版本</h3><p>ch = cin.get()和cout.put()</p>
+<h2 id="5-6-嵌套循环和二维数组"><a href="#5-6-嵌套循环和二维数组" class="headerlink" title="5.6 嵌套循环和二维数组"></a>5.6 嵌套循环和二维数组</h2><h3 id="5-6-1-初始化二维数组"><a href="#5-6-1-初始化二维数组" class="headerlink" title="5.6.1 初始化二维数组"></a>5.6.1 初始化二维数组</h3><h3 id="5-6-2-使用二维数组"><a href="#5-6-2-使用二维数组" class="headerlink" title="5.6.2 使用二维数组"></a>5.6.2 使用二维数组</h3><h2 id="5-7-总结"><a href="#5-7-总结" class="headerlink" title="5.7 总结"></a>5.7 总结</h2>]]></content>
       <categories>
         <category>C++学习笔记</category>
       </categories>
