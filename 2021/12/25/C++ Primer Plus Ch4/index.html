@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ Primer Plus Ch4 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第4章 复合类型4.1 数组4.1.1 程序说明4.1...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: false
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">C++ Primer Plus Ch4</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++ Primer Plus Ch4</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2885</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="第4章-复合类型"><a href="#第4章-复合类型" class="headerlink" title="第4章 复合类型"></a>第4章 复合类型</h1><h2 id="4-1-数组"><a href="#4-1-数组" class="headerlink" title="4.1 数组"></a>4.1 数组</h2><h3 id="4-1-1-程序说明"><a href="#4-1-1-程序说明" class="headerlink" title="4.1.1 程序说明"></a>4.1.1 程序说明</h3><h3 id="4-1-2-数组的初始化规则"><a href="#4-1-2-数组的初始化规则" class="headerlink" title="4.1.2 数组的初始化规则"></a>4.1.2 数组的初始化规则</h3><h3 id="4-1-3-C-11数组初始化方法"><a href="#4-1-3-C-11数组初始化方法" class="headerlink" title="4.1.3 C++11数组初始化方法"></a>4.1.3 C++11数组初始化方法</h3><p>C++中使用{}初始化时可以省略=号，并且{}中可以不包含任何东西，这将所有元素都设置为零；列表初始化禁止缩窄转换，在第3章中有介绍过。下面是禁止缩窄转换的例子：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228161313425.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228161313425</span></p>
+<h2 id="4-2-字符串"><a href="#4-2-字符串" class="headerlink" title="4.2 字符串"></a>4.2 字符串</h2><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228162544302.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228162544302</span></p>
+<h3 id="4-2-1-拼接字符串常量"><a href="#4-2-1-拼接字符串常量" class="headerlink" title="4.2.1 拼接字符串常量"></a>4.2.1 拼接字符串常量</h3><p>在C++中字符串常量可以不使用+号，直接进行拼接，任何两个由空白分隔的字符串常量都将自动拼接成一个。这还是我第一次知道C++的字符串常量还能这么操作，下面是一个例子</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228163253939.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228163253939</span></p>
+<p>拼接时前面的字符串的串尾的’\0’会被后面字符串的第一个字符取代。</p>
+<h3 id="4-2-2-在数组中使用字符串"><a href="#4-2-2-在数组中使用字符串" class="headerlink" title="4.2.2 在数组中使用字符串"></a>4.2.2 在数组中使用字符串</h3><p>程序在处理字符串数组的时候本质上处理的是数组的地址对应的内容，当遇到’\0’时处理结束</p>
+<h3 id="4-2-3-字符串输入"><a href="#4-2-3-字符串输入" class="headerlink" title="4.2.3 字符串输入"></a>4.2.3 字符串输入</h3><p>揭露了一个字符串输入中的问题，定义了char name[20],使用cin &gt;&gt; name时，用户输入的字符串长度大于20会发生什么问题？将在第17章介绍。</p>
+<h3 id="4-2-4-每次读取一行字符串输入"><a href="#4-2-4-每次读取一行字符串输入" class="headerlink" title="4.2.4 每次读取一行字符串输入"></a>4.2.4 每次读取一行字符串输入</h3><p>cin.getline（）和cin.get(),但是getline丢弃换行符，get将其保留在输入队列中</p>
+<p>cin.get(Array, ArraySize).get()可以连续调用。get()比getline()更为仔细，可以用来判断输入是因为读完一整行还是数组已填满。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228170541128.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228170541128</span></p>
+<p>这一部分没有代码举例，我能大体知道说的是什么意思，留作记录。</p>
+<h2 id="4-3-string类简介"><a href="#4-3-string类简介" class="headerlink" title="4.3 string类简介"></a>4.3 string类简介</h2><h3 id="4-3-1-C-11字符串初始化"><a href="#4-3-1-C-11字符串初始化" class="headerlink" title="4.3.1 C++11字符串初始化"></a>4.3.1 C++11字符串初始化</h3><h3 id="4-3-2-赋值、拼接和附加"><a href="#4-3-2-赋值、拼接和附加" class="headerlink" title="4.3.2 赋值、拼接和附加"></a>4.3.2 赋值、拼接和附加</h3><p>可以将一个string赋值给另一个string对象，使用+可以很轻松的实现string之间，string与字符串常量的拼接工作。</p>
+<h3 id="4-3-3-string类的其他操作"><a href="#4-3-3-string类的其他操作" class="headerlink" title="4.3.3 string类的其他操作"></a>4.3.3 string类的其他操作</h3><p>总结就是string的操作比c风格的字符串操作（定义在string.h中）要方便，并且内存安全。</p>
+<h3 id="4-3-4-string类I-O"><a href="#4-3-4-string类I-O" class="headerlink" title="4.3.4 string类I/O"></a>4.3.4 string类I/O</h3><p>getline(cin, str)而不是之前的cin.getline(target, length).这是由于istream类中没有处理string对象的类方法。cin&gt;&gt;str其实使用的是string类的一个友元函数。</p>
+<h3 id="4-3-5-其他形式的字符串字面值"><a href="#4-3-5-其他形式的字符串字面值" class="headerlink" title="4.3.5 其他形式的字符串字面值"></a>4.3.5 其他形式的字符串字面值</h3><p>wchar_t,char16_t,char32_t字符串举例：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228184351570.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228184351570</span></p>
+<p>原始字符串</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228184557439.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228184557439</span></p>
+<p>用”(和)”标识，也可以在”和(之间加入任意字符的自定义定界符，如下：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228185225827.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228185225827</span></p>
+<h2 id="4-4-结构简介"><a href="#4-4-结构简介" class="headerlink" title="4.4 结构简介"></a>4.4 结构简介</h2><p>C++允许在声明结构变量时省略关键字struct:</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228191616243.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228191616243</span></p>
+<h3 id="4-4-1-在程序中使用结构"><a href="#4-4-1-在程序中使用结构" class="headerlink" title="4.4.1 在程序中使用结构"></a>4.4.1 在程序中使用结构</h3><p>结构可以声明在外部也可以声明在函数内部，紧跟{之后。</p>
+<h3 id="4-4-2-C-11结构初始化"><a href="#4-4-2-C-11结构初始化" class="headerlink" title="4.4.2 C++11结构初始化"></a>4.4.2 C++11结构初始化</h3><p>结构也可以用{}初始化，省略=号，如下：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228193241191.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228193241191</span></p>
+<p>同样不支持缩窄转换</p>
+<h3 id="4-4-3-结构可以将string类作为成员吗"><a href="#4-4-3-结构可以将string类作为成员吗" class="headerlink" title="4.4.3 结构可以将string类作为成员吗"></a>4.4.3 结构可以将string类作为成员吗</h3><p>可以</p>
+<h3 id="4-4-4-其他结构属性"><a href="#4-4-4-其他结构属性" class="headerlink" title="4.4.4 其他结构属性"></a>4.4.4 其他结构属性</h3><p>可以用一个结构变量给另外一个结构变量赋值。</p>
+<h3 id="4-4-5-结构数组"><a href="#4-4-5-结构数组" class="headerlink" title="4.4.5 结构数组"></a>4.4.5 结构数组</h3><h3 id="4-4-6-结构中的位字段"><a href="#4-4-6-结构中的位字段" class="headerlink" title="4.4.6 结构中的位字段"></a>4.4.6 结构中的位字段</h3><p>这个位字段当时在学习c语言的时候就没有学得特别透彻，在这里进行夯实知识。</p>
+<h2 id="4-5-共用体"><a href="#4-5-共用体" class="headerlink" title="4.5 共用体"></a>4.5 共用体</h2><p>一个嵌套使用匿名共用体（union）的例子</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228203115180.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228203115180</span></p>
+<h2 id="4-6-枚举"><a href="#4-6-枚举" class="headerlink" title="4.6 枚举"></a>4.6 枚举</h2><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228203208050.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228203208050</span></p>
+<p>默认情况下，枚举从0开始给枚举量赋值。对于枚举类型只定义了赋值运算符，没有为枚举定义算术运算。枚举量可以被提升为int类型，但int不能自动转换为枚举类型。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228203652666.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228203652666</span></p>
+<p>在算术表达式中枚举量自动整型提升为int。</p>
+<p>但可以将int强制转换为枚举类型</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228204306413.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228204306413</span></p>
+<p>枚举常用来定义相关的符号常量。</p>
+<h3 id="4-6-1-设置枚举量的值"><a href="#4-6-1-设置枚举量的值" class="headerlink" title="4.6.1 设置枚举量的值"></a>4.6.1 设置枚举量的值</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228204842645.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228204842645</span></p>
+<h3 id="4-6-2-枚举的取值范围"><a href="#4-6-2-枚举的取值范围" class="headerlink" title="4.6.2 枚举的取值范围"></a>4.6.2 枚举的取值范围</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228205726984.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228205726984</span></p>
+<h2 id="4-7-指针和自由存储空间"><a href="#4-7-指针和自由存储空间" class="headerlink" title="4.7 指针和自由存储空间"></a>4.7 指针和自由存储空间</h2><h3 id="4-7-1-声明和初始化指针"><a href="#4-7-1-声明和初始化指针" class="headerlink" title="4.7.1 声明和初始化指针"></a>4.7.1 声明和初始化指针</h3><h3 id="4-7-2-指针的危险"><a href="#4-7-2-指针的危险" class="headerlink" title="4.7.2 指针的危险"></a>4.7.2 指针的危险</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228212512321.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228212512321</span></p>
+<h3 id="4-7-3-指针和数字"><a href="#4-7-3-指针和数字" class="headerlink" title="4.7.3 指针和数字"></a>4.7.3 指针和数字</h3><h3 id="4-7-4-使用new来分配内存"><a href="#4-7-4-使用new来分配内存" class="headerlink" title="4.7.4 使用new来分配内存"></a>4.7.4 使用new来分配内存</h3><p>之前在C语言中习惯使用malloc()来分配内存，我个人不是很习惯使用new运算符来分配内存。下面将详细介绍这个新方法。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228213650097.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228213650097</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228214040996.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211228214040996</span></p>
+<h3 id="4-7-5-使用delete释放内存"><a href="#4-7-5-使用delete释放内存" class="headerlink" title="4.7.5 使用delete释放内存"></a>4.7.5 使用delete释放内存</h3><p>不能重复释放内存，不能释放变量对应的内存空间。</p>
+<h3 id="4-7-6-使用new来创建动态数组"><a href="#4-7-6-使用new来创建动态数组" class="headerlink" title="4.7.6 使用new来创建动态数组"></a>4.7.6 使用new来创建动态数组</h3><p>对于使用new创建的数组，应使用另一种格式的delete来释放：</p>
+<p>delete [] psome</p>
+<h2 id="4-8-指针、数组和指针算数"><a href="#4-8-指针、数组和指针算数" class="headerlink" title="4.8 指针、数组和指针算数"></a>4.8 指针、数组和指针算数</h2><h3 id="4-8-1-程序说明"><a href="#4-8-1-程序说明" class="headerlink" title="4.8.1 程序说明"></a>4.8.1 程序说明</h3><p>区别一：指针可以赋值，但数组名是常量，不可以改变其值</p>
+<p>区别二：对数组应用sizeof得到数组的长度，对指针应用sizeof得到的是指针的长度，即使指针指向的是一个数组</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229150610676.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211229150610676</span></p>
+<h3 id="4-8-2-指针小结"><a href="#4-8-2-指针小结" class="headerlink" title="4.8.2 指针小结"></a>4.8.2 指针小结</h3><h3 id="4-8-3-指针和字符串"><a href="#4-8-3-指针和字符串" class="headerlink" title="4.8.3 指针和字符串"></a>4.8.3 指针和字符串</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229184431386.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211229184431386</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229190734205.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211229190734205</span></p>
+<p>strncpy会视具体情况决定是否在目标串结尾添加空字符</p>
+<p>对于C风格的字符数组，只能使用strcpy()和strncpy()来讲字符串赋给数组，而string类使赋值变得更简单，并且不用担心数组越界的问题。</p>
+<h3 id="4-8-4-使用new创建动态结构"><a href="#4-8-4-使用new创建动态结构" class="headerlink" title="4.8.4 使用new创建动态结构"></a>4.8.4 使用new创建动态结构</h3><h3 id="4-8-5-自动存储、静态存储和动态存储"><a href="#4-8-5-自动存储、静态存储和动态存储" class="headerlink" title="4.8.5 自动存储、静态存储和动态存储"></a>4.8.5 自动存储、静态存储和动态存储</h3><p>自动存储使程序为变量自动分配的存储空间，在其函数作用域结束后自动释放。自动变量通常存储在栈中。</p>
+<p>静态存储是整个程序执行期间都存在的存储方式。使变量成为静态的方式有两种：一种是在函数外面定义它；另一种是在声明变量时使用关键字static。</p>
+<p>动态存储就是使用new和delete分配和释放的空间，在C++中被称为自由存储空间或堆.C++指针有助于自动完成内存释放的工作，可以有效防止内存泄漏。</p>
+<h2 id="4-9-类型组合"><a href="#4-9-类型组合" class="headerlink" title="4.9 类型组合"></a>4.9 类型组合</h2><h2 id="4-10-数组的替代品"><a href="#4-10-数组的替代品" class="headerlink" title="4.10 数组的替代品"></a>4.10 数组的替代品</h2><h3 id="4-10-1-模板类vector"><a href="#4-10-1-模板类vector" class="headerlink" title="4.10.1 模板类vector"></a>4.10.1 模板类vector</h3><h3 id="4-10-2-模板类array（C-11）"><a href="#4-10-2-模板类array（C-11）" class="headerlink" title="4.10.2 模板类array（C++11）"></a>4.10.2 模板类array（C++11）</h3><p>array和数组一样，长度是固定的，使用栈（静态内存分配），而不是自由存储区，因此其效率与数组相同，但更方便，更安全。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229200434776.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211229200434776</span></p>
+<p>与创建vector对象不同的是，n_elem不能是变量。</p>
+<h3 id="4-10-3-比较数组、vector对象和array对象"><a href="#4-10-3-比较数组、vector对象和array对象" class="headerlink" title="4.10.3 比较数组、vector对象和array对象"></a>4.10.3 比较数组、vector对象和array对象</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229201235113.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20211229201235113</span></p>
+<h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2>
+      </section>
+      <section class="extra">
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch1/"><i class="iconfont iconleft"></i>C++ Primer Plus Ch1</a>
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch3/">C++ Primer Plus Ch3<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC4%E7%AB%A0-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-text">第4章 复合类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%95%B0%E7%BB%84"><span class="toc-text">4.1 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%E7%A8%8B%E5%BA%8F%E8%AF%B4%E6%98%8E"><span class="toc-text">4.1.1 程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A7%84%E5%88%99"><span class="toc-text">4.1.2 数组的初始化规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-3-C-11%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-text">4.1.3 C++11数组初始化方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">4.2 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F"><span class="toc-text">4.2.1 拼接字符串常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%9C%A8%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">4.2.2 在数组中使用字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5"><span class="toc-text">4.2.3 字符串输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-%E6%AF%8F%E6%AC%A1%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5"><span class="toc-text">4.2.4 每次读取一行字符串输入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-string%E7%B1%BB%E7%AE%80%E4%BB%8B"><span class="toc-text">4.3 string类简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-C-11%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">4.3.1 C++11字符串初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E8%B5%8B%E5%80%BC%E3%80%81%E6%8B%BC%E6%8E%A5%E5%92%8C%E9%99%84%E5%8A%A0"><span class="toc-text">4.3.2 赋值、拼接和附加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-string%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="toc-text">4.3.3 string类的其他操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-string%E7%B1%BBI-O"><span class="toc-text">4.3.4 string类I&#x2F;O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-5-%E5%85%B6%E4%BB%96%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E5%80%BC"><span class="toc-text">4.3.5 其他形式的字符串字面值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B"><span class="toc-text">4.4 结构简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E5%9C%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%BB%93%E6%9E%84"><span class="toc-text">4.4.1 在程序中使用结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-C-11%E7%BB%93%E6%9E%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">4.4.2 C++11结构初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-3-%E7%BB%93%E6%9E%84%E5%8F%AF%E4%BB%A5%E5%B0%86string%E7%B1%BB%E4%BD%9C%E4%B8%BA%E6%88%90%E5%91%98%E5%90%97"><span class="toc-text">4.4.3 结构可以将string类作为成员吗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-4-%E5%85%B6%E4%BB%96%E7%BB%93%E6%9E%84%E5%B1%9E%E6%80%A7"><span class="toc-text">4.4.4 其他结构属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-5-%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84"><span class="toc-text">4.4.5 结构数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-6-%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E4%BD%8D%E5%AD%97%E6%AE%B5"><span class="toc-text">4.4.6 结构中的位字段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E5%85%B1%E7%94%A8%E4%BD%93"><span class="toc-text">4.5 共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E6%9E%9A%E4%B8%BE"><span class="toc-text">4.6 枚举</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-1-%E8%AE%BE%E7%BD%AE%E6%9E%9A%E4%B8%BE%E9%87%8F%E7%9A%84%E5%80%BC"><span class="toc-text">4.6.1 设置枚举量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-2-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="toc-text">4.6.2 枚举的取值范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E6%8C%87%E9%92%88%E5%92%8C%E8%87%AA%E7%94%B1%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="toc-text">4.7 指针和自由存储空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-1-%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8C%87%E9%92%88"><span class="toc-text">4.7.1 声明和初始化指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-2-%E6%8C%87%E9%92%88%E7%9A%84%E5%8D%B1%E9%99%A9"><span class="toc-text">4.7.2 指针的危险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-3-%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E5%AD%97"><span class="toc-text">4.7.3 指针和数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-4-%E4%BD%BF%E7%94%A8new%E6%9D%A5%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="toc-text">4.7.4 使用new来分配内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-5-%E4%BD%BF%E7%94%A8delete%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98"><span class="toc-text">4.7.5 使用delete释放内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-6-%E4%BD%BF%E7%94%A8new%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84"><span class="toc-text">4.7.6 使用new来创建动态数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E6%8C%87%E9%92%88%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%95%B0"><span class="toc-text">4.8 指针、数组和指针算数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-1-%E7%A8%8B%E5%BA%8F%E8%AF%B4%E6%98%8E"><span class="toc-text">4.8.1 程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-2-%E6%8C%87%E9%92%88%E5%B0%8F%E7%BB%93"><span class="toc-text">4.8.2 指针小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-3-%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">4.8.3 指针和字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-4-%E4%BD%BF%E7%94%A8new%E5%88%9B%E5%BB%BA%E5%8A%A8%E6%80%81%E7%BB%93%E6%9E%84"><span class="toc-text">4.8.4 使用new创建动态结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-5-%E8%87%AA%E5%8A%A8%E5%AD%98%E5%82%A8%E3%80%81%E9%9D%99%E6%80%81%E5%AD%98%E5%82%A8%E5%92%8C%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8"><span class="toc-text">4.8.5 自动存储、静态存储和动态存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-%E7%B1%BB%E5%9E%8B%E7%BB%84%E5%90%88"><span class="toc-text">4.9 类型组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-%E6%95%B0%E7%BB%84%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81"><span class="toc-text">4.10 数组的替代品</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-1-%E6%A8%A1%E6%9D%BF%E7%B1%BBvector"><span class="toc-text">4.10.1 模板类vector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-2-%E6%A8%A1%E6%9D%BF%E7%B1%BBarray%EF%BC%88C-11%EF%BC%89"><span class="toc-text">4.10.2 模板类array（C++11）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-3-%E6%AF%94%E8%BE%83%E6%95%B0%E7%BB%84%E3%80%81vector%E5%AF%B9%E8%B1%A1%E5%92%8Carray%E5%AF%B9%E8%B1%A1"><span class="toc-text">4.10.3 比较数组、vector对象和array对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-%E6%80%BB%E7%BB%93"><span class="toc-text">4.11 总结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/franklin1226 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1979933731@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
