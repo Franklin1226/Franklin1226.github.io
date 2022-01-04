@@ -27,6 +27,21 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ Primer Plus Ch1</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch1/</url>
+    <content><![CDATA[<p>本人从今天起正式为找工作做准备，由于自己想从事后端架构师相关的工作，所以目前打算先将C++作为自己的主修语言。C++ Primer Plus这本书之前也读过，但是由于缺乏笔记记录，导致现在很多知识忘得一干二净。痛定思痛，现决定开一个专栏，记录一下自己的学习过程，同时将其作为笔记以备后用。</p>
+<p>今天先从第一章开始学起，首先介绍了C++和C语言的关系。可以认为C++是在C语言的基础上发展而来的，它在C语言基础上添加了以类为代表的面向对象语言特性，以及C++模板支持的泛型编程。程序是由数据+算法组成的，传统的过程化语言（如C）都是强调的程序的算法方面，首先确定计算机应采取的操作，然后用编程语言去实现它。而OOP强调的是数据，OOP程序首先设计程序运行中需要的各种类，它们准确地表示了程序要处理的东西。有了这些类，我们就可以设计一个使用这些类的对象的程序了。面向对象语言（OOP）不同于过程性编程，他的重点没有放在任务上，而是放在概念的表示上。在引入OOP之后，C++又引入了泛型编程，类比于JAVA中的泛型编程，泛型编程指的是创建独立于类型的代码，可以使程序与不同类型的数据兼容。下面一张图展示了C++和C之间的关系。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211225151312525.png"  ><span class="image-caption">image-20211225151312525</span></p>
+<p>第一章最后介绍了C++程序的常规编译流程，并介绍了市面上比较常见的编译工具和集成开发环境，这里就不再一一赘述。</p>
+]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Primer Plus Ch2</title>
     <url>/2021/12/25/C++%20Primer%20Plus%20Ch2/</url>
     <content><![CDATA[<h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
@@ -56,6 +71,60 @@
 <p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
 <h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
 <p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png"  ><span class="image-caption">image-20211226163940797</span></p>
+]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Primer Plus Ch3</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch3/</url>
+    <content><![CDATA[<h1 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h1><h2 id="3-1-简单变量"><a href="#3-1-简单变量" class="headerlink" title="3.1 简单变量"></a>3.1 简单变量</h2><p>书中说到了一个对变量的理解，变量在声明时，程序会为其分配指定大小的空间，然后程序员可以使用变量名来找到这块空间。</p>
+<h3 id="3-1-1-变量名"><a href="#3-1-1-变量名" class="headerlink" title="3.1.1 变量名"></a>3.1.1 变量名</h3><p>下面给出C++中变量的命名规则</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226171614191.png"  ><span class="image-caption">image-20211226171614191</span></p>
+<p>其中倒数第二条说的这种情况确实在阅读一些库函数源码的时候遇到过，是留给C++的标准库和编译器的实现者在编写代码时使用的，用来和普通用户代码做区分。</p>
+<h3 id="3-1-2-整型"><a href="#3-1-2-整型" class="headerlink" title="3.1.2 整型"></a>3.1.2 整型</h3><p>一个比较新颖的知识点是1字节并不一定都是8位的，字节的定义是能够表示完整字符集的位数，对于ASCII码来说，8位就足够了；但汉字等其他语言字符可能需要更大空间来表示所有的字符。如Unicode，因此有的实现需要16位甚至32位的字节。</p>
+<p>整数的字长在C++中不同机器上可能不尽相同，C++提供了一种灵活的标准，如下所示</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226192138130.png"  ><span class="image-caption">image-20211226192138130</span></p>
+<p>由于这种灵活的规定，C++在移植到不同的机器上面时容易产生整形字节数不一致的问题。climits头文件中定义了各种限制的符号名称，如INT_MAX为int的最大取值，CHAR_BIT为字节的位数。</p>
+<h3 id="3-1-2-整型short、int、long和long-long"><a href="#3-1-2-整型short、int、long和long-long" class="headerlink" title="3.1.2 整型short、int、long和long long"></a>3.1.2 整型short、int、long和long long</h3><p>C++中独有的初始化方式</p>
+<p>int wrens(432);</p>
+<p>int hamburgers = {24}</p>
+<p>int emus{7}</p>
+<p>int rocs = {};//set rocs to 0</p>
+<p>int psychics{};//set psychics to 0</p>
+<p>这种采用大括号进行初始化的方式可以更好地防范类型的转换错误</p>
+<p>大括号这种初始化方式可以统一任何类型变量的初始化形式</p>
+<h3 id="3-1-4-无符号类型"><a href="#3-1-4-无符号类型" class="headerlink" title="3.1.4 无符号类型"></a>3.1.4 无符号类型</h3><h3 id="3-1-5-选择整型类型"><a href="#3-1-5-选择整型类型" class="headerlink" title="3.1.5 选择整型类型"></a>3.1.5 选择整型类型</h3><p>一个小知识点：int被设置为对目标计算机而言最为“自然”的长度，自然长度指的是计算机处理起来效率最高的长度。</p>
+<p>还有一个经验之谈，当所表示的数据用short(16位)装不下时，应将其扩展为long而不是int，这样当程序运行在一些int位16位的机器上时也不会有问题。</p>
+<h3 id="3-1-6-整型字面值"><a href="#3-1-6-整型字面值" class="headerlink" title="3.1.6 整型字面值"></a>3.1.6 整型字面值</h3><p>可以使用dec,hex,oct来控制cout输出不同进制的整数，分别为十进制，十六进制和八进制。</p>
+<h3 id="3-1-7-C-如何确定常量的类型"><a href="#3-1-7-C-如何确定常量的类型" class="headerlink" title="3.1.7 C++如何确定常量的类型"></a>3.1.7 C++如何确定常量的类型</h3><p>对于十进制常量，用带符号整数int,long和long long对其进行配对；对于十六进制和八进制，用int, unsigned int, long, unsigned long, long long ,unsigned long long对其进行配对，与前者相比，加入了unsigned整数。</p>
+<h3 id="3-1-8-char类型：字符和小整数"><a href="#3-1-8-char类型：字符和小整数" class="headerlink" title="3.1.8 char类型：字符和小整数"></a>3.1.8 char类型：字符和小整数</h3><p>可以使用数字转义序列和字符转义序列，但字符转义序列更具有通用性</p>
+<p>数字转移序列举例：\032 \x1a分别是ASCII码26的八进制和十六进制表示</p>
+<p>通用字符名允许在源代码中添加一些不同国家的字母，\u或\U打头，\u后面是8个十六进制，\U后面则是16个十六进制（感觉这里书上写错了，应该分别是4和8个十六进制位）。下面看个例子：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226212925125.png"  ><span class="image-caption">image-20211226212925125</span></p>
+<p>char在默认情况下既不是有符号也不是没有符号，有C++实现决定。</p>
+<p>宽字符类型wchar_t可以表示扩展字符集，这种类型与底层的一种整数类型长度和符号属性相同，这取决于C++编译器的实现。可以通过加上前缀L来指示宽字符常量和宽字符串。</p>
+<p>char16_t和char32_t是对wchar的改进，指定了特定的长度和符号，分别是16位无符号和32位无符号数，分别用前缀u和U表示。</p>
+<h2 id="3-2-const限定符"><a href="#3-2-const限定符" class="headerlink" title="3.2 const限定符"></a>3.2 const限定符</h2><p>const是比#define更好地一种常量定义方式。</p>
+<p>C++和C中const的区别：一是作用域规则；而是C++可以用const值来声明数组长度。</p>
+<h2 id="3-3-浮点数"><a href="#3-3-浮点数" class="headerlink" title="3.3 浮点数"></a>3.3 浮点数</h2><h3 id="3-3-1-书写浮点数"><a href="#3-3-1-书写浮点数" class="headerlink" title="3.3.1 书写浮点数"></a>3.3.1 书写浮点数</h3><h3 id="3-3-2-浮点类型"><a href="#3-3-2-浮点类型" class="headerlink" title="3.3.2 浮点类型"></a>3.3.2 浮点类型</h3><h3 id="3-3-3-浮点常量"><a href="#3-3-3-浮点常量" class="headerlink" title="3.3.3 浮点常量"></a>3.3.3 浮点常量</h3><p>默认情况下，程序把浮点数常量存储为double类型，但是可以通过指定f或F后缀将常量指定为float类型，或者使用l或L将浮点常量指定为long double。</p>
+<h3 id="3-3-4-浮点数的优缺点"><a href="#3-3-4-浮点数的优缺点" class="headerlink" title="3.3.4 浮点数的优缺点"></a>3.3.4 浮点数的优缺点</h3><p>浮点数会发生精度丢失的问题</p>
+<h2 id="3-4-C-算术运算发"><a href="#3-4-C-算术运算发" class="headerlink" title="3.4 C++算术运算发"></a>3.4 C++算术运算发</h2><h3 id="3-4-1-运算符优先级和结合性"><a href="#3-4-1-运算符优先级和结合性" class="headerlink" title="3.4.1 运算符优先级和结合性"></a>3.4.1 运算符优先级和结合性</h3><p>和C语言差不多，没啥好讲的</p>
+<h3 id="3-4-2-除法分支"><a href="#3-4-2-除法分支" class="headerlink" title="3.4.2 除法分支"></a>3.4.2 除法分支</h3><h3 id="3-4-3-求模运算"><a href="#3-4-3-求模运算" class="headerlink" title="3.4.3 求模运算"></a>3.4.3 求模运算</h3><h3 id="3-4-4-类型转换"><a href="#3-4-4-类型转换" class="headerlink" title="3.4.4 类型转换"></a>3.4.4 类型转换</h3><p>使用{}进行初始化的时候，对自动类型转换进行了限制，下面是几个例子</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228135934014.png"  ><span class="image-caption">image-20211228135934014</span></p>
+<p>表达式中对short进行整型提升的时候有如下规定：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140256232.png"  ><span class="image-caption">image-20211228140256232</span></p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140810426.png"  ><span class="image-caption">image-20211228140810426</span></p>
+<p>C++提出了自己的强制类型转换格式，如下：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228141943968.png"  ><span class="image-caption">image-20211228141943968</span></p>
+<p>这样可以将基础数据类型和OOP结合的更加紧密</p>
+<h3 id="3-4-5-C-11中的auto声明"><a href="#3-4-5-C-11中的auto声明" class="headerlink" title="3.4.5 C++11中的auto声明"></a>3.4.5 C++11中的auto声明</h3><p>处理复杂类型时，auto可以简化程序，如下：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228150002410.png"  ><span class="image-caption">image-20211228150002410</span></p>
+<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>基础知识，不做进一步总结。</p>
 ]]></content>
       <categories>
         <category>C++学习笔记</category>
@@ -130,75 +199,6 @@
 <p>与创建vector对象不同的是，n_elem不能是变量。</p>
 <h3 id="4-10-3-比较数组、vector对象和array对象"><a href="#4-10-3-比较数组、vector对象和array对象" class="headerlink" title="4.10.3 比较数组、vector对象和array对象"></a>4.10.3 比较数组、vector对象和array对象</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211229201235113.png"  ><span class="image-caption">image-20211229201235113</span></p>
 <h2 id="4-11-总结"><a href="#4-11-总结" class="headerlink" title="4.11 总结"></a>4.11 总结</h2>]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch1</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch1/</url>
-    <content><![CDATA[<p>本人从今天起正式为找工作做准备，由于自己想从事后端架构师相关的工作，所以目前打算先将C++作为自己的主修语言。C++ Primer Plus这本书之前也读过，但是由于缺乏笔记记录，导致现在很多知识忘得一干二净。痛定思痛，现决定开一个专栏，记录一下自己的学习过程，同时将其作为笔记以备后用。</p>
-<p>今天先从第一章开始学起，首先介绍了C++和C语言的关系。可以认为C++是在C语言的基础上发展而来的，它在C语言基础上添加了以类为代表的面向对象语言特性，以及C++模板支持的泛型编程。程序是由数据+算法组成的，传统的过程化语言（如C）都是强调的程序的算法方面，首先确定计算机应采取的操作，然后用编程语言去实现它。而OOP强调的是数据，OOP程序首先设计程序运行中需要的各种类，它们准确地表示了程序要处理的东西。有了这些类，我们就可以设计一个使用这些类的对象的程序了。面向对象语言（OOP）不同于过程性编程，他的重点没有放在任务上，而是放在概念的表示上。在引入OOP之后，C++又引入了泛型编程，类比于JAVA中的泛型编程，泛型编程指的是创建独立于类型的代码，可以使程序与不同类型的数据兼容。下面一张图展示了C++和C之间的关系。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211225151312525.png"  ><span class="image-caption">image-20211225151312525</span></p>
-<p>第一章最后介绍了C++程序的常规编译流程，并介绍了市面上比较常见的编译工具和集成开发环境，这里就不再一一赘述。</p>
-]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch3</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch3/</url>
-    <content><![CDATA[<h1 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h1><h2 id="3-1-简单变量"><a href="#3-1-简单变量" class="headerlink" title="3.1 简单变量"></a>3.1 简单变量</h2><p>书中说到了一个对变量的理解，变量在声明时，程序会为其分配指定大小的空间，然后程序员可以使用变量名来找到这块空间。</p>
-<h3 id="3-1-1-变量名"><a href="#3-1-1-变量名" class="headerlink" title="3.1.1 变量名"></a>3.1.1 变量名</h3><p>下面给出C++中变量的命名规则</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226171614191.png"  ><span class="image-caption">image-20211226171614191</span></p>
-<p>其中倒数第二条说的这种情况确实在阅读一些库函数源码的时候遇到过，是留给C++的标准库和编译器的实现者在编写代码时使用的，用来和普通用户代码做区分。</p>
-<h3 id="3-1-2-整型"><a href="#3-1-2-整型" class="headerlink" title="3.1.2 整型"></a>3.1.2 整型</h3><p>一个比较新颖的知识点是1字节并不一定都是8位的，字节的定义是能够表示完整字符集的位数，对于ASCII码来说，8位就足够了；但汉字等其他语言字符可能需要更大空间来表示所有的字符。如Unicode，因此有的实现需要16位甚至32位的字节。</p>
-<p>整数的字长在C++中不同机器上可能不尽相同，C++提供了一种灵活的标准，如下所示</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226192138130.png"  ><span class="image-caption">image-20211226192138130</span></p>
-<p>由于这种灵活的规定，C++在移植到不同的机器上面时容易产生整形字节数不一致的问题。climits头文件中定义了各种限制的符号名称，如INT_MAX为int的最大取值，CHAR_BIT为字节的位数。</p>
-<h3 id="3-1-2-整型short、int、long和long-long"><a href="#3-1-2-整型short、int、long和long-long" class="headerlink" title="3.1.2 整型short、int、long和long long"></a>3.1.2 整型short、int、long和long long</h3><p>C++中独有的初始化方式</p>
-<p>int wrens(432);</p>
-<p>int hamburgers = {24}</p>
-<p>int emus{7}</p>
-<p>int rocs = {};//set rocs to 0</p>
-<p>int psychics{};//set psychics to 0</p>
-<p>这种采用大括号进行初始化的方式可以更好地防范类型的转换错误</p>
-<p>大括号这种初始化方式可以统一任何类型变量的初始化形式</p>
-<h3 id="3-1-4-无符号类型"><a href="#3-1-4-无符号类型" class="headerlink" title="3.1.4 无符号类型"></a>3.1.4 无符号类型</h3><h3 id="3-1-5-选择整型类型"><a href="#3-1-5-选择整型类型" class="headerlink" title="3.1.5 选择整型类型"></a>3.1.5 选择整型类型</h3><p>一个小知识点：int被设置为对目标计算机而言最为“自然”的长度，自然长度指的是计算机处理起来效率最高的长度。</p>
-<p>还有一个经验之谈，当所表示的数据用short(16位)装不下时，应将其扩展为long而不是int，这样当程序运行在一些int位16位的机器上时也不会有问题。</p>
-<h3 id="3-1-6-整型字面值"><a href="#3-1-6-整型字面值" class="headerlink" title="3.1.6 整型字面值"></a>3.1.6 整型字面值</h3><p>可以使用dec,hex,oct来控制cout输出不同进制的整数，分别为十进制，十六进制和八进制。</p>
-<h3 id="3-1-7-C-如何确定常量的类型"><a href="#3-1-7-C-如何确定常量的类型" class="headerlink" title="3.1.7 C++如何确定常量的类型"></a>3.1.7 C++如何确定常量的类型</h3><p>对于十进制常量，用带符号整数int,long和long long对其进行配对；对于十六进制和八进制，用int, unsigned int, long, unsigned long, long long ,unsigned long long对其进行配对，与前者相比，加入了unsigned整数。</p>
-<h3 id="3-1-8-char类型：字符和小整数"><a href="#3-1-8-char类型：字符和小整数" class="headerlink" title="3.1.8 char类型：字符和小整数"></a>3.1.8 char类型：字符和小整数</h3><p>可以使用数字转义序列和字符转义序列，但字符转义序列更具有通用性</p>
-<p>数字转移序列举例：\032 \x1a分别是ASCII码26的八进制和十六进制表示</p>
-<p>通用字符名允许在源代码中添加一些不同国家的字母，\u或\U打头，\u后面是8个十六进制，\U后面则是16个十六进制（感觉这里书上写错了，应该分别是4和8个十六进制位）。下面看个例子：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226212925125.png"  ><span class="image-caption">image-20211226212925125</span></p>
-<p>char在默认情况下既不是有符号也不是没有符号，有C++实现决定。</p>
-<p>宽字符类型wchar_t可以表示扩展字符集，这种类型与底层的一种整数类型长度和符号属性相同，这取决于C++编译器的实现。可以通过加上前缀L来指示宽字符常量和宽字符串。</p>
-<p>char16_t和char32_t是对wchar的改进，指定了特定的长度和符号，分别是16位无符号和32位无符号数，分别用前缀u和U表示。</p>
-<h2 id="3-2-const限定符"><a href="#3-2-const限定符" class="headerlink" title="3.2 const限定符"></a>3.2 const限定符</h2><p>const是比#define更好地一种常量定义方式。</p>
-<p>C++和C中const的区别：一是作用域规则；而是C++可以用const值来声明数组长度。</p>
-<h2 id="3-3-浮点数"><a href="#3-3-浮点数" class="headerlink" title="3.3 浮点数"></a>3.3 浮点数</h2><h3 id="3-3-1-书写浮点数"><a href="#3-3-1-书写浮点数" class="headerlink" title="3.3.1 书写浮点数"></a>3.3.1 书写浮点数</h3><h3 id="3-3-2-浮点类型"><a href="#3-3-2-浮点类型" class="headerlink" title="3.3.2 浮点类型"></a>3.3.2 浮点类型</h3><h3 id="3-3-3-浮点常量"><a href="#3-3-3-浮点常量" class="headerlink" title="3.3.3 浮点常量"></a>3.3.3 浮点常量</h3><p>默认情况下，程序把浮点数常量存储为double类型，但是可以通过指定f或F后缀将常量指定为float类型，或者使用l或L将浮点常量指定为long double。</p>
-<h3 id="3-3-4-浮点数的优缺点"><a href="#3-3-4-浮点数的优缺点" class="headerlink" title="3.3.4 浮点数的优缺点"></a>3.3.4 浮点数的优缺点</h3><p>浮点数会发生精度丢失的问题</p>
-<h2 id="3-4-C-算术运算发"><a href="#3-4-C-算术运算发" class="headerlink" title="3.4 C++算术运算发"></a>3.4 C++算术运算发</h2><h3 id="3-4-1-运算符优先级和结合性"><a href="#3-4-1-运算符优先级和结合性" class="headerlink" title="3.4.1 运算符优先级和结合性"></a>3.4.1 运算符优先级和结合性</h3><p>和C语言差不多，没啥好讲的</p>
-<h3 id="3-4-2-除法分支"><a href="#3-4-2-除法分支" class="headerlink" title="3.4.2 除法分支"></a>3.4.2 除法分支</h3><h3 id="3-4-3-求模运算"><a href="#3-4-3-求模运算" class="headerlink" title="3.4.3 求模运算"></a>3.4.3 求模运算</h3><h3 id="3-4-4-类型转换"><a href="#3-4-4-类型转换" class="headerlink" title="3.4.4 类型转换"></a>3.4.4 类型转换</h3><p>使用{}进行初始化的时候，对自动类型转换进行了限制，下面是几个例子</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228135934014.png"  ><span class="image-caption">image-20211228135934014</span></p>
-<p>表达式中对short进行整型提升的时候有如下规定：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140256232.png"  ><span class="image-caption">image-20211228140256232</span></p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140810426.png"  ><span class="image-caption">image-20211228140810426</span></p>
-<p>C++提出了自己的强制类型转换格式，如下：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228141943968.png"  ><span class="image-caption">image-20211228141943968</span></p>
-<p>这样可以将基础数据类型和OOP结合的更加紧密</p>
-<h3 id="3-4-5-C-11中的auto声明"><a href="#3-4-5-C-11中的auto声明" class="headerlink" title="3.4.5 C++11中的auto声明"></a>3.4.5 C++11中的auto声明</h3><p>处理复杂类型时，auto可以简化程序，如下：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228150002410.png"  ><span class="image-caption">image-20211228150002410</span></p>
-<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>基础知识，不做进一步总结。</p>
-]]></content>
       <categories>
         <category>C++学习笔记</category>
       </categories>
