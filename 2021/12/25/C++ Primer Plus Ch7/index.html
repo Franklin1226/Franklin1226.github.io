@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ Primer Plus Ch7 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第7章 函数——C++的编程模块7.1 复习函数的基本...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: false
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">C++ Primer Plus Ch7</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++ Primer Plus Ch7</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1244</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="第7章-函数——C-的编程模块"><a href="#第7章-函数——C-的编程模块" class="headerlink" title="第7章 函数——C++的编程模块"></a>第7章 函数——C++的编程模块</h1><h2 id="7-1-复习函数的基本知识"><a href="#7-1-复习函数的基本知识" class="headerlink" title="7.1 复习函数的基本知识"></a>7.1 复习函数的基本知识</h2><h3 id="7-1-1-定义函数"><a href="#7-1-1-定义函数" class="headerlink" title="7.1.1 定义函数"></a>7.1.1 定义函数</h3><p>C++对于返回值的类型有一定的限制：不能是数组，但可以是其他任何类型——整数、浮点数、指针，甚至可以是结构和对象。（虽然C++函数不能直接返回数组，但可以将数组作为结构或对象组成部分来返回）</p>
+<h3 id="7-1-2-函数原型和函数调用"><a href="#7-1-2-函数原型和函数调用" class="headerlink" title="7.1.2 函数原型和函数调用"></a>7.1.2 函数原型和函数调用</h3><p>避免使用函数原型的唯一方法时，在首次使用函数之前定义它。</p>
+<p>原型定义中的变量名可以省略</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104103508777.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104103508777</span></p>
+<h2 id="7-2-函数参数和按值传递"><a href="#7-2-函数参数和按值传递" class="headerlink" title="7.2 函数参数和按值传递"></a>7.2 函数参数和按值传递</h2><h3 id="7-2-1-多个参数"><a href="#7-2-1-多个参数" class="headerlink" title="7.2.1 多个参数"></a>7.2.1 多个参数</h3><h3 id="7-2-2-另外一个接受两个参数的函数"><a href="#7-2-2-另外一个接受两个参数的函数" class="headerlink" title="7.2.2 另外一个接受两个参数的函数"></a>7.2.2 另外一个接受两个参数的函数</h3><h2 id="7-3-函数和数组"><a href="#7-3-函数和数组" class="headerlink" title="7.3 函数和数组"></a>7.3 函数和数组</h2><h3 id="7-3-1-函数如何使用指针来处理数组"><a href="#7-3-1-函数如何使用指针来处理数组" class="headerlink" title="7.3.1 函数如何使用指针来处理数组"></a>7.3.1 函数如何使用指针来处理数组</h3><h3 id="7-3-2-将数组作为参数意味着什么"><a href="#7-3-2-将数组作为参数意味着什么" class="headerlink" title="7.3.2 将数组作为参数意味着什么"></a>7.3.2 将数组作为参数意味着什么</h3><p>当用数组作为参数时，实际上时数组对应类型的指针作为参数，当对这个参数使用sizeof时，返回的时指针的大小，而不是数组的大小</p>
+<h3 id="7-3-3-更多数组函数示例"><a href="#7-3-3-更多数组函数示例" class="headerlink" title="7.3.3 更多数组函数示例"></a>7.3.3 更多数组函数示例</h3><p>使用const关键字可以防止函数对指针参数的值修改如</p>
+<p>const double *ar可以防止函数使用ar对内容进行修改</p>
+<h3 id="7-3-4-使用数组区间的函数"><a href="#7-3-4-使用数组区间的函数" class="headerlink" title="7.3.4 使用数组区间的函数"></a>7.3.4 使用数组区间的函数</h3><h3 id="7-3-5-指针和constant"><a href="#7-3-5-指针和constant" class="headerlink" title="7.3.5 指针和constant"></a>7.3.5 指针和constant</h3><p>可以用两种不同的方式将const关键字用于指针。第一种方法是让指针指向一个常量对象，这样可以防止使用该指针来修改所指向的值，第二种方法是将指针本身声明为常量，这样可以防止改变指针指向的位置。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104125242754.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104125242754</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104125455394.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104125455394</span></p>
+<p>仅当只有一层间接关系（如指针指向基本数据类型）时，才可以将非const地址或指针赋给constant指针。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104130939017.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104130939017</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104131519386.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104131519386</span></p>
+<p>int * const finger可以防止修改指针finger，但finger指向的内容可以被修改。</p>
+<h2 id="7-4-函数和二维数组"><a href="#7-4-函数和二维数组" class="headerlink" title="7.4 函数和二维数组"></a>7.4 函数和二维数组</h2><h2 id="7-5-函数和C-风格字符串"><a href="#7-5-函数和C-风格字符串" class="headerlink" title="7.5 函数和C-风格字符串"></a>7.5 函数和C-风格字符串</h2><h3 id="7-5-1-将C-风格字符串作为参数的函数"><a href="#7-5-1-将C-风格字符串作为参数的函数" class="headerlink" title="7.5.1 将C-风格字符串作为参数的函数"></a>7.5.1 将C-风格字符串作为参数的函数</h3><h2 id="7-6-函数和结构"><a href="#7-6-函数和结构" class="headerlink" title="7.6 函数和结构"></a>7.6 函数和结构</h2><h3 id="7-6-1-传递和返回结构"><a href="#7-6-1-传递和返回结构" class="headerlink" title="7.6.1 传递和返回结构"></a>7.6.1 传递和返回结构</h3><h3 id="7-6-2-另一个处理结构的函数示例"><a href="#7-6-2-另一个处理结构的函数示例" class="headerlink" title="7.6.2 另一个处理结构的函数示例"></a>7.6.2 另一个处理结构的函数示例</h3><h3 id="7-6-3-传递结构的地址"><a href="#7-6-3-传递结构的地址" class="headerlink" title="7.6.3 传递结构的地址"></a>7.6.3 传递结构的地址</h3><h2 id="7-7-函数和string对象"><a href="#7-7-函数和string对象" class="headerlink" title="7.7 函数和string对象"></a>7.7 函数和string对象</h2><h2 id="7-8-函数与array对象"><a href="#7-8-函数与array对象" class="headerlink" title="7.8 函数与array对象"></a>7.8 函数与array对象</h2><h2 id="7-9-递归"><a href="#7-9-递归" class="headerlink" title="7.9 递归"></a>7.9 递归</h2><h3 id="7-9-1-包含一个递归调用的递归"><a href="#7-9-1-包含一个递归调用的递归" class="headerlink" title="7.9.1 包含一个递归调用的递归"></a>7.9.1 包含一个递归调用的递归</h3><h3 id="7-9-2-包含多个递归调用的递归"><a href="#7-9-2-包含多个递归调用的递归" class="headerlink" title="7.9.2 包含多个递归调用的递归"></a>7.9.2 包含多个递归调用的递归</h3><h2 id="7-10-函数指针"><a href="#7-10-函数指针" class="headerlink" title="7.10 函数指针"></a>7.10 函数指针</h2><h3 id="7-10-1-函数指针的基础知识"><a href="#7-10-1-函数指针的基础知识" class="headerlink" title="7.10.1 函数指针的基础知识"></a>7.10.1 函数指针的基础知识</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152427893.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104152427893</span></p>
+<p>如何使用函数指针调用被指向的函数？</p>
+<p>两种方式：</p>
+<p>①<img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152715529.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104152715529</span></p>
+<p>②<img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152731003.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104152731003</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152903380.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104152903380</span></p>
+<h3 id="7-10-2-函数指针示例"><a href="#7-10-2-函数指针示例" class="headerlink" title="7.10.2 函数指针示例"></a>7.10.2 函数指针示例</h3><h3 id="7-10-3-深入探讨函数指针"><a href="#7-10-3-深入探讨函数指针" class="headerlink" title="7.10.3 深入探讨函数指针"></a>7.10.3 深入探讨函数指针</h3><p>这里深入讨论了指向函数指针数组的指针，多以例子形式给出，不再一一列举。</p>
+<h3 id="7-10-4-使用typedef进行简化"><a href="#7-10-4-使用typedef进行简化" class="headerlink" title="7.10.4 使用typedef进行简化"></a>7.10.4 使用typedef进行简化</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104162541697.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220104162541697</span></p>
+<p>这里可将p_fun声明为函数指针类型的别名，可以明显的简化代码，很好的一个工具。</p>
+<h2 id="7-11-总结"><a href="#7-11-总结" class="headerlink" title="7.11 总结"></a>7.11 总结</h2>
+      </section>
+      <section class="extra">
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/12/25/Essay1/"><i class="iconfont iconleft"></i>失眠随笔</a>
+    <a href="/2021/12/20/Lab1%20Booting%20a%20PC/"><i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC7%E7%AB%A0-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C-%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97"><span class="toc-text">第7章 函数——C++的编程模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E5%A4%8D%E4%B9%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="toc-text">7.1 复习函数的基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-1-%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">7.1.1 定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-2-%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">7.1.2 函数原型和函数调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><span class="toc-text">7.2 函数参数和按值传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-1-%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="toc-text">7.2.1 多个参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-2-%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%97%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">7.2.2 另外一个接受两个参数的函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%87%BD%E6%95%B0%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-text">7.3 函数和数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88%E6%9D%A5%E5%A4%84%E7%90%86%E6%95%B0%E7%BB%84"><span class="toc-text">7.3.1 函数如何使用指针来处理数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-%E5%B0%86%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88"><span class="toc-text">7.3.2 将数组作为参数意味着什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-%E6%9B%B4%E5%A4%9A%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B"><span class="toc-text">7.3.3 更多数组函数示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-4-%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">7.3.4 使用数组区间的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-5-%E6%8C%87%E9%92%88%E5%92%8Cconstant"><span class="toc-text">7.3.5 指针和constant</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E5%87%BD%E6%95%B0%E5%92%8C%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">7.4 函数和二维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E5%87%BD%E6%95%B0%E5%92%8CC-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">7.5 函数和C-风格字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-1-%E5%B0%86C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">7.5.1 将C-风格字符串作为参数的函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6-%E5%87%BD%E6%95%B0%E5%92%8C%E7%BB%93%E6%9E%84"><span class="toc-text">7.6 函数和结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-1-%E4%BC%A0%E9%80%92%E5%92%8C%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%84"><span class="toc-text">7.6.1 传递和返回结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-2-%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%84%E7%9A%84%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B"><span class="toc-text">7.6.2 另一个处理结构的函数示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-3-%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%84%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-text">7.6.3 传递结构的地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-7-%E5%87%BD%E6%95%B0%E5%92%8Cstring%E5%AF%B9%E8%B1%A1"><span class="toc-text">7.7 函数和string对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-8-%E5%87%BD%E6%95%B0%E4%B8%8Earray%E5%AF%B9%E8%B1%A1"><span class="toc-text">7.8 函数与array对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-9-%E9%80%92%E5%BD%92"><span class="toc-text">7.9 递归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-1-%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%E7%9A%84%E9%80%92%E5%BD%92"><span class="toc-text">7.9.1 包含一个递归调用的递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-2-%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%E7%9A%84%E9%80%92%E5%BD%92"><span class="toc-text">7.9.2 包含多个递归调用的递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-10-%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="toc-text">7.10 函数指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-1-%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">7.10.1 函数指针的基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-2-%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%A4%BA%E4%BE%8B"><span class="toc-text">7.10.2 函数指针示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-3-%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="toc-text">7.10.3 深入探讨函数指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-4-%E4%BD%BF%E7%94%A8typedef%E8%BF%9B%E8%A1%8C%E7%AE%80%E5%8C%96"><span class="toc-text">7.10.4 使用typedef进行简化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-11-%E6%80%BB%E7%BB%93"><span class="toc-text">7.11 总结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/franklin1226 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1979933731@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
