@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ Primer Plus Ch6 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第6章 分支语句和逻辑运算符6.1 if语句6.1.1...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: false
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">C++ Primer Plus Ch6</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++ Primer Plus Ch6</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2169</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="第6章-分支语句和逻辑运算符"><a href="#第6章-分支语句和逻辑运算符" class="headerlink" title="第6章 分支语句和逻辑运算符"></a>第6章 分支语句和逻辑运算符</h1><h2 id="6-1-if语句"><a href="#6-1-if语句" class="headerlink" title="6.1 if语句"></a>6.1 if语句</h2><h3 id="6-1-1-if-else语句"><a href="#6-1-1-if-else语句" class="headerlink" title="6.1.1 if else语句"></a>6.1.1 if else语句</h3><h3 id="6-1-2-格式化if-else语句"><a href="#6-1-2-格式化if-else语句" class="headerlink" title="6.1.2 格式化if else语句"></a>6.1.2 格式化if else语句</h3><h3 id="6-1-3-if-else-if-else结构"><a href="#6-1-3-if-else-if-else结构" class="headerlink" title="6.1.3 if else if else结构"></a>6.1.3 if else if else结构</h3><p>条件运算符防止将==写成=的小技巧：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102203428227.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220102203428227</span></p>
+<h2 id="6-2-逻辑表达式"><a href="#6-2-逻辑表达式" class="headerlink" title="6.2 逻辑表达式"></a>6.2 逻辑表达式</h2><h3 id="6-2-1-逻辑OR运算符："><a href="#6-2-1-逻辑OR运算符：" class="headerlink" title="6.2.1 逻辑OR运算符：||"></a>6.2.1 逻辑OR运算符：||</h3><p>||是顺序运算符，从左到右的顺序计算表达式</p>
+<h3 id="6-2-2-逻辑AND运算符：-amp-amp"><a href="#6-2-2-逻辑AND运算符：-amp-amp" class="headerlink" title="6.2.2 逻辑AND运算符：&amp;&amp;"></a>6.2.2 逻辑AND运算符：&amp;&amp;</h3><h3 id="6-2-3-用-amp-amp-来设置取值范围"><a href="#6-2-3-用-amp-amp-来设置取值范围" class="headerlink" title="6.2.3 用&amp;&amp;来设置取值范围"></a>6.2.3 用&amp;&amp;来设置取值范围</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102205542844.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220102205542844</span></p>
+<p>可以通过这个例子来进一步理解C++中的运算符结合律</p>
+<h3 id="6-2-4-逻辑NOT运算符：！"><a href="#6-2-4-逻辑NOT运算符：！" class="headerlink" title="6.2.4 逻辑NOT运算符：！"></a>6.2.4 逻辑NOT运算符：！</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102205824175.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220102205824175</span></p>
+<h3 id="6-2-5-逻辑运算符细节"><a href="#6-2-5-逻辑运算符细节" class="headerlink" title="6.2.5 逻辑运算符细节"></a>6.2.5 逻辑运算符细节</h3><p>！运算符的优先级高于所有关系运算符和算术运算符。</p>
+<p>&amp;&amp;优先级高于||</p>
+<h3 id="6-2-6-其他表示方式"><a href="#6-2-6-其他表示方式" class="headerlink" title="6.2.6 其他表示方式"></a>6.2.6 其他表示方式</h3><p>可以用and, or ,not来替代&amp;&amp;,||和!。如果是C语言，还需要包含头文件iso646.h。</p>
+<h2 id="6-3-字符函数库cctype"><a href="#6-3-字符函数库cctype" class="headerlink" title="6.3 字符函数库cctype"></a>6.3 字符函数库cctype</h2><p>一个从C语言继承的与字符相关的函数软件包，用来简化确定字符是否是大写字母、数字、标点符号等工作，这些函数的原型在头文件cctype中</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cctypes.cpp -- using the ctype.h library</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span>              <span class="comment">// prototypes for character functions</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter text for analysis, and type @&quot;</span></span><br><span class="line">            <span class="string">&quot; to terminate input.\n&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> ch;  </span><br><span class="line">    <span class="keyword">int</span> whitespace = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> digits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> chars = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> punct = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> others = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    cin.<span class="built_in">get</span>(ch);                <span class="comment">// get first character</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;@&#x27;</span>)            <span class="comment">// test for sentinel</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">isalpha</span>(ch))         <span class="comment">// is it an alphabetic character?</span></span><br><span class="line">            chars++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isspace</span>(ch))    <span class="comment">// is it a whitespace character?</span></span><br><span class="line">            whitespace++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isdigit</span>(ch))    <span class="comment">// is it a digit?</span></span><br><span class="line">            digits++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">ispunct</span>(ch))    <span class="comment">// is it punctuation?</span></span><br><span class="line">            punct++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            others++;</span><br><span class="line">        cin.<span class="built_in">get</span>(ch);            <span class="comment">// get next character</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; chars &lt;&lt; <span class="string">&quot; letters, &quot;</span></span><br><span class="line">         &lt;&lt; whitespace &lt;&lt; <span class="string">&quot; whitespace, &quot;</span></span><br><span class="line">         &lt;&lt; digits &lt;&lt; <span class="string">&quot; digits, &quot;</span></span><br><span class="line">         &lt;&lt; punct &lt;&lt; <span class="string">&quot; punctuations, &quot;</span></span><br><span class="line">         &lt;&lt; others &lt;&lt; <span class="string">&quot; others.\n&quot;</span>;</span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-4-运算符"><a href="#6-4-运算符" class="headerlink" title="6.4 ?: 运算符"></a>6.4 ?: 运算符</h2><h2 id="6-5-switch语句"><a href="#6-5-switch语句" class="headerlink" title="6.5 switch语句"></a>6.5 switch语句</h2><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220103201501186.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220103201501186</span></p>
+<h3 id="6-5-1-将枚举量用作标签"><a href="#6-5-1-将枚举量用作标签" class="headerlink" title="6.5.1 将枚举量用作标签"></a>6.5.1 将枚举量用作标签</h3><h3 id="6-5-2-switch和if-else"><a href="#6-5-2-switch和if-else" class="headerlink" title="6.5.2 switch和if else"></a>6.5.2 switch和if else</h3><p>switch标签必须是整数或者枚举量</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220103203444888.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220103203444888</span></p>
+<h2 id="6-6-break和continue语句"><a href="#6-6-break和continue语句" class="headerlink" title="6.6 break和continue语句"></a>6.6 break和continue语句</h2><h2 id="6-7-读取数字的循环"><a href="#6-7-读取数字的循环" class="headerlink" title="6.7 读取数字的循环"></a>6.7 读取数字的循环</h2><h2 id="6-8-简单文件输入-输出"><a href="#6-8-简单文件输入-输出" class="headerlink" title="6.8 简单文件输入/输出"></a>6.8 简单文件输入/输出</h2><h3 id="6-8-1-文件I-O和文本文件"><a href="#6-8-1-文件I-O和文本文件" class="headerlink" title="6.8.1 文件I/O和文本文件"></a>6.8.1 文件I/O和文本文件</h3><p>使用cin进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。这里很重要，不管目标数据类型是什么，输入一开始都是字符数据——文本数据。</p>
+<h3 id="6-8-2-写入到文本文件中"><a href="#6-8-2-写入到文本文件中" class="headerlink" title="6.8.2 写入到文本文件中"></a>6.8.2 写入到文本文件中</h3><h3 id="6-8-3-读取文件文本"><a href="#6-8-3-读取文件文本" class="headerlink" title="6.8.3 读取文件文本"></a>6.8.3 读取文件文本</h3><h2 id="6-9-总结"><a href="#6-9-总结" class="headerlink" title="6.9 总结"></a>6.9 总结</h2>
+      </section>
+      <section class="extra">
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch5/"><i class="iconfont iconleft"></i>C++ Primer Plus Ch5</a>
+    <a href="/2021/12/25/Essay1/">失眠随笔<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC6%E7%AB%A0-%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">第6章 分支语句和逻辑运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-if%E8%AF%AD%E5%8F%A5"><span class="toc-text">6.1 if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-1-if-else%E8%AF%AD%E5%8F%A5"><span class="toc-text">6.1.1 if else语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-2-%E6%A0%BC%E5%BC%8F%E5%8C%96if-else%E8%AF%AD%E5%8F%A5"><span class="toc-text">6.1.2 格式化if else语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-3-if-else-if-else%E7%BB%93%E6%9E%84"><span class="toc-text">6.1.3 if else if else结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E9%80%BB%E8%BE%91%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">6.2 逻辑表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-%E9%80%BB%E8%BE%91OR%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="toc-text">6.2.1 逻辑OR运算符：||</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-%E9%80%BB%E8%BE%91AND%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A-amp-amp"><span class="toc-text">6.2.2 逻辑AND运算符：&amp;&amp;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-3-%E7%94%A8-amp-amp-%E6%9D%A5%E8%AE%BE%E7%BD%AE%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="toc-text">6.2.3 用&amp;&amp;来设置取值范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-4-%E9%80%BB%E8%BE%91NOT%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%EF%BC%81"><span class="toc-text">6.2.4 逻辑NOT运算符：！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-5-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%BB%86%E8%8A%82"><span class="toc-text">6.2.5 逻辑运算符细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-6-%E5%85%B6%E4%BB%96%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">6.2.6 其他表示方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E5%AD%97%E7%AC%A6%E5%87%BD%E6%95%B0%E5%BA%93cctype"><span class="toc-text">6.3 字符函数库cctype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">6.4 ?: 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-switch%E8%AF%AD%E5%8F%A5"><span class="toc-text">6.5 switch语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-1-%E5%B0%86%E6%9E%9A%E4%B8%BE%E9%87%8F%E7%94%A8%E4%BD%9C%E6%A0%87%E7%AD%BE"><span class="toc-text">6.5.1 将枚举量用作标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-2-switch%E5%92%8Cif-else"><span class="toc-text">6.5.2 switch和if else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-break%E5%92%8Ccontinue%E8%AF%AD%E5%8F%A5"><span class="toc-text">6.6 break和continue语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-7-%E8%AF%BB%E5%8F%96%E6%95%B0%E5%AD%97%E7%9A%84%E5%BE%AA%E7%8E%AF"><span class="toc-text">6.7 读取数字的循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-8-%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA"><span class="toc-text">6.8 简单文件输入&#x2F;输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-1-%E6%96%87%E4%BB%B6I-O%E5%92%8C%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="toc-text">6.8.1 文件I&#x2F;O和文本文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-2-%E5%86%99%E5%85%A5%E5%88%B0%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">6.8.2 写入到文本文件中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-3-%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%96%87%E6%9C%AC"><span class="toc-text">6.8.3 读取文件文本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-9-%E6%80%BB%E7%BB%93"><span class="toc-text">6.9 总结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/franklin1226 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1979933731@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
