@@ -27,6 +27,21 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ Primer Plus Ch1</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch1/</url>
+    <content><![CDATA[<p>本人从今天起正式为找工作做准备，由于自己想从事后端架构师相关的工作，所以目前打算先将C++作为自己的主修语言。C++ Primer Plus这本书之前也读过，但是由于缺乏笔记记录，导致现在很多知识忘得一干二净。痛定思痛，现决定开一个专栏，记录一下自己的学习过程，同时将其作为笔记以备后用。</p>
+<p>今天先从第一章开始学起，首先介绍了C++和C语言的关系。可以认为C++是在C语言的基础上发展而来的，它在C语言基础上添加了以类为代表的面向对象语言特性，以及C++模板支持的泛型编程。程序是由数据+算法组成的，传统的过程化语言（如C）都是强调的程序的算法方面，首先确定计算机应采取的操作，然后用编程语言去实现它。而OOP强调的是数据，OOP程序首先设计程序运行中需要的各种类，它们准确地表示了程序要处理的东西。有了这些类，我们就可以设计一个使用这些类的对象的程序了。面向对象语言（OOP）不同于过程性编程，他的重点没有放在任务上，而是放在概念的表示上。在引入OOP之后，C++又引入了泛型编程，类比于JAVA中的泛型编程，泛型编程指的是创建独立于类型的代码，可以使程序与不同类型的数据兼容。下面一张图展示了C++和C之间的关系。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211225151312525.png"  ><span class="image-caption">image-20211225151312525</span></p>
+<p>第一章最后介绍了C++程序的常规编译流程，并介绍了市面上比较常见的编译工具和集成开发环境，这里就不再一一赘述。</p>
+]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Primer Plus Ch2</title>
     <url>/2021/12/25/C++%20Primer%20Plus%20Ch2/</url>
     <content><![CDATA[<h1 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h1><h2 id="2-1-进入C"><a href="#2-1-进入C" class="headerlink" title="2.1 进入C++"></a>2.1 进入C++</h2><h3 id="2-1-1-main-函数"><a href="#2-1-1-main-函数" class="headerlink" title="2.1.1 main()函数"></a>2.1.1 main()函数</h3><p>以myfirst.cpp为例分析main函数</p>
@@ -56,21 +71,6 @@
 <p>答：返回给了操作系统，在一些情况下，命令行窗口（cmd）接受main函数的返回值，用来判断程序的运行情况。默认正常退出返回0.</p>
 <h3 id="2-4-4-用户定义的有返回值的函数"><a href="#2-4-4-用户定义的有返回值的函数" class="headerlink" title="2.4.4 用户定义的有返回值的函数"></a>2.4.4 用户定义的有返回值的函数</h3><h3 id="2-4-5-在多函数程序中使用using编译指令"><a href="#2-4-5-在多函数程序中使用using编译指令" class="headerlink" title="2.4.5 在多函数程序中使用using编译指令"></a>2.4.5 在多函数程序中使用using编译指令</h3><p>using namespace std;这条编译指令可以选择合适大小的作用域，在作用域外的程序部分不能使用std名称空间中定义的元素。</p>
 <p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226163940797.png"  ><span class="image-caption">image-20211226163940797</span></p>
-]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch1</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch1/</url>
-    <content><![CDATA[<p>本人从今天起正式为找工作做准备，由于自己想从事后端架构师相关的工作，所以目前打算先将C++作为自己的主修语言。C++ Primer Plus这本书之前也读过，但是由于缺乏笔记记录，导致现在很多知识忘得一干二净。痛定思痛，现决定开一个专栏，记录一下自己的学习过程，同时将其作为笔记以备后用。</p>
-<p>今天先从第一章开始学起，首先介绍了C++和C语言的关系。可以认为C++是在C语言的基础上发展而来的，它在C语言基础上添加了以类为代表的面向对象语言特性，以及C++模板支持的泛型编程。程序是由数据+算法组成的，传统的过程化语言（如C）都是强调的程序的算法方面，首先确定计算机应采取的操作，然后用编程语言去实现它。而OOP强调的是数据，OOP程序首先设计程序运行中需要的各种类，它们准确地表示了程序要处理的东西。有了这些类，我们就可以设计一个使用这些类的对象的程序了。面向对象语言（OOP）不同于过程性编程，他的重点没有放在任务上，而是放在概念的表示上。在引入OOP之后，C++又引入了泛型编程，类比于JAVA中的泛型编程，泛型编程指的是创建独立于类型的代码，可以使程序与不同类型的数据兼容。下面一张图展示了C++和C之间的关系。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211225151312525.png"  ><span class="image-caption">image-20211225151312525</span></p>
-<p>第一章最后介绍了C++程序的常规编译流程，并介绍了市面上比较常见的编译工具和集成开发环境，这里就不再一一赘述。</p>
 ]]></content>
       <categories>
         <category>C++学习笔记</category>
