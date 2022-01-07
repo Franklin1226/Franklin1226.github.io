@@ -80,60 +80,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++ Primer Plus Ch3</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch3/</url>
-    <content><![CDATA[<h1 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h1><h2 id="3-1-简单变量"><a href="#3-1-简单变量" class="headerlink" title="3.1 简单变量"></a>3.1 简单变量</h2><p>书中说到了一个对变量的理解，变量在声明时，程序会为其分配指定大小的空间，然后程序员可以使用变量名来找到这块空间。</p>
-<h3 id="3-1-1-变量名"><a href="#3-1-1-变量名" class="headerlink" title="3.1.1 变量名"></a>3.1.1 变量名</h3><p>下面给出C++中变量的命名规则</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226171614191.png"  ><span class="image-caption">image-20211226171614191</span></p>
-<p>其中倒数第二条说的这种情况确实在阅读一些库函数源码的时候遇到过，是留给C++的标准库和编译器的实现者在编写代码时使用的，用来和普通用户代码做区分。</p>
-<h3 id="3-1-2-整型"><a href="#3-1-2-整型" class="headerlink" title="3.1.2 整型"></a>3.1.2 整型</h3><p>一个比较新颖的知识点是1字节并不一定都是8位的，字节的定义是能够表示完整字符集的位数，对于ASCII码来说，8位就足够了；但汉字等其他语言字符可能需要更大空间来表示所有的字符。如Unicode，因此有的实现需要16位甚至32位的字节。</p>
-<p>整数的字长在C++中不同机器上可能不尽相同，C++提供了一种灵活的标准，如下所示</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226192138130.png"  ><span class="image-caption">image-20211226192138130</span></p>
-<p>由于这种灵活的规定，C++在移植到不同的机器上面时容易产生整形字节数不一致的问题。climits头文件中定义了各种限制的符号名称，如INT_MAX为int的最大取值，CHAR_BIT为字节的位数。</p>
-<h3 id="3-1-2-整型short、int、long和long-long"><a href="#3-1-2-整型short、int、long和long-long" class="headerlink" title="3.1.2 整型short、int、long和long long"></a>3.1.2 整型short、int、long和long long</h3><p>C++中独有的初始化方式</p>
-<p>int wrens(432);</p>
-<p>int hamburgers = {24}</p>
-<p>int emus{7}</p>
-<p>int rocs = {};//set rocs to 0</p>
-<p>int psychics{};//set psychics to 0</p>
-<p>这种采用大括号进行初始化的方式可以更好地防范类型的转换错误</p>
-<p>大括号这种初始化方式可以统一任何类型变量的初始化形式</p>
-<h3 id="3-1-4-无符号类型"><a href="#3-1-4-无符号类型" class="headerlink" title="3.1.4 无符号类型"></a>3.1.4 无符号类型</h3><h3 id="3-1-5-选择整型类型"><a href="#3-1-5-选择整型类型" class="headerlink" title="3.1.5 选择整型类型"></a>3.1.5 选择整型类型</h3><p>一个小知识点：int被设置为对目标计算机而言最为“自然”的长度，自然长度指的是计算机处理起来效率最高的长度。</p>
-<p>还有一个经验之谈，当所表示的数据用short(16位)装不下时，应将其扩展为long而不是int，这样当程序运行在一些int位16位的机器上时也不会有问题。</p>
-<h3 id="3-1-6-整型字面值"><a href="#3-1-6-整型字面值" class="headerlink" title="3.1.6 整型字面值"></a>3.1.6 整型字面值</h3><p>可以使用dec,hex,oct来控制cout输出不同进制的整数，分别为十进制，十六进制和八进制。</p>
-<h3 id="3-1-7-C-如何确定常量的类型"><a href="#3-1-7-C-如何确定常量的类型" class="headerlink" title="3.1.7 C++如何确定常量的类型"></a>3.1.7 C++如何确定常量的类型</h3><p>对于十进制常量，用带符号整数int,long和long long对其进行配对；对于十六进制和八进制，用int, unsigned int, long, unsigned long, long long ,unsigned long long对其进行配对，与前者相比，加入了unsigned整数。</p>
-<h3 id="3-1-8-char类型：字符和小整数"><a href="#3-1-8-char类型：字符和小整数" class="headerlink" title="3.1.8 char类型：字符和小整数"></a>3.1.8 char类型：字符和小整数</h3><p>可以使用数字转义序列和字符转义序列，但字符转义序列更具有通用性</p>
-<p>数字转移序列举例：\032 \x1a分别是ASCII码26的八进制和十六进制表示</p>
-<p>通用字符名允许在源代码中添加一些不同国家的字母，\u或\U打头，\u后面是8个十六进制，\U后面则是16个十六进制（感觉这里书上写错了，应该分别是4和8个十六进制位）。下面看个例子：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226212925125.png"  ><span class="image-caption">image-20211226212925125</span></p>
-<p>char在默认情况下既不是有符号也不是没有符号，有C++实现决定。</p>
-<p>宽字符类型wchar_t可以表示扩展字符集，这种类型与底层的一种整数类型长度和符号属性相同，这取决于C++编译器的实现。可以通过加上前缀L来指示宽字符常量和宽字符串。</p>
-<p>char16_t和char32_t是对wchar的改进，指定了特定的长度和符号，分别是16位无符号和32位无符号数，分别用前缀u和U表示。</p>
-<h2 id="3-2-const限定符"><a href="#3-2-const限定符" class="headerlink" title="3.2 const限定符"></a>3.2 const限定符</h2><p>const是比#define更好地一种常量定义方式。</p>
-<p>C++和C中const的区别：一是作用域规则；而是C++可以用const值来声明数组长度。</p>
-<h2 id="3-3-浮点数"><a href="#3-3-浮点数" class="headerlink" title="3.3 浮点数"></a>3.3 浮点数</h2><h3 id="3-3-1-书写浮点数"><a href="#3-3-1-书写浮点数" class="headerlink" title="3.3.1 书写浮点数"></a>3.3.1 书写浮点数</h3><h3 id="3-3-2-浮点类型"><a href="#3-3-2-浮点类型" class="headerlink" title="3.3.2 浮点类型"></a>3.3.2 浮点类型</h3><h3 id="3-3-3-浮点常量"><a href="#3-3-3-浮点常量" class="headerlink" title="3.3.3 浮点常量"></a>3.3.3 浮点常量</h3><p>默认情况下，程序把浮点数常量存储为double类型，但是可以通过指定f或F后缀将常量指定为float类型，或者使用l或L将浮点常量指定为long double。</p>
-<h3 id="3-3-4-浮点数的优缺点"><a href="#3-3-4-浮点数的优缺点" class="headerlink" title="3.3.4 浮点数的优缺点"></a>3.3.4 浮点数的优缺点</h3><p>浮点数会发生精度丢失的问题</p>
-<h2 id="3-4-C-算术运算发"><a href="#3-4-C-算术运算发" class="headerlink" title="3.4 C++算术运算发"></a>3.4 C++算术运算发</h2><h3 id="3-4-1-运算符优先级和结合性"><a href="#3-4-1-运算符优先级和结合性" class="headerlink" title="3.4.1 运算符优先级和结合性"></a>3.4.1 运算符优先级和结合性</h3><p>和C语言差不多，没啥好讲的</p>
-<h3 id="3-4-2-除法分支"><a href="#3-4-2-除法分支" class="headerlink" title="3.4.2 除法分支"></a>3.4.2 除法分支</h3><h3 id="3-4-3-求模运算"><a href="#3-4-3-求模运算" class="headerlink" title="3.4.3 求模运算"></a>3.4.3 求模运算</h3><h3 id="3-4-4-类型转换"><a href="#3-4-4-类型转换" class="headerlink" title="3.4.4 类型转换"></a>3.4.4 类型转换</h3><p>使用{}进行初始化的时候，对自动类型转换进行了限制，下面是几个例子</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228135934014.png"  ><span class="image-caption">image-20211228135934014</span></p>
-<p>表达式中对short进行整型提升的时候有如下规定：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140256232.png"  ><span class="image-caption">image-20211228140256232</span></p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140810426.png"  ><span class="image-caption">image-20211228140810426</span></p>
-<p>C++提出了自己的强制类型转换格式，如下：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228141943968.png"  ><span class="image-caption">image-20211228141943968</span></p>
-<p>这样可以将基础数据类型和OOP结合的更加紧密</p>
-<h3 id="3-4-5-C-11中的auto声明"><a href="#3-4-5-C-11中的auto声明" class="headerlink" title="3.4.5 C++11中的auto声明"></a>3.4.5 C++11中的auto声明</h3><p>处理复杂类型时，auto可以简化程序，如下：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228150002410.png"  ><span class="image-caption">image-20211228150002410</span></p>
-<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>基础知识，不做进一步总结。</p>
-]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ Primer Plus Ch4</title>
     <url>/2021/12/25/C++%20Primer%20Plus%20Ch4/</url>
     <content><![CDATA[<h1 id="第4章-复合类型"><a href="#第4章-复合类型" class="headerlink" title="第4章 复合类型"></a>第4章 复合类型</h1><h2 id="4-1-数组"><a href="#4-1-数组" class="headerlink" title="4.1 数组"></a>4.1 数组</h2><h3 id="4-1-1-程序说明"><a href="#4-1-1-程序说明" class="headerlink" title="4.1.1 程序说明"></a>4.1.1 程序说明</h3><h3 id="4-1-2-数组的初始化规则"><a href="#4-1-2-数组的初始化规则" class="headerlink" title="4.1.2 数组的初始化规则"></a>4.1.2 数组的初始化规则</h3><h3 id="4-1-3-C-11数组初始化方法"><a href="#4-1-3-C-11数组初始化方法" class="headerlink" title="4.1.3 C++11数组初始化方法"></a>4.1.3 C++11数组初始化方法</h3><p>C++中使用{}初始化时可以省略=号，并且{}中可以不包含任何东西，这将所有元素都设置为零；列表初始化禁止缩窄转换，在第3章中有介绍过。下面是禁止缩窄转换的例子：</p>
@@ -207,6 +153,60 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ Primer Plus Ch3</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch3/</url>
+    <content><![CDATA[<h1 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h1><h2 id="3-1-简单变量"><a href="#3-1-简单变量" class="headerlink" title="3.1 简单变量"></a>3.1 简单变量</h2><p>书中说到了一个对变量的理解，变量在声明时，程序会为其分配指定大小的空间，然后程序员可以使用变量名来找到这块空间。</p>
+<h3 id="3-1-1-变量名"><a href="#3-1-1-变量名" class="headerlink" title="3.1.1 变量名"></a>3.1.1 变量名</h3><p>下面给出C++中变量的命名规则</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226171614191.png"  ><span class="image-caption">image-20211226171614191</span></p>
+<p>其中倒数第二条说的这种情况确实在阅读一些库函数源码的时候遇到过，是留给C++的标准库和编译器的实现者在编写代码时使用的，用来和普通用户代码做区分。</p>
+<h3 id="3-1-2-整型"><a href="#3-1-2-整型" class="headerlink" title="3.1.2 整型"></a>3.1.2 整型</h3><p>一个比较新颖的知识点是1字节并不一定都是8位的，字节的定义是能够表示完整字符集的位数，对于ASCII码来说，8位就足够了；但汉字等其他语言字符可能需要更大空间来表示所有的字符。如Unicode，因此有的实现需要16位甚至32位的字节。</p>
+<p>整数的字长在C++中不同机器上可能不尽相同，C++提供了一种灵活的标准，如下所示</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226192138130.png"  ><span class="image-caption">image-20211226192138130</span></p>
+<p>由于这种灵活的规定，C++在移植到不同的机器上面时容易产生整形字节数不一致的问题。climits头文件中定义了各种限制的符号名称，如INT_MAX为int的最大取值，CHAR_BIT为字节的位数。</p>
+<h3 id="3-1-2-整型short、int、long和long-long"><a href="#3-1-2-整型short、int、long和long-long" class="headerlink" title="3.1.2 整型short、int、long和long long"></a>3.1.2 整型short、int、long和long long</h3><p>C++中独有的初始化方式</p>
+<p>int wrens(432);</p>
+<p>int hamburgers = {24}</p>
+<p>int emus{7}</p>
+<p>int rocs = {};//set rocs to 0</p>
+<p>int psychics{};//set psychics to 0</p>
+<p>这种采用大括号进行初始化的方式可以更好地防范类型的转换错误</p>
+<p>大括号这种初始化方式可以统一任何类型变量的初始化形式</p>
+<h3 id="3-1-4-无符号类型"><a href="#3-1-4-无符号类型" class="headerlink" title="3.1.4 无符号类型"></a>3.1.4 无符号类型</h3><h3 id="3-1-5-选择整型类型"><a href="#3-1-5-选择整型类型" class="headerlink" title="3.1.5 选择整型类型"></a>3.1.5 选择整型类型</h3><p>一个小知识点：int被设置为对目标计算机而言最为“自然”的长度，自然长度指的是计算机处理起来效率最高的长度。</p>
+<p>还有一个经验之谈，当所表示的数据用short(16位)装不下时，应将其扩展为long而不是int，这样当程序运行在一些int位16位的机器上时也不会有问题。</p>
+<h3 id="3-1-6-整型字面值"><a href="#3-1-6-整型字面值" class="headerlink" title="3.1.6 整型字面值"></a>3.1.6 整型字面值</h3><p>可以使用dec,hex,oct来控制cout输出不同进制的整数，分别为十进制，十六进制和八进制。</p>
+<h3 id="3-1-7-C-如何确定常量的类型"><a href="#3-1-7-C-如何确定常量的类型" class="headerlink" title="3.1.7 C++如何确定常量的类型"></a>3.1.7 C++如何确定常量的类型</h3><p>对于十进制常量，用带符号整数int,long和long long对其进行配对；对于十六进制和八进制，用int, unsigned int, long, unsigned long, long long ,unsigned long long对其进行配对，与前者相比，加入了unsigned整数。</p>
+<h3 id="3-1-8-char类型：字符和小整数"><a href="#3-1-8-char类型：字符和小整数" class="headerlink" title="3.1.8 char类型：字符和小整数"></a>3.1.8 char类型：字符和小整数</h3><p>可以使用数字转义序列和字符转义序列，但字符转义序列更具有通用性</p>
+<p>数字转移序列举例：\032 \x1a分别是ASCII码26的八进制和十六进制表示</p>
+<p>通用字符名允许在源代码中添加一些不同国家的字母，\u或\U打头，\u后面是8个十六进制，\U后面则是16个十六进制（感觉这里书上写错了，应该分别是4和8个十六进制位）。下面看个例子：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211226212925125.png"  ><span class="image-caption">image-20211226212925125</span></p>
+<p>char在默认情况下既不是有符号也不是没有符号，有C++实现决定。</p>
+<p>宽字符类型wchar_t可以表示扩展字符集，这种类型与底层的一种整数类型长度和符号属性相同，这取决于C++编译器的实现。可以通过加上前缀L来指示宽字符常量和宽字符串。</p>
+<p>char16_t和char32_t是对wchar的改进，指定了特定的长度和符号，分别是16位无符号和32位无符号数，分别用前缀u和U表示。</p>
+<h2 id="3-2-const限定符"><a href="#3-2-const限定符" class="headerlink" title="3.2 const限定符"></a>3.2 const限定符</h2><p>const是比#define更好地一种常量定义方式。</p>
+<p>C++和C中const的区别：一是作用域规则；而是C++可以用const值来声明数组长度。</p>
+<h2 id="3-3-浮点数"><a href="#3-3-浮点数" class="headerlink" title="3.3 浮点数"></a>3.3 浮点数</h2><h3 id="3-3-1-书写浮点数"><a href="#3-3-1-书写浮点数" class="headerlink" title="3.3.1 书写浮点数"></a>3.3.1 书写浮点数</h3><h3 id="3-3-2-浮点类型"><a href="#3-3-2-浮点类型" class="headerlink" title="3.3.2 浮点类型"></a>3.3.2 浮点类型</h3><h3 id="3-3-3-浮点常量"><a href="#3-3-3-浮点常量" class="headerlink" title="3.3.3 浮点常量"></a>3.3.3 浮点常量</h3><p>默认情况下，程序把浮点数常量存储为double类型，但是可以通过指定f或F后缀将常量指定为float类型，或者使用l或L将浮点常量指定为long double。</p>
+<h3 id="3-3-4-浮点数的优缺点"><a href="#3-3-4-浮点数的优缺点" class="headerlink" title="3.3.4 浮点数的优缺点"></a>3.3.4 浮点数的优缺点</h3><p>浮点数会发生精度丢失的问题</p>
+<h2 id="3-4-C-算术运算发"><a href="#3-4-C-算术运算发" class="headerlink" title="3.4 C++算术运算发"></a>3.4 C++算术运算发</h2><h3 id="3-4-1-运算符优先级和结合性"><a href="#3-4-1-运算符优先级和结合性" class="headerlink" title="3.4.1 运算符优先级和结合性"></a>3.4.1 运算符优先级和结合性</h3><p>和C语言差不多，没啥好讲的</p>
+<h3 id="3-4-2-除法分支"><a href="#3-4-2-除法分支" class="headerlink" title="3.4.2 除法分支"></a>3.4.2 除法分支</h3><h3 id="3-4-3-求模运算"><a href="#3-4-3-求模运算" class="headerlink" title="3.4.3 求模运算"></a>3.4.3 求模运算</h3><h3 id="3-4-4-类型转换"><a href="#3-4-4-类型转换" class="headerlink" title="3.4.4 类型转换"></a>3.4.4 类型转换</h3><p>使用{}进行初始化的时候，对自动类型转换进行了限制，下面是几个例子</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228135934014.png"  ><span class="image-caption">image-20211228135934014</span></p>
+<p>表达式中对short进行整型提升的时候有如下规定：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140256232.png"  ><span class="image-caption">image-20211228140256232</span></p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228140810426.png"  ><span class="image-caption">image-20211228140810426</span></p>
+<p>C++提出了自己的强制类型转换格式，如下：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228141943968.png"  ><span class="image-caption">image-20211228141943968</span></p>
+<p>这样可以将基础数据类型和OOP结合的更加紧密</p>
+<h3 id="3-4-5-C-11中的auto声明"><a href="#3-4-5-C-11中的auto声明" class="headerlink" title="3.4.5 C++11中的auto声明"></a>3.4.5 C++11中的auto声明</h3><p>处理复杂类型时，auto可以简化程序，如下：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20211228150002410.png"  ><span class="image-caption">image-20211228150002410</span></p>
+<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>基础知识，不做进一步总结。</p>
+]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Primer Plus Ch5</title>
     <url>/2021/12/25/C++%20Primer%20Plus%20Ch5/</url>
     <content><![CDATA[<h1 id="第5章-循环和关系表达式"><a href="#第5章-循环和关系表达式" class="headerlink" title="第5章 循环和关系表达式"></a>第5章 循环和关系表达式</h1><h2 id="5-1-for循环"><a href="#5-1-for循环" class="headerlink" title="5.1 for循环"></a>5.1 for循环</h2><h3 id="5-1-1-for循环的组成部分"><a href="#5-1-1-for循环的组成部分" class="headerlink" title="5.1.1 for循环的组成部分"></a>5.1.1 for循环的组成部分</h3><p>可以使用cout.setf(ios_base::boolalpha)来控制标准输出输出bool值的false和true，而不是1和0.</p>
@@ -232,67 +232,6 @@
 <p>ifstream类提供了一个可以将istream对象（如cin）转换为bool值的函数；当cin出现在需要bool值的地方（如在while循环的测试条件中）时，该转换函数将被调用。而且这种转换比cin.fail()或cin.eof()更为通用，因为它可以检测到其他失败的原因，如磁盘故障。</p>
 <h3 id="5-5-5-另一个cin-get-版本"><a href="#5-5-5-另一个cin-get-版本" class="headerlink" title="5.5.5 另一个cin.get()版本"></a>5.5.5 另一个cin.get()版本</h3><p>ch = cin.get()和cout.put()</p>
 <h2 id="5-6-嵌套循环和二维数组"><a href="#5-6-嵌套循环和二维数组" class="headerlink" title="5.6 嵌套循环和二维数组"></a>5.6 嵌套循环和二维数组</h2><h3 id="5-6-1-初始化二维数组"><a href="#5-6-1-初始化二维数组" class="headerlink" title="5.6.1 初始化二维数组"></a>5.6.1 初始化二维数组</h3><h3 id="5-6-2-使用二维数组"><a href="#5-6-2-使用二维数组" class="headerlink" title="5.6.2 使用二维数组"></a>5.6.2 使用二维数组</h3><h2 id="5-7-总结"><a href="#5-7-总结" class="headerlink" title="5.7 总结"></a>5.7 总结</h2>]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch6</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch6/</url>
-    <content><![CDATA[<h1 id="第6章-分支语句和逻辑运算符"><a href="#第6章-分支语句和逻辑运算符" class="headerlink" title="第6章 分支语句和逻辑运算符"></a>第6章 分支语句和逻辑运算符</h1><h2 id="6-1-if语句"><a href="#6-1-if语句" class="headerlink" title="6.1 if语句"></a>6.1 if语句</h2><h3 id="6-1-1-if-else语句"><a href="#6-1-1-if-else语句" class="headerlink" title="6.1.1 if else语句"></a>6.1.1 if else语句</h3><h3 id="6-1-2-格式化if-else语句"><a href="#6-1-2-格式化if-else语句" class="headerlink" title="6.1.2 格式化if else语句"></a>6.1.2 格式化if else语句</h3><h3 id="6-1-3-if-else-if-else结构"><a href="#6-1-3-if-else-if-else结构" class="headerlink" title="6.1.3 if else if else结构"></a>6.1.3 if else if else结构</h3><p>条件运算符防止将==写成=的小技巧：</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102203428227.png"  ><span class="image-caption">image-20220102203428227</span></p>
-<h2 id="6-2-逻辑表达式"><a href="#6-2-逻辑表达式" class="headerlink" title="6.2 逻辑表达式"></a>6.2 逻辑表达式</h2><h3 id="6-2-1-逻辑OR运算符："><a href="#6-2-1-逻辑OR运算符：" class="headerlink" title="6.2.1 逻辑OR运算符：||"></a>6.2.1 逻辑OR运算符：||</h3><p>||是顺序运算符，从左到右的顺序计算表达式</p>
-<h3 id="6-2-2-逻辑AND运算符：-amp-amp"><a href="#6-2-2-逻辑AND运算符：-amp-amp" class="headerlink" title="6.2.2 逻辑AND运算符：&amp;&amp;"></a>6.2.2 逻辑AND运算符：&amp;&amp;</h3><h3 id="6-2-3-用-amp-amp-来设置取值范围"><a href="#6-2-3-用-amp-amp-来设置取值范围" class="headerlink" title="6.2.3 用&amp;&amp;来设置取值范围"></a>6.2.3 用&amp;&amp;来设置取值范围</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102205542844.png"  ><span class="image-caption">image-20220102205542844</span></p>
-<p>可以通过这个例子来进一步理解C++中的运算符结合律</p>
-<h3 id="6-2-4-逻辑NOT运算符：！"><a href="#6-2-4-逻辑NOT运算符：！" class="headerlink" title="6.2.4 逻辑NOT运算符：！"></a>6.2.4 逻辑NOT运算符：！</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102205824175.png"  ><span class="image-caption">image-20220102205824175</span></p>
-<h3 id="6-2-5-逻辑运算符细节"><a href="#6-2-5-逻辑运算符细节" class="headerlink" title="6.2.5 逻辑运算符细节"></a>6.2.5 逻辑运算符细节</h3><p>！运算符的优先级高于所有关系运算符和算术运算符。</p>
-<p>&amp;&amp;优先级高于||</p>
-<h3 id="6-2-6-其他表示方式"><a href="#6-2-6-其他表示方式" class="headerlink" title="6.2.6 其他表示方式"></a>6.2.6 其他表示方式</h3><p>可以用and, or ,not来替代&amp;&amp;,||和!。如果是C语言，还需要包含头文件iso646.h。</p>
-<h2 id="6-3-字符函数库cctype"><a href="#6-3-字符函数库cctype" class="headerlink" title="6.3 字符函数库cctype"></a>6.3 字符函数库cctype</h2><p>一个从C语言继承的与字符相关的函数软件包，用来简化确定字符是否是大写字母、数字、标点符号等工作，这些函数的原型在头文件cctype中</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// cctypes.cpp -- using the ctype.h library</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span>              <span class="comment">// prototypes for character functions</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter text for analysis, and type @&quot;</span></span><br><span class="line">            <span class="string">&quot; to terminate input.\n&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> ch;  </span><br><span class="line">    <span class="keyword">int</span> whitespace = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> digits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> chars = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> punct = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> others = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    cin.<span class="built_in">get</span>(ch);                <span class="comment">// get first character</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;@&#x27;</span>)            <span class="comment">// test for sentinel</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">isalpha</span>(ch))         <span class="comment">// is it an alphabetic character?</span></span><br><span class="line">            chars++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isspace</span>(ch))    <span class="comment">// is it a whitespace character?</span></span><br><span class="line">            whitespace++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isdigit</span>(ch))    <span class="comment">// is it a digit?</span></span><br><span class="line">            digits++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">ispunct</span>(ch))    <span class="comment">// is it punctuation?</span></span><br><span class="line">            punct++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            others++;</span><br><span class="line">        cin.<span class="built_in">get</span>(ch);            <span class="comment">// get next character</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; chars &lt;&lt; <span class="string">&quot; letters, &quot;</span></span><br><span class="line">         &lt;&lt; whitespace &lt;&lt; <span class="string">&quot; whitespace, &quot;</span></span><br><span class="line">         &lt;&lt; digits &lt;&lt; <span class="string">&quot; digits, &quot;</span></span><br><span class="line">         &lt;&lt; punct &lt;&lt; <span class="string">&quot; punctuations, &quot;</span></span><br><span class="line">         &lt;&lt; others &lt;&lt; <span class="string">&quot; others.\n&quot;</span>;</span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-4-运算符"><a href="#6-4-运算符" class="headerlink" title="6.4 ?: 运算符"></a>6.4 ?: 运算符</h2><h2 id="6-5-switch语句"><a href="#6-5-switch语句" class="headerlink" title="6.5 switch语句"></a>6.5 switch语句</h2><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220103201501186.png"  ><span class="image-caption">image-20220103201501186</span></p>
-<h3 id="6-5-1-将枚举量用作标签"><a href="#6-5-1-将枚举量用作标签" class="headerlink" title="6.5.1 将枚举量用作标签"></a>6.5.1 将枚举量用作标签</h3><h3 id="6-5-2-switch和if-else"><a href="#6-5-2-switch和if-else" class="headerlink" title="6.5.2 switch和if else"></a>6.5.2 switch和if else</h3><p>switch标签必须是整数或者枚举量</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220103203444888.png"  ><span class="image-caption">image-20220103203444888</span></p>
-<h2 id="6-6-break和continue语句"><a href="#6-6-break和continue语句" class="headerlink" title="6.6 break和continue语句"></a>6.6 break和continue语句</h2><h2 id="6-7-读取数字的循环"><a href="#6-7-读取数字的循环" class="headerlink" title="6.7 读取数字的循环"></a>6.7 读取数字的循环</h2><h2 id="6-8-简单文件输入-输出"><a href="#6-8-简单文件输入-输出" class="headerlink" title="6.8 简单文件输入/输出"></a>6.8 简单文件输入/输出</h2><h3 id="6-8-1-文件I-O和文本文件"><a href="#6-8-1-文件I-O和文本文件" class="headerlink" title="6.8.1 文件I/O和文本文件"></a>6.8.1 文件I/O和文本文件</h3><p>使用cin进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。这里很重要，不管目标数据类型是什么，输入一开始都是字符数据——文本数据。</p>
-<h3 id="6-8-2-写入到文本文件中"><a href="#6-8-2-写入到文本文件中" class="headerlink" title="6.8.2 写入到文本文件中"></a>6.8.2 写入到文本文件中</h3><h3 id="6-8-3-读取文件文本"><a href="#6-8-3-读取文件文本" class="headerlink" title="6.8.3 读取文件文本"></a>6.8.3 读取文件文本</h3><h2 id="6-9-总结"><a href="#6-9-总结" class="headerlink" title="6.9 总结"></a>6.9 总结</h2>]]></content>
-      <categories>
-        <category>C++学习笔记</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Primer Plus Ch7</title>
-    <url>/2021/12/25/C++%20Primer%20Plus%20Ch7/</url>
-    <content><![CDATA[<h1 id="第7章-函数——C-的编程模块"><a href="#第7章-函数——C-的编程模块" class="headerlink" title="第7章 函数——C++的编程模块"></a>第7章 函数——C++的编程模块</h1><h2 id="7-1-复习函数的基本知识"><a href="#7-1-复习函数的基本知识" class="headerlink" title="7.1 复习函数的基本知识"></a>7.1 复习函数的基本知识</h2><h3 id="7-1-1-定义函数"><a href="#7-1-1-定义函数" class="headerlink" title="7.1.1 定义函数"></a>7.1.1 定义函数</h3><p>C++对于返回值的类型有一定的限制：不能是数组，但可以是其他任何类型——整数、浮点数、指针，甚至可以是结构和对象。（虽然C++函数不能直接返回数组，但可以将数组作为结构或对象组成部分来返回）</p>
-<h3 id="7-1-2-函数原型和函数调用"><a href="#7-1-2-函数原型和函数调用" class="headerlink" title="7.1.2 函数原型和函数调用"></a>7.1.2 函数原型和函数调用</h3><p>避免使用函数原型的唯一方法时，在首次使用函数之前定义它。</p>
-<p>原型定义中的变量名可以省略</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104103508777.png"  ><span class="image-caption">image-20220104103508777</span></p>
-<h2 id="7-2-函数参数和按值传递"><a href="#7-2-函数参数和按值传递" class="headerlink" title="7.2 函数参数和按值传递"></a>7.2 函数参数和按值传递</h2><h3 id="7-2-1-多个参数"><a href="#7-2-1-多个参数" class="headerlink" title="7.2.1 多个参数"></a>7.2.1 多个参数</h3><h3 id="7-2-2-另外一个接受两个参数的函数"><a href="#7-2-2-另外一个接受两个参数的函数" class="headerlink" title="7.2.2 另外一个接受两个参数的函数"></a>7.2.2 另外一个接受两个参数的函数</h3><h2 id="7-3-函数和数组"><a href="#7-3-函数和数组" class="headerlink" title="7.3 函数和数组"></a>7.3 函数和数组</h2><h3 id="7-3-1-函数如何使用指针来处理数组"><a href="#7-3-1-函数如何使用指针来处理数组" class="headerlink" title="7.3.1 函数如何使用指针来处理数组"></a>7.3.1 函数如何使用指针来处理数组</h3><h3 id="7-3-2-将数组作为参数意味着什么"><a href="#7-3-2-将数组作为参数意味着什么" class="headerlink" title="7.3.2 将数组作为参数意味着什么"></a>7.3.2 将数组作为参数意味着什么</h3><p>当用数组作为参数时，实际上时数组对应类型的指针作为参数，当对这个参数使用sizeof时，返回的时指针的大小，而不是数组的大小</p>
-<h3 id="7-3-3-更多数组函数示例"><a href="#7-3-3-更多数组函数示例" class="headerlink" title="7.3.3 更多数组函数示例"></a>7.3.3 更多数组函数示例</h3><p>使用const关键字可以防止函数对指针参数的值修改如</p>
-<p>const double *ar可以防止函数使用ar对内容进行修改</p>
-<h3 id="7-3-4-使用数组区间的函数"><a href="#7-3-4-使用数组区间的函数" class="headerlink" title="7.3.4 使用数组区间的函数"></a>7.3.4 使用数组区间的函数</h3><h3 id="7-3-5-指针和constant"><a href="#7-3-5-指针和constant" class="headerlink" title="7.3.5 指针和constant"></a>7.3.5 指针和constant</h3><p>可以用两种不同的方式将const关键字用于指针。第一种方法是让指针指向一个常量对象，这样可以防止使用该指针来修改所指向的值，第二种方法是将指针本身声明为常量，这样可以防止改变指针指向的位置。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104125242754.png"  ><span class="image-caption">image-20220104125242754</span></p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104125455394.png"  ><span class="image-caption">image-20220104125455394</span></p>
-<p>仅当只有一层间接关系（如指针指向基本数据类型）时，才可以将非const地址或指针赋给constant指针。</p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104130939017.png"  ><span class="image-caption">image-20220104130939017</span></p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104131519386.png"  ><span class="image-caption">image-20220104131519386</span></p>
-<p>int * const finger可以防止修改指针finger，但finger指向的内容可以被修改。</p>
-<h2 id="7-4-函数和二维数组"><a href="#7-4-函数和二维数组" class="headerlink" title="7.4 函数和二维数组"></a>7.4 函数和二维数组</h2><h2 id="7-5-函数和C-风格字符串"><a href="#7-5-函数和C-风格字符串" class="headerlink" title="7.5 函数和C-风格字符串"></a>7.5 函数和C-风格字符串</h2><h3 id="7-5-1-将C-风格字符串作为参数的函数"><a href="#7-5-1-将C-风格字符串作为参数的函数" class="headerlink" title="7.5.1 将C-风格字符串作为参数的函数"></a>7.5.1 将C-风格字符串作为参数的函数</h3><h2 id="7-6-函数和结构"><a href="#7-6-函数和结构" class="headerlink" title="7.6 函数和结构"></a>7.6 函数和结构</h2><h3 id="7-6-1-传递和返回结构"><a href="#7-6-1-传递和返回结构" class="headerlink" title="7.6.1 传递和返回结构"></a>7.6.1 传递和返回结构</h3><h3 id="7-6-2-另一个处理结构的函数示例"><a href="#7-6-2-另一个处理结构的函数示例" class="headerlink" title="7.6.2 另一个处理结构的函数示例"></a>7.6.2 另一个处理结构的函数示例</h3><h3 id="7-6-3-传递结构的地址"><a href="#7-6-3-传递结构的地址" class="headerlink" title="7.6.3 传递结构的地址"></a>7.6.3 传递结构的地址</h3><h2 id="7-7-函数和string对象"><a href="#7-7-函数和string对象" class="headerlink" title="7.7 函数和string对象"></a>7.7 函数和string对象</h2><h2 id="7-8-函数与array对象"><a href="#7-8-函数与array对象" class="headerlink" title="7.8 函数与array对象"></a>7.8 函数与array对象</h2><h2 id="7-9-递归"><a href="#7-9-递归" class="headerlink" title="7.9 递归"></a>7.9 递归</h2><h3 id="7-9-1-包含一个递归调用的递归"><a href="#7-9-1-包含一个递归调用的递归" class="headerlink" title="7.9.1 包含一个递归调用的递归"></a>7.9.1 包含一个递归调用的递归</h3><h3 id="7-9-2-包含多个递归调用的递归"><a href="#7-9-2-包含多个递归调用的递归" class="headerlink" title="7.9.2 包含多个递归调用的递归"></a>7.9.2 包含多个递归调用的递归</h3><h2 id="7-10-函数指针"><a href="#7-10-函数指针" class="headerlink" title="7.10 函数指针"></a>7.10 函数指针</h2><h3 id="7-10-1-函数指针的基础知识"><a href="#7-10-1-函数指针的基础知识" class="headerlink" title="7.10.1 函数指针的基础知识"></a>7.10.1 函数指针的基础知识</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152427893.png"  ><span class="image-caption">image-20220104152427893</span></p>
-<p>如何使用函数指针调用被指向的函数？</p>
-<p>两种方式：</p>
-<p>①<img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152715529.png"  ><span class="image-caption">image-20220104152715529</span></p>
-<p>②<img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152731003.png"  ><span class="image-caption">image-20220104152731003</span></p>
-<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152903380.png"  ><span class="image-caption">image-20220104152903380</span></p>
-<h3 id="7-10-2-函数指针示例"><a href="#7-10-2-函数指针示例" class="headerlink" title="7.10.2 函数指针示例"></a>7.10.2 函数指针示例</h3><h3 id="7-10-3-深入探讨函数指针"><a href="#7-10-3-深入探讨函数指针" class="headerlink" title="7.10.3 深入探讨函数指针"></a>7.10.3 深入探讨函数指针</h3><p>这里深入讨论了指向函数指针数组的指针，多以例子形式给出，不再一一列举。</p>
-<h3 id="7-10-4-使用typedef进行简化"><a href="#7-10-4-使用typedef进行简化" class="headerlink" title="7.10.4 使用typedef进行简化"></a>7.10.4 使用typedef进行简化</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104162541697.png"  ><span class="image-caption">image-20220104162541697</span></p>
-<p>这里可将p_fun声明为函数指针类型的别名，可以明显的简化代码，很好的一个工具。</p>
-<h2 id="7-11-总结"><a href="#7-11-总结" class="headerlink" title="7.11 总结"></a>7.11 总结</h2>]]></content>
       <categories>
         <category>C++学习笔记</category>
       </categories>
@@ -364,6 +303,67 @@
 <p>如果无法预知模板函数的返回类型，可以使用后置返回类型</p>
 <p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220107144143903.png"  ><span class="image-caption">image-20220107144143903</span></p>
 ]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Primer Plus Ch7</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch7/</url>
+    <content><![CDATA[<h1 id="第7章-函数——C-的编程模块"><a href="#第7章-函数——C-的编程模块" class="headerlink" title="第7章 函数——C++的编程模块"></a>第7章 函数——C++的编程模块</h1><h2 id="7-1-复习函数的基本知识"><a href="#7-1-复习函数的基本知识" class="headerlink" title="7.1 复习函数的基本知识"></a>7.1 复习函数的基本知识</h2><h3 id="7-1-1-定义函数"><a href="#7-1-1-定义函数" class="headerlink" title="7.1.1 定义函数"></a>7.1.1 定义函数</h3><p>C++对于返回值的类型有一定的限制：不能是数组，但可以是其他任何类型——整数、浮点数、指针，甚至可以是结构和对象。（虽然C++函数不能直接返回数组，但可以将数组作为结构或对象组成部分来返回）</p>
+<h3 id="7-1-2-函数原型和函数调用"><a href="#7-1-2-函数原型和函数调用" class="headerlink" title="7.1.2 函数原型和函数调用"></a>7.1.2 函数原型和函数调用</h3><p>避免使用函数原型的唯一方法时，在首次使用函数之前定义它。</p>
+<p>原型定义中的变量名可以省略</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104103508777.png"  ><span class="image-caption">image-20220104103508777</span></p>
+<h2 id="7-2-函数参数和按值传递"><a href="#7-2-函数参数和按值传递" class="headerlink" title="7.2 函数参数和按值传递"></a>7.2 函数参数和按值传递</h2><h3 id="7-2-1-多个参数"><a href="#7-2-1-多个参数" class="headerlink" title="7.2.1 多个参数"></a>7.2.1 多个参数</h3><h3 id="7-2-2-另外一个接受两个参数的函数"><a href="#7-2-2-另外一个接受两个参数的函数" class="headerlink" title="7.2.2 另外一个接受两个参数的函数"></a>7.2.2 另外一个接受两个参数的函数</h3><h2 id="7-3-函数和数组"><a href="#7-3-函数和数组" class="headerlink" title="7.3 函数和数组"></a>7.3 函数和数组</h2><h3 id="7-3-1-函数如何使用指针来处理数组"><a href="#7-3-1-函数如何使用指针来处理数组" class="headerlink" title="7.3.1 函数如何使用指针来处理数组"></a>7.3.1 函数如何使用指针来处理数组</h3><h3 id="7-3-2-将数组作为参数意味着什么"><a href="#7-3-2-将数组作为参数意味着什么" class="headerlink" title="7.3.2 将数组作为参数意味着什么"></a>7.3.2 将数组作为参数意味着什么</h3><p>当用数组作为参数时，实际上时数组对应类型的指针作为参数，当对这个参数使用sizeof时，返回的时指针的大小，而不是数组的大小</p>
+<h3 id="7-3-3-更多数组函数示例"><a href="#7-3-3-更多数组函数示例" class="headerlink" title="7.3.3 更多数组函数示例"></a>7.3.3 更多数组函数示例</h3><p>使用const关键字可以防止函数对指针参数的值修改如</p>
+<p>const double *ar可以防止函数使用ar对内容进行修改</p>
+<h3 id="7-3-4-使用数组区间的函数"><a href="#7-3-4-使用数组区间的函数" class="headerlink" title="7.3.4 使用数组区间的函数"></a>7.3.4 使用数组区间的函数</h3><h3 id="7-3-5-指针和constant"><a href="#7-3-5-指针和constant" class="headerlink" title="7.3.5 指针和constant"></a>7.3.5 指针和constant</h3><p>可以用两种不同的方式将const关键字用于指针。第一种方法是让指针指向一个常量对象，这样可以防止使用该指针来修改所指向的值，第二种方法是将指针本身声明为常量，这样可以防止改变指针指向的位置。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104125242754.png"  ><span class="image-caption">image-20220104125242754</span></p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104125455394.png"  ><span class="image-caption">image-20220104125455394</span></p>
+<p>仅当只有一层间接关系（如指针指向基本数据类型）时，才可以将非const地址或指针赋给constant指针。</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104130939017.png"  ><span class="image-caption">image-20220104130939017</span></p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104131519386.png"  ><span class="image-caption">image-20220104131519386</span></p>
+<p>int * const finger可以防止修改指针finger，但finger指向的内容可以被修改。</p>
+<h2 id="7-4-函数和二维数组"><a href="#7-4-函数和二维数组" class="headerlink" title="7.4 函数和二维数组"></a>7.4 函数和二维数组</h2><h2 id="7-5-函数和C-风格字符串"><a href="#7-5-函数和C-风格字符串" class="headerlink" title="7.5 函数和C-风格字符串"></a>7.5 函数和C-风格字符串</h2><h3 id="7-5-1-将C-风格字符串作为参数的函数"><a href="#7-5-1-将C-风格字符串作为参数的函数" class="headerlink" title="7.5.1 将C-风格字符串作为参数的函数"></a>7.5.1 将C-风格字符串作为参数的函数</h3><h2 id="7-6-函数和结构"><a href="#7-6-函数和结构" class="headerlink" title="7.6 函数和结构"></a>7.6 函数和结构</h2><h3 id="7-6-1-传递和返回结构"><a href="#7-6-1-传递和返回结构" class="headerlink" title="7.6.1 传递和返回结构"></a>7.6.1 传递和返回结构</h3><h3 id="7-6-2-另一个处理结构的函数示例"><a href="#7-6-2-另一个处理结构的函数示例" class="headerlink" title="7.6.2 另一个处理结构的函数示例"></a>7.6.2 另一个处理结构的函数示例</h3><h3 id="7-6-3-传递结构的地址"><a href="#7-6-3-传递结构的地址" class="headerlink" title="7.6.3 传递结构的地址"></a>7.6.3 传递结构的地址</h3><h2 id="7-7-函数和string对象"><a href="#7-7-函数和string对象" class="headerlink" title="7.7 函数和string对象"></a>7.7 函数和string对象</h2><h2 id="7-8-函数与array对象"><a href="#7-8-函数与array对象" class="headerlink" title="7.8 函数与array对象"></a>7.8 函数与array对象</h2><h2 id="7-9-递归"><a href="#7-9-递归" class="headerlink" title="7.9 递归"></a>7.9 递归</h2><h3 id="7-9-1-包含一个递归调用的递归"><a href="#7-9-1-包含一个递归调用的递归" class="headerlink" title="7.9.1 包含一个递归调用的递归"></a>7.9.1 包含一个递归调用的递归</h3><h3 id="7-9-2-包含多个递归调用的递归"><a href="#7-9-2-包含多个递归调用的递归" class="headerlink" title="7.9.2 包含多个递归调用的递归"></a>7.9.2 包含多个递归调用的递归</h3><h2 id="7-10-函数指针"><a href="#7-10-函数指针" class="headerlink" title="7.10 函数指针"></a>7.10 函数指针</h2><h3 id="7-10-1-函数指针的基础知识"><a href="#7-10-1-函数指针的基础知识" class="headerlink" title="7.10.1 函数指针的基础知识"></a>7.10.1 函数指针的基础知识</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152427893.png"  ><span class="image-caption">image-20220104152427893</span></p>
+<p>如何使用函数指针调用被指向的函数？</p>
+<p>两种方式：</p>
+<p>①<img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152715529.png"  ><span class="image-caption">image-20220104152715529</span></p>
+<p>②<img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152731003.png"  ><span class="image-caption">image-20220104152731003</span></p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104152903380.png"  ><span class="image-caption">image-20220104152903380</span></p>
+<h3 id="7-10-2-函数指针示例"><a href="#7-10-2-函数指针示例" class="headerlink" title="7.10.2 函数指针示例"></a>7.10.2 函数指针示例</h3><h3 id="7-10-3-深入探讨函数指针"><a href="#7-10-3-深入探讨函数指针" class="headerlink" title="7.10.3 深入探讨函数指针"></a>7.10.3 深入探讨函数指针</h3><p>这里深入讨论了指向函数指针数组的指针，多以例子形式给出，不再一一列举。</p>
+<h3 id="7-10-4-使用typedef进行简化"><a href="#7-10-4-使用typedef进行简化" class="headerlink" title="7.10.4 使用typedef进行简化"></a>7.10.4 使用typedef进行简化</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220104162541697.png"  ><span class="image-caption">image-20220104162541697</span></p>
+<p>这里可将p_fun声明为函数指针类型的别名，可以明显的简化代码，很好的一个工具。</p>
+<h2 id="7-11-总结"><a href="#7-11-总结" class="headerlink" title="7.11 总结"></a>7.11 总结</h2>]]></content>
+      <categories>
+        <category>C++学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Primer Plus Ch6</title>
+    <url>/2021/12/25/C++%20Primer%20Plus%20Ch6/</url>
+    <content><![CDATA[<h1 id="第6章-分支语句和逻辑运算符"><a href="#第6章-分支语句和逻辑运算符" class="headerlink" title="第6章 分支语句和逻辑运算符"></a>第6章 分支语句和逻辑运算符</h1><h2 id="6-1-if语句"><a href="#6-1-if语句" class="headerlink" title="6.1 if语句"></a>6.1 if语句</h2><h3 id="6-1-1-if-else语句"><a href="#6-1-1-if-else语句" class="headerlink" title="6.1.1 if else语句"></a>6.1.1 if else语句</h3><h3 id="6-1-2-格式化if-else语句"><a href="#6-1-2-格式化if-else语句" class="headerlink" title="6.1.2 格式化if else语句"></a>6.1.2 格式化if else语句</h3><h3 id="6-1-3-if-else-if-else结构"><a href="#6-1-3-if-else-if-else结构" class="headerlink" title="6.1.3 if else if else结构"></a>6.1.3 if else if else结构</h3><p>条件运算符防止将==写成=的小技巧：</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102203428227.png"  ><span class="image-caption">image-20220102203428227</span></p>
+<h2 id="6-2-逻辑表达式"><a href="#6-2-逻辑表达式" class="headerlink" title="6.2 逻辑表达式"></a>6.2 逻辑表达式</h2><h3 id="6-2-1-逻辑OR运算符："><a href="#6-2-1-逻辑OR运算符：" class="headerlink" title="6.2.1 逻辑OR运算符：||"></a>6.2.1 逻辑OR运算符：||</h3><p>||是顺序运算符，从左到右的顺序计算表达式</p>
+<h3 id="6-2-2-逻辑AND运算符：-amp-amp"><a href="#6-2-2-逻辑AND运算符：-amp-amp" class="headerlink" title="6.2.2 逻辑AND运算符：&amp;&amp;"></a>6.2.2 逻辑AND运算符：&amp;&amp;</h3><h3 id="6-2-3-用-amp-amp-来设置取值范围"><a href="#6-2-3-用-amp-amp-来设置取值范围" class="headerlink" title="6.2.3 用&amp;&amp;来设置取值范围"></a>6.2.3 用&amp;&amp;来设置取值范围</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102205542844.png"  ><span class="image-caption">image-20220102205542844</span></p>
+<p>可以通过这个例子来进一步理解C++中的运算符结合律</p>
+<h3 id="6-2-4-逻辑NOT运算符：！"><a href="#6-2-4-逻辑NOT运算符：！" class="headerlink" title="6.2.4 逻辑NOT运算符：！"></a>6.2.4 逻辑NOT运算符：！</h3><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220102205824175.png"  ><span class="image-caption">image-20220102205824175</span></p>
+<h3 id="6-2-5-逻辑运算符细节"><a href="#6-2-5-逻辑运算符细节" class="headerlink" title="6.2.5 逻辑运算符细节"></a>6.2.5 逻辑运算符细节</h3><p>！运算符的优先级高于所有关系运算符和算术运算符。</p>
+<p>&amp;&amp;优先级高于||</p>
+<h3 id="6-2-6-其他表示方式"><a href="#6-2-6-其他表示方式" class="headerlink" title="6.2.6 其他表示方式"></a>6.2.6 其他表示方式</h3><p>可以用and, or ,not来替代&amp;&amp;,||和!。如果是C语言，还需要包含头文件iso646.h。</p>
+<h2 id="6-3-字符函数库cctype"><a href="#6-3-字符函数库cctype" class="headerlink" title="6.3 字符函数库cctype"></a>6.3 字符函数库cctype</h2><p>一个从C语言继承的与字符相关的函数软件包，用来简化确定字符是否是大写字母、数字、标点符号等工作，这些函数的原型在头文件cctype中</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// cctypes.cpp -- using the ctype.h library</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cctype&gt;</span>              <span class="comment">// prototypes for character functions</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter text for analysis, and type @&quot;</span></span><br><span class="line">            <span class="string">&quot; to terminate input.\n&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> ch;  </span><br><span class="line">    <span class="keyword">int</span> whitespace = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> digits = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> chars = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> punct = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> others = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    cin.<span class="built_in">get</span>(ch);                <span class="comment">// get first character</span></span><br><span class="line">    <span class="keyword">while</span> (ch != <span class="string">&#x27;@&#x27;</span>)            <span class="comment">// test for sentinel</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">isalpha</span>(ch))         <span class="comment">// is it an alphabetic character?</span></span><br><span class="line">            chars++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isspace</span>(ch))    <span class="comment">// is it a whitespace character?</span></span><br><span class="line">            whitespace++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">isdigit</span>(ch))    <span class="comment">// is it a digit?</span></span><br><span class="line">            digits++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">ispunct</span>(ch))    <span class="comment">// is it punctuation?</span></span><br><span class="line">            punct++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            others++;</span><br><span class="line">        cin.<span class="built_in">get</span>(ch);            <span class="comment">// get next character</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; chars &lt;&lt; <span class="string">&quot; letters, &quot;</span></span><br><span class="line">         &lt;&lt; whitespace &lt;&lt; <span class="string">&quot; whitespace, &quot;</span></span><br><span class="line">         &lt;&lt; digits &lt;&lt; <span class="string">&quot; digits, &quot;</span></span><br><span class="line">         &lt;&lt; punct &lt;&lt; <span class="string">&quot; punctuations, &quot;</span></span><br><span class="line">         &lt;&lt; others &lt;&lt; <span class="string">&quot; others.\n&quot;</span>;</span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-4-运算符"><a href="#6-4-运算符" class="headerlink" title="6.4 ?: 运算符"></a>6.4 ?: 运算符</h2><h2 id="6-5-switch语句"><a href="#6-5-switch语句" class="headerlink" title="6.5 switch语句"></a>6.5 switch语句</h2><p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220103201501186.png"  ><span class="image-caption">image-20220103201501186</span></p>
+<h3 id="6-5-1-将枚举量用作标签"><a href="#6-5-1-将枚举量用作标签" class="headerlink" title="6.5.1 将枚举量用作标签"></a>6.5.1 将枚举量用作标签</h3><h3 id="6-5-2-switch和if-else"><a href="#6-5-2-switch和if-else" class="headerlink" title="6.5.2 switch和if else"></a>6.5.2 switch和if else</h3><p>switch标签必须是整数或者枚举量</p>
+<p><img  src="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220103203444888.png"  ><span class="image-caption">image-20220103203444888</span></p>
+<h2 id="6-6-break和continue语句"><a href="#6-6-break和continue语句" class="headerlink" title="6.6 break和continue语句"></a>6.6 break和continue语句</h2><h2 id="6-7-读取数字的循环"><a href="#6-7-读取数字的循环" class="headerlink" title="6.7 读取数字的循环"></a>6.7 读取数字的循环</h2><h2 id="6-8-简单文件输入-输出"><a href="#6-8-简单文件输入-输出" class="headerlink" title="6.8 简单文件输入/输出"></a>6.8 简单文件输入/输出</h2><h3 id="6-8-1-文件I-O和文本文件"><a href="#6-8-1-文件I-O和文本文件" class="headerlink" title="6.8.1 文件I/O和文本文件"></a>6.8.1 文件I/O和文本文件</h3><p>使用cin进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。这里很重要，不管目标数据类型是什么，输入一开始都是字符数据——文本数据。</p>
+<h3 id="6-8-2-写入到文本文件中"><a href="#6-8-2-写入到文本文件中" class="headerlink" title="6.8.2 写入到文本文件中"></a>6.8.2 写入到文本文件中</h3><h3 id="6-8-3-读取文件文本"><a href="#6-8-3-读取文件文本" class="headerlink" title="6.8.3 读取文件文本"></a>6.8.3 读取文件文本</h3><h2 id="6-9-总结"><a href="#6-9-总结" class="headerlink" title="6.9 总结"></a>6.9 总结</h2>]]></content>
       <categories>
         <category>C++学习笔记</category>
       </categories>
