@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ Primer Plus Ch11 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第11章 使用类11.1 运算符重载运算符重载将重载的...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: false
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">C++ Primer Plus Ch11</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++ Primer Plus Ch11</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1118</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="第11章-使用类"><a href="#第11章-使用类" class="headerlink" title="第11章 使用类"></a>第11章 使用类</h1><h2 id="11-1-运算符重载"><a href="#11-1-运算符重载" class="headerlink" title="11.1 运算符重载"></a>11.1 运算符重载</h2><p>运算符重载将重载的概念扩展到运算符上，允许赋予C++运算符多种含义。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118093835632.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118093835632</span></p>
+<h2 id="11-2-计算时间：一个运算符重载示例"><a href="#11-2-计算时间：一个运算符重载示例" class="headerlink" title="11.2 计算时间：一个运算符重载示例"></a>11.2 计算时间：一个运算符重载示例</h2><h3 id="11-2-1-添加加法运算符"><a href="#11-2-1-添加加法运算符" class="headerlink" title="11.2.1 添加加法运算符"></a>11.2.1 添加加法运算符</h3><h3 id="11-2-2-重载限制"><a href="#11-2-2-重载限制" class="headerlink" title="11.2.2 重载限制"></a>11.2.2 重载限制</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118102858119.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118102858119</span></p>
+<h3 id="11-2-3-其他重载运算符"><a href="#11-2-3-其他重载运算符" class="headerlink" title="11.2.3 其他重载运算符"></a>11.2.3 其他重载运算符</h3><p>非成员重载运算符需要把所有运算对象都写在参数里面。</p>
+<h2 id="11-3-友元"><a href="#11-3-友元" class="headerlink" title="11.3 友元"></a>11.3 友元</h2><p>友元有三种：</p>
+<ul>
+<li><p>友元函数；</p>
+</li>
+<li><p>友元类；</p>
+</li>
+<li><p>友元成员函数</p>
+</li>
+</ul>
+<p>通过让函数成为类的友元，可以赋予该函数与类的成员函数相同的访问权限。</p>
+<p>使用友元函数可以重载非成员运算符函数。</p>
+<h3 id="11-3-1-创建友元"><a href="#11-3-1-创建友元" class="headerlink" title="11.3.1 创建友元"></a>11.3.1 创建友元</h3><p>友元函数的原型放在类声明中，并在原型声明前加上关键字friend：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118110047453.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118110047453</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118110137458.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118110137458</span></p>
+<p>不要在定义中使用关键字friend。</p>
+<p>如果要为类重载运算符，并将非类的项作为其第一个操作数，则可以用友元函数来反转操作数的顺序。</p>
+<h3 id="11-3-2-常用的友元：重载-lt-lt-运算符"><a href="#11-3-2-常用的友元：重载-lt-lt-运算符" class="headerlink" title="11.3.2 常用的友元：重载&lt;&lt;运算符"></a>11.3.2 常用的友元：重载&lt;&lt;运算符</h3><h4 id="1-lt-lt-的一种重载版本"><a href="#1-lt-lt-的一种重载版本" class="headerlink" title="1. &lt;&lt;的一种重载版本"></a>1. &lt;&lt;的一种重载版本</h4><p>非成员函数重载运算符（友元函数）</p>
+<h4 id="2-lt-lt-的第二种重载版本"><a href="#2-lt-lt-的第二种重载版本" class="headerlink" title="2. &lt;&lt;的第二种重载版本"></a>2. &lt;&lt;的第二种重载版本</h4><h2 id="11-4-重载运算符：作为成员函数还是非成员函数"><a href="#11-4-重载运算符：作为成员函数还是非成员函数" class="headerlink" title="11.4 重载运算符：作为成员函数还是非成员函数"></a>11.4 重载运算符：作为成员函数还是非成员函数</h2><p>有时，成员函数是唯一合法的选择；有时，根据类设计，使用非成员函数版本可能更好（尤其是为类定义类型转换时）。</p>
+<h2 id="11-5-再谈重载：一个矢量类"><a href="#11-5-再谈重载：一个矢量类" class="headerlink" title="11.5 再谈重载：一个矢量类"></a>11.5 再谈重载：一个矢量类</h2><h3 id="11-5-1-使用状态成员"><a href="#11-5-1-使用状态成员" class="headerlink" title="11.5.1 使用状态成员"></a>11.5.1 使用状态成员</h3><h3 id="11-5-2-为Vector类重载算术运算符"><a href="#11-5-2-为Vector类重载算术运算符" class="headerlink" title="11.5.2 为Vector类重载算术运算符"></a>11.5.2 为Vector类重载算术运算符</h3><p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118150936989.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118150936989</span></p>
+<p>一个好的编程习惯。</p>
+<h4 id="1-乘法"><a href="#1-乘法" class="headerlink" title="1. 乘法"></a>1. 乘法</h4><h4 id="2-对已重载的运算符进行重载"><a href="#2-对已重载的运算符进行重载" class="headerlink" title="2. 对已重载的运算符进行重载"></a>2. 对已重载的运算符进行重载</h4><p>对于一元运算符可以使用如下声明和定义方式</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118151503203.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118151503203</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118151629290.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118151629290</span></p>
+<h3 id="11-5-3-对实现的说明"><a href="#11-5-3-对实现的说明" class="headerlink" title="11.5.3 对实现的说明"></a>11.5.3 对实现的说明</h3><h3 id="11-5-4-使用Vector类来模拟随机漫步"><a href="#11-5-4-使用Vector类来模拟随机漫步" class="headerlink" title="11.5.4 使用Vector类来模拟随机漫步"></a>11.5.4 使用Vector类来模拟随机漫步</h3><h2 id="11-6-类的自动转换和强制类型转换"><a href="#11-6-类的自动转换和强制类型转换" class="headerlink" title="11.6 类的自动转换和强制类型转换"></a>11.6 类的自动转换和强制类型转换</h2><p>只接受一个参数的构造函数可以实现类型自动转换，可以使用关键字explicit来关闭这个特性。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118154649645.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118154649645</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118154827449.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118154827449</span></p>
+<h3 id="11-6-1-转换函数"><a href="#11-6-1-转换函数" class="headerlink" title="11.6.1 转换函数"></a>11.6.1 转换函数</h3><p>转换函数是用户定义的强制类型转换，可以像使用强制类型转换那样使用它们。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118155651538.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118155651538</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118155723158.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118155723158</span></p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118155734622.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118155734622</span></p>
+<p>同样可以使用explicit来限制转换函数只能使用显式转换（强制转换）。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220118160225095.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220118160225095</span></p>
+<h3 id="11-6-2-转换函数和友元函数"><a href="#11-6-2-转换函数和友元函数" class="headerlink" title="11.6.2 转换函数和友元函数"></a>11.6.2 转换函数和友元函数</h3><h2 id="11-7-总结"><a href="#11-7-总结" class="headerlink" title="11.7 总结"></a>11.7 总结</h2>
+      </section>
+      <section class="extra">
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch1/"><i class="iconfont iconleft"></i>C++ Primer Plus Ch1</a>
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch10/">C++ Primer Plus Ch10<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC11%E7%AB%A0-%E4%BD%BF%E7%94%A8%E7%B1%BB"><span class="toc-text">第11章 使用类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-text">11.1 运算符重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2-%E8%AE%A1%E7%AE%97%E6%97%B6%E9%97%B4%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E7%A4%BA%E4%BE%8B"><span class="toc-text">11.2 计算时间：一个运算符重载示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-1-%E6%B7%BB%E5%8A%A0%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">11.2.1 添加加法运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-2-%E9%87%8D%E8%BD%BD%E9%99%90%E5%88%B6"><span class="toc-text">11.2.2 重载限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-3-%E5%85%B6%E4%BB%96%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">11.2.3 其他重载运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-3-%E5%8F%8B%E5%85%83"><span class="toc-text">11.3 友元</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-3-1-%E5%88%9B%E5%BB%BA%E5%8F%8B%E5%85%83"><span class="toc-text">11.3.1 创建友元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-3-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8F%8B%E5%85%83%EF%BC%9A%E9%87%8D%E8%BD%BD-lt-lt-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">11.3.2 常用的友元：重载&lt;&lt;运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-4-%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%E4%BD%9C%E4%B8%BA%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E8%BF%98%E6%98%AF%E9%9D%9E%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-text">11.4 重载运算符：作为成员函数还是非成员函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-5-%E5%86%8D%E8%B0%88%E9%87%8D%E8%BD%BD%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%9F%A2%E9%87%8F%E7%B1%BB"><span class="toc-text">11.5 再谈重载：一个矢量类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-5-1-%E4%BD%BF%E7%94%A8%E7%8A%B6%E6%80%81%E6%88%90%E5%91%98"><span class="toc-text">11.5.1 使用状态成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-5-2-%E4%B8%BAVector%E7%B1%BB%E9%87%8D%E8%BD%BD%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">11.5.2 为Vector类重载算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-5-3-%E5%AF%B9%E5%AE%9E%E7%8E%B0%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="toc-text">11.5.3 对实现的说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-5-4-%E4%BD%BF%E7%94%A8Vector%E7%B1%BB%E6%9D%A5%E6%A8%A1%E6%8B%9F%E9%9A%8F%E6%9C%BA%E6%BC%AB%E6%AD%A5"><span class="toc-text">11.5.4 使用Vector类来模拟随机漫步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-6-%E7%B1%BB%E7%9A%84%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">11.6 类的自动转换和强制类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-6-1-%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-text">11.6.1 转换函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-6-2-%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0"><span class="toc-text">11.6.2 转换函数和友元函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-7-%E6%80%BB%E7%BB%93"><span class="toc-text">11.7 总结</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/franklin1226 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1979933731@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

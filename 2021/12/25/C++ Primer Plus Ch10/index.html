@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ Primer Plus Ch10 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="第10章 对象和类10.1 过程性编程和面向对象编程1...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: false
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">C++ Primer Plus Ch10</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">C++ Primer Plus Ch10</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 25, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2250</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="第10章-对象和类"><a href="#第10章-对象和类" class="headerlink" title="第10章 对象和类"></a>第10章 对象和类</h1><h2 id="10-1-过程性编程和面向对象编程"><a href="#10-1-过程性编程和面向对象编程" class="headerlink" title="10.1 过程性编程和面向对象编程"></a>10.1 过程性编程和面向对象编程</h2><h2 id="10-2-抽象和类"><a href="#10-2-抽象和类" class="headerlink" title="10.2 抽象和类"></a>10.2 抽象和类</h2><h3 id="10-2-1-类型是什么"><a href="#10-2-1-类型是什么" class="headerlink" title="10.2.1 类型是什么"></a>10.2.1 类型是什么</h3><h3 id="10-2-2-C-中的类"><a href="#10-2-2-C-中的类" class="headerlink" title="10.2.2 C++中的类"></a>10.2.2 C++中的类</h3><p>一般来说，类规范由两个部分组成。</p>
+<ul>
+<li>类声明：以数据成员的方式描述数据部分，以成员函数（被称为方法）的方式描述公有接口。</li>
+<li>类方法定义：描述如何实现类成员函数。</li>
+</ul>
+<p>简单来说，类声明提供了类的蓝图，而方法定义则提供了细节。</p>
+<h4 id="1-访问控制"><a href="#1-访问控制" class="headerlink" title="1. 访问控制"></a>1. 访问控制</h4><h4 id="2-控制对成员的访问"><a href="#2-控制对成员的访问" class="headerlink" title="2. 控制对成员的访问"></a>2. 控制对成员的访问</h4><p>由于隐藏数据是OPP主要的目标之一，因此数据项通常放在私有部分</p>
+<p>不必在类声明中使用关键字private，因为这事类对象的默认访问控制：</p>
+<p>类和结构的唯一区别是，结构的默认访问类型是public，而类为private。C++程序员通常使用类来实现类描述，而把结构限制为只表示纯粹的数据对象（常被称为普通老式数据结构）</p>
+<h3 id="10-2-3-实现类成员函数"><a href="#10-2-3-实现类成员函数" class="headerlink" title="10.2.3 实现类成员函数"></a>10.2.3 实现类成员函数</h3><h4 id="1-成员函数说明"><a href="#1-成员函数说明" class="headerlink" title="1. 成员函数说明"></a>1. 成员函数说明</h4><h4 id="2-内联方法"><a href="#2-内联方法" class="headerlink" title="2. 内联方法"></a>2. 内联方法</h4><p>定义位于类声明中的函数都将自动成为内联函数，但也可以在类声明之外定义成员函数，并将其称为内联函数，只需在类实现部分中定义函数时使用inline限定符即可。</p>
+<h4 id="3-方法使用哪个对象"><a href="#3-方法使用哪个对象" class="headerlink" title="3. 方法使用哪个对象"></a>3. 方法使用哪个对象</h4><p>调用成员函数时，它将使用被用来调用它的对象的数据成员。</p>
+<p>所创建的每个新对象都有自己的存储空间，用于存储其内部变量和类成员；但同一个类的所有对象共享一组类方法，即每种方法只有一个副本。</p>
+<h3 id="10-2-4-使用类"><a href="#10-2-4-使用类" class="headerlink" title="10.2.4 使用类"></a>10.2.4 使用类</h3><h3 id="10-2-5-修改实现"><a href="#10-2-5-修改实现" class="headerlink" title="10.2.5 修改实现"></a>10.2.5 修改实现</h3><h3 id="10-2-6-小结"><a href="#10-2-6-小结" class="headerlink" title="10.2.6 小结"></a>10.2.6 小结</h3><h2 id="10-3-类的构造函数和析构函数"><a href="#10-3-类的构造函数和析构函数" class="headerlink" title="10.3 类的构造函数和析构函数"></a>10.3 类的构造函数和析构函数</h2><p>构造函数没有返回值</p>
+<h3 id="10-3-1-声明和定义构造函数"><a href="#10-3-1-声明和定义构造函数" class="headerlink" title="10.3.1 声明和定义构造函数"></a>10.3.1 声明和定义构造函数</h3><h3 id="10-3-2-使用构造函数"><a href="#10-3-2-使用构造函数" class="headerlink" title="10.3.2 使用构造函数"></a>10.3.2 使用构造函数</h3><p>C++提供了两种使用构造函数 初始化对象的方式。</p>
+<p>①显式调用构造函数：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117094315743.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117094315743</span></p>
+<p>②隐式地调用构造函数</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117094342342.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117094342342</span></p>
+<p>下面这种方式先是构造了一个临时变量，并将临时变量的值赋给garment，然后程序会选择在某个时候调用析构函数销毁这个临时变量。</p>
+<p>③C++11还提供了列表初始化语法，只要提供与某个构造函数的参数列表匹配的内容，并用大括号括起即可。如下所示：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117110553357.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117110553357</span></p>
+<p>另外C++11还提供了名为std::initialize_list的类，用作函数参数或方法参数的类型，这个类可表示任意长度的列表。</p>
+<h3 id="10-3-3-默认构造函数"><a href="#10-3-3-默认构造函数" class="headerlink" title="10.3.3 默认构造函数"></a>10.3.3 默认构造函数</h3><p>默认构造函数是在未提供显式初始值时，用来创建对象的构造函数。如果未提供任何构造函数，则C++将自动提供默认构造函数。它是默认构造函数的隐式版本，不做任何工作。</p>
+<p>记住，只有没提供任何构造函数时，编译器才会提供默认构造函数，否则需要提供自己的构造函数。</p>
+<p>定义默认构造函数的方式有两种</p>
+<p>①给已有的构造函数的所有参数提供默认值</p>
+<p>②通过函数重载定义另一个没有参数的构造函数</p>
+<p>由于只能有一个默认构造函数，因此不能同时采用上述两种方式。</p>
+<h3 id="10-3-4-析构函数"><a href="#10-3-4-析构函数" class="headerlink" title="10.3.4 析构函数"></a>10.3.4 析构函数</h3><p>用构造函数创建对象后，程序负责跟踪该对象直到其过期为止。对象过期时，程序将自动调用一个特殊的成员函数——析构函数来完成清理工作。针对构造函数new出来的内存，需要用析构函数将其delete掉。</p>
+<p>与构造函数不同的是，析构函数没有参数。</p>
+<p>什么时候调用析构函数，是由编译器决定的，通常不应在代码中显式地调用析构函数。</p>
+<p>如果创建的是静态存储类对象，则其析构函数将在程序结束时自动被调用。如果创建的是自动存储类对象，其析构函数将在程序执行完代码块时被自动调用。如果对象是new出来的，使用delete来释放内存时，析构函数将自动被调用。</p>
+<p>如果程序员没有提供析构函数，编译器会先隐式声明一个默认析构函数，在发现有对象被删除之后，再提供具体的析构函数的定义。</p>
+<h3 id="10-3-5-改进Stock类"><a href="#10-3-5-改进Stock类" class="headerlink" title="10.3.5 改进Stock类"></a>10.3.5 改进Stock类</h3><p>在函数的括号后面加上const关键字，可以保证函数不会修改调用的对象</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117111140290.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117111140290</span></p>
+<p>这里需要在声明和定义中都加上const，这种类函数被称为const成员函数，只要类方法不修改调用对象，就应将其声明为const。</p>
+<h3 id="10-3-6-构造函数和析构函数小结"><a href="#10-3-6-构造函数和析构函数小结" class="headerlink" title="10.3.6 构造函数和析构函数小结"></a>10.3.6 构造函数和析构函数小结</h3><p>如果有一个构造函数原型如下</p>
+<p>Bozo(int n)</p>
+<p>那么可以用int型数据去初始化Bozo对象</p>
+<p>Bozo tubby = 32</p>
+<p>接受一个参数的构造函数允许使用赋值语法将对象初始化为一个值。</p>
+<p>Classname object = value;</p>
+<p>后面11章会介绍如何关闭这一特性，因为这种特性可能会带来一些错误。</p>
+<h2 id="10-4-this指针"><a href="#10-4-this指针" class="headerlink" title="10.4 this指针"></a>10.4 this指针</h2><h2 id="10-5-对象数组"><a href="#10-5-对象数组" class="headerlink" title="10.5 对象数组"></a>10.5 对象数组</h2><p>初始化对象数组的方案是，首先使用默认构造函数创建数组元素，然后花括号中的构造函数将创建临时对象，然后将临时对象的内容复制到相应的元素中。因此，要创建类对象数组，则这个类必须有默认构造函数。</p>
+<h2 id="10-6-类作用域"><a href="#10-6-类作用域" class="headerlink" title="10.6 类作用域"></a>10.6 类作用域</h2><h3 id="10-6-1-作用域为类的常量"><a href="#10-6-1-作用域为类的常量" class="headerlink" title="10.6.1 作用域为类的常量"></a>10.6.1 作用域为类的常量</h3><p>有两种方式可以实现创建一个由所有对象共享的常量</p>
+<p>①在类中声明一个枚举。在类中声明的枚举的作用域为整个类，因此可以用枚举为整型常量提供作用域为整个类的符号名称。</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117200659115.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117200659115</span></p>
+<p>②使用关键字static</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117200958140.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117200958140</span></p>
+<h3 id="10-6-2-作用域内枚举（C-11）"><a href="#10-6-2-作用域内枚举（C-11）" class="headerlink" title="10.6.2 作用域内枚举（C++11）"></a>10.6.2 作用域内枚举（C++11）</h3><p>可以使用class/struct来限定枚举量</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117201800546.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117201800546</span></p>
+<p>作用域内枚举不能隐式的转换为整型，但在必要时，可进行显式类型转换：</p>
+<p><img    class="lazyload" data-original="https://gitee.com/yu-zewen1226/upload-image/raw/master/img/image-20220117202938358.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20220117202938358</span></p>
+<p>C++11还可以显式指出底层类型。</p>
+<h2 id="10-7-抽象数据类型"><a href="#10-7-抽象数据类型" class="headerlink" title="10.7 抽象数据类型"></a>10.7 抽象数据类型</h2>
+      </section>
+      <section class="extra">
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch11/"><i class="iconfont iconleft"></i>C++ Primer Plus Ch11</a>
+    <a href="/2021/12/25/C++%20Primer%20Plus%20Ch3/">C++ Primer Plus Ch3<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC10%E7%AB%A0-%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB"><span class="toc-text">第10章 对象和类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-%E8%BF%87%E7%A8%8B%E6%80%A7%E7%BC%96%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">10.1 过程性编程和面向对象编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-%E6%8A%BD%E8%B1%A1%E5%92%8C%E7%B1%BB"><span class="toc-text">10.2 抽象和类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-1-%E7%B1%BB%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">10.2.1 类型是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-2-C-%E4%B8%AD%E7%9A%84%E7%B1%BB"><span class="toc-text">10.2.2 C++中的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-3-%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-text">10.2.3 实现类成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-4-%E4%BD%BF%E7%94%A8%E7%B1%BB"><span class="toc-text">10.2.4 使用类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-5-%E4%BF%AE%E6%94%B9%E5%AE%9E%E7%8E%B0"><span class="toc-text">10.2.5 修改实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-6-%E5%B0%8F%E7%BB%93"><span class="toc-text">10.2.6 小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-text">10.3 类的构造函数和析构函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-1-%E5%A3%B0%E6%98%8E%E5%92%8C%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">10.3.1 声明和定义构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-2-%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">10.3.2 使用构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-3-%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">10.3.3 默认构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-4-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-text">10.3.4 析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-5-%E6%94%B9%E8%BF%9BStock%E7%B1%BB"><span class="toc-text">10.3.5 改进Stock类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-6-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E5%B0%8F%E7%BB%93"><span class="toc-text">10.3.6 构造函数和析构函数小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-this%E6%8C%87%E9%92%88"><span class="toc-text">10.4 this指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-5-%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84"><span class="toc-text">10.5 对象数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-6-%E7%B1%BB%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">10.6 类作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-1-%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%BA%E7%B1%BB%E7%9A%84%E5%B8%B8%E9%87%8F"><span class="toc-text">10.6.1 作用域为类的常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-2-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%85%E6%9E%9A%E4%B8%BE%EF%BC%88C-11%EF%BC%89"><span class="toc-text">10.6.2 作用域内枚举（C++11）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-7-%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">10.7 抽象数据类型</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/franklin1226 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1979933731@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  </p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
